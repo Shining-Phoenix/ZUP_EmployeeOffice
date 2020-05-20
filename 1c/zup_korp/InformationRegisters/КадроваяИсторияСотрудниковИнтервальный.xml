@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.9">
+	<InformationRegister uuid="1ae09134-dc33-4e54-b663-a0722691f0f1">
+		<InternalInfo>
+			<xr:GeneratedType name="InformationRegisterRecord.КадроваяИсторияСотрудниковИнтервальный" category="Record">
+				<xr:TypeId>c9868c63-6249-4624-a4e8-13ab962204cd</xr:TypeId>
+				<xr:ValueId>48eda945-9ce0-4e9a-92ca-281a372162a0</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="InformationRegisterManager.КадроваяИсторияСотрудниковИнтервальный" category="Manager">
+				<xr:TypeId>5df16739-a431-4401-8ae0-efc21077cdd6</xr:TypeId>
+				<xr:ValueId>bee0c491-c199-4e6d-97ea-e56fa546688e</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="InformationRegisterSelection.КадроваяИсторияСотрудниковИнтервальный" category="Selection">
+				<xr:TypeId>0a164684-facb-44a8-a17c-01fe28695110</xr:TypeId>
+				<xr:ValueId>96dda392-5776-48a0-b25d-3040bebc89db</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="InformationRegisterList.КадроваяИсторияСотрудниковИнтервальный" category="List">
+				<xr:TypeId>8dccd732-e2e0-40bc-979c-9d59975c2daf</xr:TypeId>
+				<xr:ValueId>451bb606-2dc3-4b17-b342-7459ff99e5f8</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="InformationRegisterRecordSet.КадроваяИсторияСотрудниковИнтервальный" category="RecordSet">
+				<xr:TypeId>973bdf7b-7204-4708-8da1-0c06a7d6e63e</xr:TypeId>
+				<xr:ValueId>b076e2f6-0dfb-4f54-8bb1-49291b68e864</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="InformationRegisterRecordKey.КадроваяИсторияСотрудниковИнтервальный" category="RecordKey">
+				<xr:TypeId>d0b5d187-6ec0-40c3-a89f-c150692f8484</xr:TypeId>
+				<xr:ValueId>6fb5547f-5f33-4bec-93ae-51ff79f95245</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="InformationRegisterRecordManager.КадроваяИсторияСотрудниковИнтервальный" category="RecordManager">
+				<xr:TypeId>4b18e190-3b51-4b7d-9cbd-07524af04d03</xr:TypeId>
+				<xr:ValueId>4f1fad5a-1309-495d-b8da-ee8b73db42da</xr:ValueId>
+			</xr:GeneratedType>
+		</InternalInfo>
+		<Properties>
+			<Name>КадроваяИсторияСотрудниковИнтервальный</Name>
+			<Comment/>
+			<ObjectBelonging>Adopted</ObjectBelonging>
+			<ExtendedConfigurationObject>fd03b777-1e56-470d-b339-732f6d2320b1</ExtendedConfigurationObject>
+			<InformationRegisterPeriodicity>Nonperiodical</InformationRegisterPeriodicity>
+			<WriteMode>Independent</WriteMode>
+		</Properties>
+		<ChildObjects/>
+	</InformationRegister>
+</MetaDataObject>

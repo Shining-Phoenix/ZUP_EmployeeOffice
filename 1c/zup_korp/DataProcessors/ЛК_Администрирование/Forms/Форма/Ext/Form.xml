@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.9">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Пользователь" id="1">
+			<DataPath>Объект.Пользователь</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ПользовательКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<UsualGroup name="ГруппаОбщая" id="32">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа общая</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа общая</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ThroughAlign>Use</ThroughAlign>
+			<ExtendedTooltip name="ГруппаОбщаяРасширеннаяПодсказка" id="33"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаСозданиеПользователя" id="12">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Создание пользователя</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа создание пользователя</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<ExtendedTooltip name="ГруппаСозданиеПользователяРасширеннаяПодсказка" id="13"/>
+					<ChildItems>
+						<InputField name="Логин" id="4">
+							<DataPath>Объект.Логин</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Email</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЛогинКонтекстноеМеню" id="5"/>
+							<ExtendedTooltip name="ЛогинРасширеннаяПодсказка" id="6"/>
+						</InputField>
+						<InputField name="Пароль" id="7">
+							<DataPath>Объект.Пароль</DataPath>
+							<ContextMenu name="ПарольКонтекстноеМеню" id="8"/>
+							<ExtendedTooltip name="ПарольРасширеннаяПодсказка" id="9"/>
+						</InputField>
+						<Button name="СоздатьПользователя" id="10">
+							<Type>UsualButton</Type>
+							<Width>30</Width>
+							<CommandName>Form.Command.СоздатьПользователя</CommandName>
+							<ExtendedTooltip name="СоздатьПользователяРасширеннаяПодсказка" id="11"/>
+						</Button>
+						<Button name="ОбновитьФото" id="16">
+							<Type>UsualButton</Type>
+							<Width>30</Width>
+							<CommandName>Form.Command.ОбновитьФото</CommandName>
+							<ExtendedTooltip name="ОбновитьФотоРасширеннаяПодсказка" id="17"/>
+						</Button>
+						<Button name="СоздатьСотрудниковПоПользователю" id="14">
+							<Type>UsualButton</Type>
+							<Width>30</Width>
+							<CommandName>Form.Command.СоздатьСотрудниковПоПользователю</CommandName>
+							<ExtendedTooltip name="СоздатьСотрудниковПоПользователюРасширеннаяПодсказка" id="15"/>
+						</Button>
+						<Button name="СоздатьКадровуюИсторию" id="26">
+							<Type>UsualButton</Type>
+							<Width>30</Width>
+							<CommandName>Form.Command.СоздатьКадровуюИсторию</CommandName>
+							<ExtendedTooltip name="СоздатьКадровуюИсториюРасширеннаяПодсказка" id="27"/>
+						</Button>
+						<Button name="СоздатьРасчетныеЛистки" id="34">
+							<Type>UsualButton</Type>
+							<Width>30</Width>
+							<CommandName>Form.Command.СоздатьРасчетныеЛистки</CommandName>
+							<ExtendedTooltip name="СоздатьРасчетныеЛисткиРасширеннаяПодсказка" id="35"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаНСИ" id="24">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>НСИ</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа НСИ</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<ExtendedTooltip name="ГруппаНСИРасширеннаяПодсказка" id="25"/>
+					<ChildItems>
+						<Button name="СоздатьОрганизации" id="18">
+							<Type>UsualButton</Type>
+							<Width>30</Width>
+							<CommandName>Form.Command.СоздатьОрганизации</CommandName>
+							<ExtendedTooltip name="СоздатьОрганизацииРасширеннаяПодсказка" id="19"/>
+						</Button>
+						<Button name="СоздатьПодразделения" id="20">
+							<Type>UsualButton</Type>
+							<Width>30</Width>
+							<CommandName>Form.Command.СоздатьПодразделения</CommandName>
+							<ExtendedTooltip name="СоздатьПодразделенияРасширеннаяПодсказка" id="21"/>
+						</Button>
+						<Button name="СоздатьДолжности" id="22">
+							<Type>UsualButton</Type>
+							<Width>30</Width>
+							<CommandName>Form.Command.СоздатьДолжности</CommandName>
+							<ExtendedTooltip name="СоздатьДолжностиРасширеннаяПодсказка" id="23"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаОбщие" id="28">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Общие</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа общие</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<ExtendedTooltip name="ГруппаОбщиеРасширеннаяПодсказка" id="29"/>
+					<ChildItems>
+						<Button name="ВыполнитьОбмен" id="30">
+							<Type>UsualButton</Type>
+							<Width>30</Width>
+							<CommandName>Form.Command.ВыполнитьОбмен</CommandName>
+							<ExtendedTooltip name="ВыполнитьОбменРасширеннаяПодсказка" id="31"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.ЛК_Администрирование</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="СоздатьПользователя" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать пользователя</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать пользователя</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьПользователя</Action>
+		</Command>
+		<Command name="СоздатьСотрудниковПоПользователю" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать сотрудников по пользователю</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать сотрудников по пользователю</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьСотрудниковПоПользователю</Action>
+		</Command>
+		<Command name="ОбновитьФото" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить фото</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить фото</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОбновитьФото</Action>
+		</Command>
+		<Command name="СоздатьОрганизации" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать организации</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать организации</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьОрганизации</Action>
+		</Command>
+		<Command name="СоздатьПодразделения" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать подразделения</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать подразделения</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьПодразделения</Action>
+		</Command>
+		<Command name="СоздатьДолжности" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать должности</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать должности</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьДолжности</Action>
+		</Command>
+		<Command name="СоздатьКадровуюИсторию" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать кадровую историю</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать кадровую историю</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьКадровуюИсторию</Action>
+		</Command>
+		<Command name="ВыполнитьОбмен" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить обмен</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить обмен</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВыполнитьОбмен</Action>
+		</Command>
+		<Command name="СоздатьРасчетныеЛистки" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать расчетные листки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать расчетные листки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьРасчетныеЛистки</Action>
+		</Command>
+	</Commands>
+</Form>

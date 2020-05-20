@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.9">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<ChildItems>
+		<InputField name="ВидСобытия" id="1">
+			<DataPath>Запись.ВидСобытия</DataPath>
+			<ContextMenu name="ВидСобытияКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="ВидСобытияРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<InputField name="Описание" id="4">
+			<DataPath>Запись.Описание</DataPath>
+			<ContextMenu name="ОписаниеКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="ОписаниеРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<InputField name="ХЭШ" id="7">
+			<DataPath>Запись.ХЭШ</DataPath>
+			<ContextMenu name="ХЭШКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="ХЭШРасширеннаяПодсказка" id="9"/>
+		</InputField>
+		<TextDocumentField name="Данные" id="10">
+			<DataPath>Запись.Данные</DataPath>
+			<ContextMenu name="ДанныеКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="ДанныеРасширеннаяПодсказка" id="12"/>
+		</TextDocumentField>
+		<InputField name="Статус" id="13">
+			<DataPath>Запись.Статус</DataPath>
+			<ContextMenu name="СтатусКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="СтатусРасширеннаяПодсказка" id="15"/>
+		</InputField>
+		<InputField name="ДатаСобытия" id="16">
+			<DataPath>Запись.ДатаСобытия</DataPath>
+			<ContextMenu name="ДатаСобытияКонтекстноеМеню" id="17"/>
+			<ExtendedTooltip name="ДатаСобытияРасширеннаяПодсказка" id="18"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Запись" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.ЛК_ОчередьОбменаСЛКПроизвольнымиДанными</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>

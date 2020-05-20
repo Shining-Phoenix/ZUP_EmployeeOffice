@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.9">
+	<InformationRegister uuid="38be48fe-8399-4f06-80e0-e45380b2e95c">
+		<InternalInfo>
+			<xr:GeneratedType name="InformationRegisterRecord.ФотографииФизическихЛиц" category="Record">
+				<xr:TypeId>5218d0c5-d9ac-4c3d-8cdb-a02a784979bc</xr:TypeId>
+				<xr:ValueId>95799605-2b02-4ae9-93db-d9e6e36d005e</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="InformationRegisterManager.ФотографииФизическихЛиц" category="Manager">
+				<xr:TypeId>19284221-db57-478c-9773-6cc69a23cb48</xr:TypeId>
+				<xr:ValueId>7ea7b53d-79d2-4a64-879b-95cb8fc7d4c1</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="InformationRegisterSelection.ФотографииФизическихЛиц" category="Selection">
+				<xr:TypeId>8503d7c8-b1b7-4a28-9eec-e0aa3de77ca0</xr:TypeId>
+				<xr:ValueId>de8aaef2-e6f3-47cd-8321-7582f0ad31f4</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="InformationRegisterList.ФотографииФизическихЛиц" category="List">
+				<xr:TypeId>14d6b26b-141c-4826-8beb-5a7447c3d98b</xr:TypeId>
+				<xr:ValueId>a33cd17a-3067-44d1-9891-26ab1432009c</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="InformationRegisterRecordSet.ФотографииФизическихЛиц" category="RecordSet">
+				<xr:TypeId>1af303fc-2508-4545-a49c-4329b6811e3c</xr:TypeId>
+				<xr:ValueId>8f2caf53-eeb8-4376-ac21-0355d9a96048</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="InformationRegisterRecordKey.ФотографииФизическихЛиц" category="RecordKey">
+				<xr:TypeId>176937ba-5965-421a-8b68-64c75c66cfa1</xr:TypeId>
+				<xr:ValueId>89f4031a-8adc-4c38-96db-e532bdbf8075</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="InformationRegisterRecordManager.ФотографииФизическихЛиц" category="RecordManager">
+				<xr:TypeId>96c3ff79-13ff-43c5-9afe-fdeca4c97e53</xr:TypeId>
+				<xr:ValueId>b9ca7061-485c-41ef-b3ad-c899617380d0</xr:ValueId>
+			</xr:GeneratedType>
+		</InternalInfo>
+		<Properties>
+			<Name>ФотографииФизическихЛиц</Name>
+			<Comment/>
+			<ObjectBelonging>Adopted</ObjectBelonging>
+			<ExtendedConfigurationObject>cf8c55d7-0227-464f-979a-f54b066f454f</ExtendedConfigurationObject>
+			<InformationRegisterPeriodicity>Nonperiodical</InformationRegisterPeriodicity>
+			<WriteMode>Independent</WriteMode>
+		</Properties>
+		<ChildObjects/>
+	</InformationRegister>
+</MetaDataObject>
