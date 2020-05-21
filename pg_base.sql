@@ -1,9 +1,8 @@
+--PostgreSQL Maestro 19.10.0.4
+------------------------------------------
+--Host     : localhost
+--Database : ZUP_EmployeeOffice
 
---\connect - postgres
--- CREATE DATABASE "ZUP_EmployeeOffice" WITH TEMPLATE = template0 ENCODING = 6 TABLESPACE = pg_default;
---\connect "ZUP_EmployeeOffice" postgres
-
-SET search_path = public, pg_catalog;
 -- Definition for sequence users_pk_seq (OID = 16653):
 CREATE SEQUENCE users_pk_seq
     START WITH 1
@@ -19,6 +18,8 @@ CREATE SEQUENCE user_groups_pk_seq
     NO MINVALUE
     CACHE 1;
 -- Structure for table users (OID = 16589):
+--SET SESSION AUTHORIZATION 'postgres';
+SET search_path = public, pg_catalog;
 CREATE TABLE users (
     surname varchar(50),
     user_name varchar(50),
@@ -28,7 +29,7 @@ CREATE TABLE users (
     email varchar(100) NOT NULL,
     user_password varchar(100),
     image_src varchar(200),
-    base_pk integer
+    base_pk integer DEFAULT 0 NOT NULL
 ) WITHOUT OIDS;
 -- Structure for table user_groups (OID = 16594):
 CREATE TABLE user_groups (
@@ -77,7 +78,7 @@ CREATE TABLE employee (
 -- Definition for function InsertUpdateOrganisation (OID = 49355):
 SET check_function_bodies = false;
 CREATE FUNCTION "InsertUpdateOrganisation" (_organization_name varchar, _pk varchar, res_pk integer) RETURNS varchar
-    AS '
+    AS '', '
 begin
 
 SELECT pk into res_pk FROM organization Where organization.pk = _pk;
@@ -92,7 +93,7 @@ end
     LANGUAGE plpgsql;
 -- Definition for function InsertUpdateSubdivision (OID = 49356):
 CREATE FUNCTION "InsertUpdateSubdivision" (_subdivision_name varchar, _pk varchar, _parent_pk varchar, _organization_pk varchar, res_pk integer) RETURNS varchar
-    AS '
+    AS '', '
 begin
 
 SELECT pk into res_pk FROM subdivision Where subdivision.pk = _pk;
@@ -153,5 +154,3 @@ ALTER TABLE ONLY workplace
 ALTER TABLE ONLY payment_list
     ADD CONSTRAINT pk_payment_list PRIMARY KEY (base_pk, employee_pk, payment_month, payment_position, payment_group);
 COMMENT ON SCHEMA public IS 'standard public schema';
-
-
