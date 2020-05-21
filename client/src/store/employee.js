@@ -6,6 +6,7 @@ export default {
             try {
                 const pk = dispatch('getUid')
                 const resp = await axios.post('/api/employee/data', {pk})
+                console.log(resp.data)
                 return resp.data
             } catch (e) {
                 console.log(e)

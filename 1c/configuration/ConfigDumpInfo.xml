@@ -21,14 +21,14 @@
 		<Metadata name="CommonModule.ЛК_РаботаСФункциями" id="e6a9727d-befa-4c63-9697-aa1a85a2150f" configVersion="2edcf281a954ab130b170a502d1f9e8d8f4ab2dc"/>
 		<Metadata name="CommonModule.ЛК_РаботаСФункциями.Module" id="e6a9727d-befa-4c63-9697-aa1a85a2150f.0" configVersion="473bf7974a16483ecd475e2b4ddea5d4fa2778ad"/>
 		<Metadata name="CommonPicture.КадровыйУчет48" id="c4289182-ac76-405d-ad20-e66034851c44" configVersion="5f9504a9e1ce71d8961c06c899c416ffed0bbe0a"/>
-		<Metadata name="Configuration.ZUP_EmployeeOffice" id="1b9eaada-ae35-4b7a-b392-91b9b4894192" configVersion="941def9ff94d81c15855cf96ad9ead0998787b6a"/>
+		<Metadata name="Configuration.ZUP_EmployeeOffice" id="1b9eaada-ae35-4b7a-b392-91b9b4894192" configVersion="aaacf4d119e0ddafb961641fb4ac336d336f4b85"/>
 		<Metadata name="DataProcessor.ЛК_Администрирование" id="599f5fa6-a7b7-4bb3-a50a-358d89cc3189" configVersion="d5a7aaa255b160692ef89c8ff8b6c4dc31114719">
 			<Metadata name="DataProcessor.ЛК_Администрирование.Attribute.Пароль" id="67187821-8371-4fff-b278-c3e91a2d5b9c"/>
 			<Metadata name="DataProcessor.ЛК_Администрирование.Attribute.Логин" id="ba03e0f6-6fe0-45ab-a3d6-0095be74c2b1"/>
 			<Metadata name="DataProcessor.ЛК_Администрирование.Attribute.Пользователь" id="ba281836-0116-4e46-b548-dd6fd0b48a96"/>
 		</Metadata>
 		<Metadata name="DataProcessor.ЛК_Администрирование.Form.Форма" id="13593289-ef2b-40c3-8598-60688a21a0a0" configVersion="885aa43cbb0d2e5cf423a5d116845255f0492f81"/>
-		<Metadata name="DataProcessor.ЛК_Администрирование.Form.Форма.Form" id="13593289-ef2b-40c3-8598-60688a21a0a0.0" configVersion="6d458c0587e124ee0a48456ca141a525d075dce2"/>
+		<Metadata name="DataProcessor.ЛК_Администрирование.Form.Форма.Form" id="13593289-ef2b-40c3-8598-60688a21a0a0.0" configVersion="c50627684633ccfdff86ee14c2d0320fcbe31228"/>
 		<Metadata name="Enum.ЛК_ВидыСобытийСОбъектамиЛК" id="eafff92c-0548-4ba6-a55e-a6a526a7d32b" configVersion="126e5fb6f92194eacd1d5b5ed28caba651b8f624">
 			<Metadata name="Enum.ЛК_ВидыСобытийСОбъектамиЛК.EnumValue.Изменение" id="1e854706-1a53-48ac-b073-4306fac09423"/>
 			<Metadata name="Enum.ЛК_ВидыСобытийСОбъектамиЛК.EnumValue.Добавление" id="43763e49-4ecf-4d48-8954-0f5f3d02aad3"/>
@@ -82,7 +82,7 @@
 		<Metadata name="InformationRegister.ЛК_ПользователиЛК.Form.ФормаСписка.Form" id="c1fd854e-0147-4af9-b042-539f64efdd08.0" configVersion="76ee225238ac2721b8c51f8e7c33cad24095a135"/>
 		<Metadata name="InformationRegister.ФотографииФизическихЛиц" id="38be48fe-8399-4f06-80e0-e45380b2e95c" configVersion="0d6dcd8994d45499af3d750276d35c71cab28167"/>
 		<Metadata name="InformationRegister.ФотографииФизическихЛиц.RecordSetModule" id="38be48fe-8399-4f06-80e0-e45380b2e95c.1" configVersion="18eaa687d32386acef67ccac45722ddeb14bdc6b"/>
-		<Metadata name="Language.Русский" id="8795b39d-58b1-4a38-aaa6-786f36dc4555" configVersion="39495d11499fd806f52c4172d143bccea88c65ae"/>
+		<Metadata name="Language.Русский" id="8795b39d-58b1-4a38-aaa6-786f36dc4555" configVersion="ebdeca04d16d122448a951d3bc1074de0f5c8fea"/>
 		<Metadata name="Role.ЛК_Администратор" id="1d7632a0-a5b6-4c52-897f-36db2ece8fa9" configVersion="c2b8949cbd76c072f9977b392719b9be5b4061dd"/>
 		<Metadata name="Role.ЛК_Администратор.Rights" id="1d7632a0-a5b6-4c52-897f-36db2ece8fa9.0" configVersion="b6f8935680fece56cc5ab2eba73cd63f9f2d6de9"/>
 		<Metadata name="Role.ЛК_Пользователь" id="b03758b2-d09d-4c52-a2e6-12f226ed13e3" configVersion="9097f4f03eed756217b3a3d8430f8b7c449614e4"/>
