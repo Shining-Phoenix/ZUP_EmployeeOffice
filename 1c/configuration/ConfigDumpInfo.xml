@@ -13,11 +13,11 @@
 		<Metadata name="CommonModule.ЛК_Логирование" id="f3f38f8b-2780-4480-b6ba-145540678837" configVersion="6c92213f3ebe265b3d54062c5fd83f3cafadd800"/>
 		<Metadata name="CommonModule.ЛК_Логирование.Module" id="f3f38f8b-2780-4480-b6ba-145540678837.0" configVersion="7626df654bf07c1cba1593043ab64fd70642f5ba"/>
 		<Metadata name="CommonModule.ЛК_ОбменДанными" id="40798dc0-cb1d-43f8-8592-8f9c4bf58cfa" configVersion="20c5947406fc0c28ec8e6090fd485d4b5d53fa07"/>
-		<Metadata name="CommonModule.ЛК_ОбменДанными.Module" id="40798dc0-cb1d-43f8-8592-8f9c4bf58cfa.0" configVersion="28398b021943f33380cfec8dd7f8e713d7d7944e"/>
+		<Metadata name="CommonModule.ЛК_ОбменДанными.Module" id="40798dc0-cb1d-43f8-8592-8f9c4bf58cfa.0" configVersion="d1b4283d5f89213349aa1337b4af94bc80c5a3b4"/>
 		<Metadata name="CommonModule.ЛК_ОбменДаннымиПовтИсп" id="89a588ca-347f-4bb9-a47a-8bb4a0c04e27" configVersion="09b26d9a3caca8c6d2a36797e0822071db3d703a"/>
 		<Metadata name="CommonModule.ЛК_ОбменДаннымиПовтИсп.Module" id="89a588ca-347f-4bb9-a47a-8bb4a0c04e27.0" configVersion="d3fe50228aee503b46eb02b026b51f982b2bdbd5"/>
 		<Metadata name="CommonModule.ЛК_ОбработкаСобытий" id="c564cfa0-7872-4699-9b6c-f5c49785dc08" configVersion="d08ff9d6cff2384cdf198aab81ffc5587fdd84ca"/>
-		<Metadata name="CommonModule.ЛК_ОбработкаСобытий.Module" id="c564cfa0-7872-4699-9b6c-f5c49785dc08.0" configVersion="56ed7641109606e0b299f2ee79cb64b738b53b55"/>
+		<Metadata name="CommonModule.ЛК_ОбработкаСобытий.Module" id="c564cfa0-7872-4699-9b6c-f5c49785dc08.0" configVersion="62a6c7c970fe66217223522cbb2066e39667f465"/>
 		<Metadata name="CommonModule.ЛК_РаботаСJSON" id="a6625281-af8c-4623-9a06-16f743375cc7" configVersion="04825b9edf0193b963134a0b52e8e5f13efa6218"/>
 		<Metadata name="CommonModule.ЛК_РаботаСJSON.Module" id="a6625281-af8c-4623-9a06-16f743375cc7.0" configVersion="34e90a022532b295a2d789124556db6f41442817"/>
 		<Metadata name="CommonModule.ЛК_РаботаСФункциями" id="e6a9727d-befa-4c63-9697-aa1a85a2150f" configVersion="2edcf281a954ab130b170a502d1f9e8d8f4ab2dc"/>
