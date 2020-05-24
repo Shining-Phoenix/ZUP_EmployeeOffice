@@ -50,7 +50,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Role.ЛК_Пользователь</xr:Item>
 			</DefaultRoles>
 			<Vendor/>
-			<Version>0.5</Version>
+			<Version>0.51</Version>
 			<BriefInformation/>
 			<DetailedInformation/>
 			<Copyright/>
@@ -69,6 +69,7 @@
 			<CommonModule>ЛК_РаботаСJSON</CommonModule>
 			<CommonModule>ЛК_ОбработкаСобытий</CommonModule>
 			<CommonModule>ЛК_ОбменДаннымиПовтИсп</CommonModule>
+			<CommonModule>ЛК_Логирование</CommonModule>
 			<Catalog>ПодразделенияОрганизаций</Catalog>
 			<Catalog>Должности</Catalog>
 			<Catalog>Организации</Catalog>

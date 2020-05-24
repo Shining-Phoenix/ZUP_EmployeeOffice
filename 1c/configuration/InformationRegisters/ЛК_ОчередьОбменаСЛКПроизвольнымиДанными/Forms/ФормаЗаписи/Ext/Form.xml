@@ -3,13 +3,23 @@
 	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<ChildItems>
+		<InputField name="ТипОбъкта" id="22">
+			<DataPath>Запись.ТипОбъкта</DataPath>
+			<ContextMenu name="ТипОбъктаКонтекстноеМеню" id="23"/>
+			<ExtendedTooltip name="ТипОбъктаРасширеннаяПодсказка" id="24"/>
+		</InputField>
+		<InputField name="ИмяОбъекта" id="25">
+			<DataPath>Запись.ИмяОбъекта</DataPath>
+			<ContextMenu name="ИмяОбъектаКонтекстноеМеню" id="26"/>
+			<ExtendedTooltip name="ИмяОбъектаРасширеннаяПодсказка" id="27"/>
+		</InputField>
 		<InputField name="ВидСобытия" id="1">
 			<DataPath>Запись.ВидСобытия</DataPath>
 			<ContextMenu name="ВидСобытияКонтекстноеМеню" id="2"/>
 			<ExtendedTooltip name="ВидСобытияРасширеннаяПодсказка" id="3"/>
 		</InputField>
 		<InputField name="Описание" id="4">
-			<DataPath>Запись.Описание</DataPath>
+			<DataPath>1/0:c60c263f-4844-497b-8f2f-091e1546bd01</DataPath>
 			<ContextMenu name="ОписаниеКонтекстноеМеню" id="5"/>
 			<ExtendedTooltip name="ОписаниеРасширеннаяПодсказка" id="6"/>
 		</InputField>
@@ -32,6 +42,12 @@
 			<DataPath>Запись.ДатаСобытия</DataPath>
 			<ContextMenu name="ДатаСобытияКонтекстноеМеню" id="17"/>
 			<ExtendedTooltip name="ДатаСобытияРасширеннаяПодсказка" id="18"/>
+		</InputField>
+		<InputField name="ИД" id="19">
+			<DataPath>Запись.ИД</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<ContextMenu name="ИДКонтекстноеМеню" id="20"/>
+			<ExtendedTooltip name="ИДРасширеннаяПодсказка" id="21"/>
 		</InputField>
 	</ChildItems>
 	<Attributes>
