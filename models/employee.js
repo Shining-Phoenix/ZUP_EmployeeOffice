@@ -3,9 +3,7 @@ const db = require('../shared/pgdb')
 module.exports.getUserInfoById = async (value) => {
 
     try {
-        const sql = `            
-                        
-                        SELECT 
+        const sql = `  SELECT 
                           workplace.employee_pk,
                           workplace.date_from,
                           subdivision.subdivision_name,
@@ -19,8 +17,8 @@ module.exports.getUserInfoById = async (value) => {
                         FROM 
                           users as users 
                             left join employee as employee on ( users.id_1c = employee.user_id_1c and users.base_pk = employee.base_pk )   
-                            left join workplace as workplace on (employee.pk = workplace.employee_pk AND employee.base_pk = workplace.base_pk)
-                            inner join (SELECT 
+                            left join workplace as workplace 
+                              inner join (SELECT 
                                           workplace.employee_pk as employee_pk,
                                           max(workplace.date_from) as date_from 
                                        FROM workplace
@@ -32,13 +30,14 @@ module.exports.getUserInfoById = async (value) => {
                                        GROUP BY
                                           workplace.employee_pk) as vt_workplace_slice 
                                        on (workplace.employee_pk = vt_workplace_slice.employee_pk
-                                                                                  and workplace.date_from = vt_workplace_slice.date_from)
+                                                                                  and workplace.date_from = vt_workplace_slice.date_from)                          
+                            
+                            on (employee.pk = workplace.employee_pk AND employee.base_pk = workplace.base_pk)
                             left join subdivision as subdivision on (workplace.subdivision_pk = subdivision.pk)
                             left join employee_position as employee_position on (workplace.position_pk = employee_position.pk)
                             left join organization as organization on (subdivision.organization_pk = organization.pk)
                           WHERE 
-                            users.pk = $3
-`
+                            users.pk = $3`
         const today = new Date()
         today.setHours(23,59,59,999)
         const {rows} = await db.query(sql, [today, value, value]);
