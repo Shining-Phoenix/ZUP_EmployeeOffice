@@ -64,12 +64,12 @@
 			<CommonPicture>КадровыйУчет48</CommonPicture>
 			<Role>ЛК_Пользователь</Role>
 			<Role>ЛК_Администратор</Role>
-			<CommonModule>ЛК_ОбменДанными</CommonModule>
-			<CommonModule>ЛК_РаботаСФункциями</CommonModule>
-			<CommonModule>ЛК_РаботаСJSON</CommonModule>
-			<CommonModule>ЛК_ОбработкаСобытий</CommonModule>
+			<CommonModule>ЛК_ОбменДаннымиСервер</CommonModule>
+			<CommonModule>ЛК_РаботаСФункциямиКлиентСервер</CommonModule>
+			<CommonModule>ЛК_РаботаСJSONСервер</CommonModule>
+			<CommonModule>ЛК_ОбработкаСобытийСервер</CommonModule>
 			<CommonModule>ЛК_ОбменДаннымиПовтИсп</CommonModule>
-			<CommonModule>ЛК_Логирование</CommonModule>
+			<CommonModule>ЛК_ЛогированиеСервер</CommonModule>
 			<Catalog>ПодразделенияОрганизаций</Catalog>
 			<Catalog>Должности</Catalog>
 			<Catalog>Организации</Catalog>
