@@ -102,36 +102,46 @@ module.exports.createEmployeeWorkplace = async (workplace) => {
 
 module.exports.createEmployeeWorkplaces = async (employeeWorkplacesData) => {
 
-    const deleteSql = 'DELETE FROM workplace WHERE base_pk = $1 AND employee_pk = $2'
+    const client = await db.client()
 
-    const result = await db.query(deleteSql,
-        [employeeWorkplacesData.base_pk,
-            employeeWorkplacesData.employee_pk]);
+    try {
+        await client.query('BEGIN')
 
-    employeeWorkplacesData.workplaces.forEach(async workplace =>{
-        const sql = `
-        INSERT INTO 
-            workplace (
-              position_pk, 
-              subdivision_pk,
-              employee_pk,
-              date_from,
-              base_pk          
-             ) 
-        VALUES($1, $2, $3, $4, $5)
-        RETURNING position_pk as pk`
+        const deleteSql = 'DELETE FROM workplace WHERE base_pk = $1 AND employee_pk = $2'
 
-        const result = await db.query(sql,
-            [workplace.position_pk,
-                workplace.subdivision_pk,
-                employeeWorkplacesData.employee_pk,
-                workplace.date_from,
-                employeeWorkplacesData.base_pk]);
-    })
+        const result = await client.query(deleteSql,
+                [employeeWorkplacesData.base_pk,
+                employeeWorkplacesData.employee_pk]);
 
-    return {pk: employeeWorkplacesData.employee_pk}
+        employeeWorkplacesData.workplaces.forEach(async workplace => {
+            const sql = `
+            INSERT INTO 
+                workplace (
+                  position_pk, 
+                  subdivision_pk,
+                  employee_pk,
+                  date_from,
+                  base_pk          
+                 ) 
+            VALUES($1, $2, $3, $4, $5)
+            RETURNING position_pk as pk`
+
+            const result = await client.query(sql,
+                    [workplace.position_pk,
+                    workplace.subdivision_pk,
+                    employeeWorkplacesData.employee_pk,
+                    workplace.date_from,
+                    employeeWorkplacesData.base_pk]);
+        })
+        await client.query('COMMIT')
+        client.release()
+        return {pk: employeeWorkplacesData.employee_pk}
+    } catch (e) {
+        await client.query('ROOLBACK')
+        client.release()
+        throw e
+    }
 }
-
 
 module.exports.deleteEmployeeWorkplace = async (workplace) => {
 
@@ -179,22 +189,28 @@ module.exports.getPaymentList = async (paymentList) => {
 }
 
 module.exports.createPaymentList = async (paymentList) => {
-    const sql = `
+
+    const client = await db.client()
+
+    try {
+        await client.query('BEGIN')
+
+        const sql = `
         DELETE  FROM
             payment_list 
         WHERE    
               employee_pk = $1 AND 
               base_pk = $2 AND
               payment_month = $3`;
-    const {rows} = await db.query(sql,
-        [paymentList.employee_pk,
-            paymentList.base_pk,
-            paymentList.payment_month]);
+        const {rows} = await client.query(sql,
+            [paymentList.employee_pk,
+                paymentList.base_pk,
+                paymentList.payment_month]);
 
-    const payments = paymentList.payments
+        const payments = paymentList.payments
 
-    payments.forEach(async (item) => {
-        const sql = `
+        payments.forEach(async (item) => {
+            const sql = `
         INSERT INTO 
             payment_list (
               payment_month, 
@@ -208,17 +224,25 @@ module.exports.createPaymentList = async (paymentList) => {
         VALUES($1, $2, $3, $4, $5, $6, $7)
         RETURNING employee_pk as pk`
 
-        const {rows} = await db.query(sql,
-            [paymentList.payment_month,
-                paymentList.employee_pk,
-                paymentList.base_pk,
-                item.payment_position,
-                item.payment_sum,
-                item.payment_group,
-                item.payment_group_id]);
-    });
+            const {rows} = await client.query(sql,
+                [paymentList.payment_month,
+                    paymentList.employee_pk,
+                    paymentList.base_pk,
+                    item.payment_position,
+                    item.payment_sum,
+                    item.payment_group,
+                    item.payment_group_id]);
+        });
 
-    return {pk: paymentList.employee_pk}
+        return {pk: paymentList.employee_pk}
+        await client.query('COMMIT')
+        client.release()
+        return {pk: employeeWorkplacesData.employee_pk}
+    } catch (e) {
+        await client.query('ROOLBACK')
+        client.release()
+        throw e
+    }
 
 }
 
