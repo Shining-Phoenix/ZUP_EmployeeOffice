@@ -30,7 +30,7 @@
 			<Metadata name="DataProcessor.ЛК_Администрирование.Attribute.Пользователь" id="ba281836-0116-4e46-b548-dd6fd0b48a96"/>
 		</Metadata>
 		<Metadata name="DataProcessor.ЛК_Администрирование.Form.Форма" id="13593289-ef2b-40c3-8598-60688a21a0a0" configVersion="885aa43cbb0d2e5cf423a5d116845255f0492f81"/>
-		<Metadata name="DataProcessor.ЛК_Администрирование.Form.Форма.Form" id="13593289-ef2b-40c3-8598-60688a21a0a0.0" configVersion="80eb13e8fc9f6c920873e762ff2387fe6ac3161f"/>
+		<Metadata name="DataProcessor.ЛК_Администрирование.Form.Форма.Form" id="13593289-ef2b-40c3-8598-60688a21a0a0.0" configVersion="0f22d984ef8ab3a02ba701af52321810f8090dbe"/>
 		<Metadata name="Enum.ЛК_ВидыСобытийСОбъектамиЛК" id="eafff92c-0548-4ba6-a55e-a6a526a7d32b" configVersion="126e5fb6f92194eacd1d5b5ed28caba651b8f624">
 			<Metadata name="Enum.ЛК_ВидыСобытийСОбъектамиЛК.EnumValue.Изменение" id="1e854706-1a53-48ac-b073-4306fac09423"/>
 			<Metadata name="Enum.ЛК_ВидыСобытийСОбъектамиЛК.EnumValue.Добавление" id="43763e49-4ecf-4d48-8954-0f5f3d02aad3"/>
