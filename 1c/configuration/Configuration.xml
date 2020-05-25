@@ -78,11 +78,11 @@
 			<Enum>ЛК_СтатусОбменаСЛК</Enum>
 			<DataProcessor>ЛК_Администрирование</DataProcessor>
 			<InformationRegister>ЛК_НастройкиСервисов</InformationRegister>
-			<InformationRegister>КадроваяИсторияСотрудниковИнтервальный</InformationRegister>
 			<InformationRegister>ЛК_ПользователиЛК</InformationRegister>
 			<InformationRegister>ЛК_ОчередьОбменаСЛКСсылочнымиДанными</InformationRegister>
 			<InformationRegister>ЛК_ОчередьОбменаСЛКПроизвольнымиДанными</InformationRegister>
 			<InformationRegister>ФотографииФизическихЛиц</InformationRegister>
+			<InformationRegister>КадроваяИсторияСотрудников</InformationRegister>
 			<AccumulationRegister>НачисленияУдержанияПоСотрудникам</AccumulationRegister>
 		</ChildObjects>
 	</Configuration>

@@ -13,17 +13,17 @@
 		<Metadata name="CommonModule.ЛК_Логирование" id="f3f38f8b-2780-4480-b6ba-145540678837" configVersion="6c92213f3ebe265b3d54062c5fd83f3cafadd800"/>
 		<Metadata name="CommonModule.ЛК_Логирование.Module" id="f3f38f8b-2780-4480-b6ba-145540678837.0" configVersion="7626df654bf07c1cba1593043ab64fd70642f5ba"/>
 		<Metadata name="CommonModule.ЛК_ОбменДанными" id="40798dc0-cb1d-43f8-8592-8f9c4bf58cfa" configVersion="20c5947406fc0c28ec8e6090fd485d4b5d53fa07"/>
-		<Metadata name="CommonModule.ЛК_ОбменДанными.Module" id="40798dc0-cb1d-43f8-8592-8f9c4bf58cfa.0" configVersion="d1b4283d5f89213349aa1337b4af94bc80c5a3b4"/>
+		<Metadata name="CommonModule.ЛК_ОбменДанными.Module" id="40798dc0-cb1d-43f8-8592-8f9c4bf58cfa.0" configVersion="eb86f5e0f866924cbd4dd12cd7573260c8ca1047"/>
 		<Metadata name="CommonModule.ЛК_ОбменДаннымиПовтИсп" id="89a588ca-347f-4bb9-a47a-8bb4a0c04e27" configVersion="09b26d9a3caca8c6d2a36797e0822071db3d703a"/>
 		<Metadata name="CommonModule.ЛК_ОбменДаннымиПовтИсп.Module" id="89a588ca-347f-4bb9-a47a-8bb4a0c04e27.0" configVersion="d3fe50228aee503b46eb02b026b51f982b2bdbd5"/>
 		<Metadata name="CommonModule.ЛК_ОбработкаСобытий" id="c564cfa0-7872-4699-9b6c-f5c49785dc08" configVersion="d08ff9d6cff2384cdf198aab81ffc5587fdd84ca"/>
-		<Metadata name="CommonModule.ЛК_ОбработкаСобытий.Module" id="c564cfa0-7872-4699-9b6c-f5c49785dc08.0" configVersion="62a6c7c970fe66217223522cbb2066e39667f465"/>
+		<Metadata name="CommonModule.ЛК_ОбработкаСобытий.Module" id="c564cfa0-7872-4699-9b6c-f5c49785dc08.0" configVersion="9af8fb95395c6effff9c69f7fc68c40a9bf71ce7"/>
 		<Metadata name="CommonModule.ЛК_РаботаСJSON" id="a6625281-af8c-4623-9a06-16f743375cc7" configVersion="04825b9edf0193b963134a0b52e8e5f13efa6218"/>
 		<Metadata name="CommonModule.ЛК_РаботаСJSON.Module" id="a6625281-af8c-4623-9a06-16f743375cc7.0" configVersion="34e90a022532b295a2d789124556db6f41442817"/>
 		<Metadata name="CommonModule.ЛК_РаботаСФункциями" id="e6a9727d-befa-4c63-9697-aa1a85a2150f" configVersion="2edcf281a954ab130b170a502d1f9e8d8f4ab2dc"/>
 		<Metadata name="CommonModule.ЛК_РаботаСФункциями.Module" id="e6a9727d-befa-4c63-9697-aa1a85a2150f.0" configVersion="d1f3c04536c83f1e95fa7e5b9f5aa2c87590cc01"/>
 		<Metadata name="CommonPicture.КадровыйУчет48" id="c4289182-ac76-405d-ad20-e66034851c44" configVersion="5f9504a9e1ce71d8961c06c899c416ffed0bbe0a"/>
-		<Metadata name="Configuration.ZUP_EmployeeOffice" id="1b9eaada-ae35-4b7a-b392-91b9b4894192" configVersion="7feca131154fc9933ba46b8cb109a0b76801e66b"/>
+		<Metadata name="Configuration.ZUP_EmployeeOffice" id="1b9eaada-ae35-4b7a-b392-91b9b4894192" configVersion="1a664c41b0572d5d4fb49738a546dbddb9c27778"/>
 		<Metadata name="DataProcessor.ЛК_Администрирование" id="599f5fa6-a7b7-4bb3-a50a-358d89cc3189" configVersion="d5a7aaa255b160692ef89c8ff8b6c4dc31114719">
 			<Metadata name="DataProcessor.ЛК_Администрирование.Attribute.Пароль" id="67187821-8371-4fff-b278-c3e91a2d5b9c"/>
 			<Metadata name="DataProcessor.ЛК_Администрирование.Attribute.Логин" id="ba03e0f6-6fe0-45ab-a3d6-0095be74c2b1"/>
@@ -41,8 +41,8 @@
 			<Metadata name="Enum.ЛК_СтатусОбменаСЛК.EnumValue.Выполнен" id="48b09c2c-8005-451f-80bc-03106b0867e2"/>
 			<Metadata name="Enum.ЛК_СтатусОбменаСЛК.EnumValue.Новый" id="a1f58133-bff1-4e39-b7fd-bd266bf8bd06"/>
 		</Metadata>
-		<Metadata name="InformationRegister.КадроваяИсторияСотрудниковИнтервальный" id="1ae09134-dc33-4e54-b663-a0722691f0f1" configVersion="568ee8ace365d9ffeb5af04ee10bf864723a69a2"/>
-		<Metadata name="InformationRegister.КадроваяИсторияСотрудниковИнтервальный.RecordSetModule" id="1ae09134-dc33-4e54-b663-a0722691f0f1.1" configVersion="92c6dd5c6e1afbac001baa23678b2cd8e6556a8e"/>
+		<Metadata name="InformationRegister.КадроваяИсторияСотрудников" id="64fb53ae-cb2d-4229-bab3-49e348eecc16" configVersion="dc9c6c345988a80c5075551bdfeb4a6e789ffb66"/>
+		<Metadata name="InformationRegister.КадроваяИсторияСотрудников.RecordSetModule" id="64fb53ae-cb2d-4229-bab3-49e348eecc16.1" configVersion="872647649b83386deeedf51da798e6b8a0d8ed0c"/>
 		<Metadata name="InformationRegister.ЛК_НастройкиСервисов" id="8e3221de-b78e-40d4-abc2-5cf133066c68" configVersion="f190df8441fab254a447d17c09540c96562588a4">
 			<Metadata name="InformationRegister.ЛК_НастройкиСервисов.Dimension.ПарольПользователя" id="5b7d5fa3-c22c-4882-afc8-9c49b08a112c"/>
 			<Metadata name="InformationRegister.ЛК_НастройкиСервисов.Dimension.ИДБазы" id="683ea731-736e-4e65-a3fb-14d82a6babee"/>

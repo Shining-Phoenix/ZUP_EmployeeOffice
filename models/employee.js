@@ -100,6 +100,39 @@ module.exports.createEmployeeWorkplace = async (workplace) => {
 
 }
 
+module.exports.createEmployeeWorkplaces = async (employeeWorkplacesData) => {
+
+    const deleteSql = 'DELETE FROM workplace WHERE base_pk = $1 AND employee_pk = $2'
+
+    const result = await db.query(deleteSql,
+        [employeeWorkplacesData.base_pk,
+            employeeWorkplacesData.employee_pk]);
+
+    employeeWorkplacesData.workplaces.forEach(async workplace =>{
+        const sql = `
+        INSERT INTO 
+            workplace (
+              position_pk, 
+              subdivision_pk,
+              employee_pk,
+              date_from,
+              base_pk          
+             ) 
+        VALUES($1, $2, $3, $4, $5)
+        RETURNING position_pk as pk`
+
+        const result = await db.query(sql,
+            [workplace.position_pk,
+                workplace.subdivision_pk,
+                employeeWorkplacesData.employee_pk,
+                workplace.date_from,
+                employeeWorkplacesData.base_pk]);
+    })
+
+    return {pk: employeeWorkplacesData.employee_pk}
+}
+
+
 module.exports.deleteEmployeeWorkplace = async (workplace) => {
 
     const sql = `

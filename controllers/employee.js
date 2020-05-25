@@ -20,6 +20,16 @@ module.exports.createEmployeeWorkplace = async function(req, res) {
     }
 }
 
+module.exports.createEmployeeWorkplaces = async function(req, res) {
+    try {
+        const userData = await employee.createEmployeeWorkplaces(req.body)
+        res.status(200).json(userData)
+    } catch (e) {
+        errorHandler(res, e)
+        throw e
+    }
+}
+
 module.exports.deleteEmployeeWorkplace = async function(req, res) {
     try {
         const userData = await employee.deleteEmployeeWorkplace(req.body)
