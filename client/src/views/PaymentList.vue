@@ -1,44 +1,52 @@
 <template>
-    <div class="row">
-        <div class="input-field col">
-            <select
-                    ref="selectMonth">
-                <option v-for="item in months" :key="item.id"
-                        v-bind:class="{selected: item.sel} "
-                        :value="item.id"
-                        :selected="item.sel"
-                        >{{ item.value }}
-                </option>
-            </select>
-            <label>Выберете месяц</label>
+    <div>
+        <div class="row">
+            <div class="input-field col">
+                <select
+                        ref="selectMonth">
+                    <option v-for="item in months" :key="item.id"
+                            v-bind:class="{selected: item.sel} "
+                            :value="item.id"
+                            :selected="item.sel"
+                            >{{ item.value }}
+                    </option>
+                </select>
+                <label>Выберете месяц</label>
+            </div>
+            <div class="input-field col">
+                <select
+                        ref="selectYear">
+                    <option v-for="year in years" :key="year.year"
+                            :value="year.year"
+                            :selected="year.sel"
+                            >{{ year.year }}
+                    </option>
+                </select>
+                <label>Выберете год</label>
+            </div>
+            <a class="waves-effect waves-teal btn-large"
+               @click="getPaymentList"
+               :disabled = "loading"
+            >
+                Сформировать</a>
         </div>
-        <div class="input-field col">
-            <select
-                    ref="selectYear">
-                <option v-for="year in years" :key="year.year"
-                        :value="year.year"
-                        :selected="year.sel"
-                        >{{ year.year }}
-                </option>
-            </select>
-            <label>Выберете год</label>
-        </div>
-        <a class="waves-effect waves-teal btn-large"
-           @click="getPaymentList"
-           :disabled = "loading"
-        >
-            Сформировать</a>
         <Loader v-if="loading"/>
         <div v-else-if="!loading && paiments.length && paiments.length > 0" class="row">
-            <table class="highlight">
-                <tbody>
-                <tr v-for = "item in paiments"
-                    :key="item.payment_position">
-                    <td>{{ item.payment_position }}</td>
-                    <td>{{ item.payment_sum }}</td>
-                </tr>
-                </tbody>
-            </table>
+            <div>
+                <div v-for = "(groupItem) in paiments"
+                     :key="groupItem.group">
+                        <h6>{{ groupItem.group }}</h6>
+                        <table>
+                            <tbody>
+                            <tr v-for = "item in groupItem.items"
+                                :key="item.payment_position">
+                                <td width="80%" class="no-padding">{{ item.payment_position }}</td>
+                                <td width="20%" class="no-padding rightText">{{ item.payment_sum | numeral('0,0.00')  }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                </div>
+            </div>
         </div>
         <h5 v-else-if="!loading">Данные отсутствуют</h5>
     </div>
@@ -117,7 +125,11 @@
 </script>
 
 <style scoped>
-    h5{
-        margin-top: 50px;
+    h6{
+        margin-top: 0px;
+        background-color: #e1f5fe;
+    }
+    .rightText{
+        text-align: right;
     }
 </style>

@@ -40,6 +40,7 @@ module.exports.getUserInfoById = async (value) => {
                             users.pk = $3`
         const today = new Date()
         today.setHours(23,59,59,999)
+
         const {rows} = await db.query(sql, [today, value, value]);
 
         if (rows.length) {
@@ -184,7 +185,20 @@ module.exports.getPaymentList = async (paymentList) => {
     const {rows} = await db.query(sql,     [paymentList.pk,
         paymentList.payment_month]);
 
-    return rows
+    const paymentData = []
+    let currentGroup = ''
+
+    rows.forEach(item => {
+        if (currentGroup != item.payment_group) {
+            let paymentBlock = {group: item.payment_group,
+                                items: []}
+            paymentData.push(paymentBlock)
+            currentGroup = item.payment_group
+        }
+        paymentData[paymentData.length - 1].items.push(item)
+    })
+
+    return paymentData
 }
 
 module.exports.createPaymentList = async (paymentList) => {
