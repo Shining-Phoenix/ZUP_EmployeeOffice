@@ -9,6 +9,7 @@ import messagePlugin from '@/utils/message.plugin'
 import Loader from '@/components/app/Loader'
 import axios from 'axios'
 import vueNumeralFilterInstaller from 'vue-numeral-filter';
+import vuetify from './plugins/vuetify';
 
 Vue.config.productionTip = false
 
@@ -25,6 +26,8 @@ new Vue({
     router,
     store,
     render: h => h(App),
+    vuetify,
+
     created: () => {
         axios.interceptors.request.use((config) => {
                 const token = store.getters.token;
@@ -47,5 +50,6 @@ new Vue({
             }
         );
 
-    }}
+    }
+}
     ).$mount('#app')
