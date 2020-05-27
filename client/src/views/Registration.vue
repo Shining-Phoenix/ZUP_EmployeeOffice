@@ -1,61 +1,57 @@
 <template>
-    <form class="card auth-card" @submit.prevent="submitHandler">
-        <div class="card-content">
-            <span class="card-title">Личный кабинет сотрудника</span>
-            <div class="input-field">
-                <input
-                        id="email"
-                        type="text"
-                        v-model.trim="email"
-                        :class="{invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email)}"
-                >
-                <label for="email">Email</label>
-                <small
-                        class="helper-text invalid"
-                        v-if="$v.email.$dirty && !$v.email.required"
-                >Поле Email не должно быть пустым</small>
-                <small
-                        class="helper-text invalid"
-                        v-else-if="$v.email.$dirty && !$v.email.email"
-                >Введен не корректный Email</small>
-            </div>
-            <div class="input-field">
-                <input
-                        id="password"
-                        type="password"
-                        v-model.trim="password"
-                        :class="{invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength)}"
-                >
-                <label for="password">Пароль</label>
-                <small
-                        class="helper-text invalid"
-                        v-if="$v.password.$dirty && !$v.password.required"
-                >Поле Пароль не должно быть пустым</small>
-                <small
-                        class="helper-text invalid"
-                        v-else-if="$v.password.$dirty && !$v.password.minLength"
-                >Пароль должен быть {{$v.password.$params.minLength.min}} символов или больше. Сейчас
-                    {{password.length}}</small>
-            </div>
-        </div>
-        <div class="card-action">
-            <div>
-                <button
-                        class="btn waves-effect waves-light auth-submit"
-                        type="submit"
-                        :disabled="$v.$invalid || loading"
-                >
-                    Регистрация
-                    <i class="material-icons right">send</i>
-                </button>
-            </div>
-
-        </div>
-    </form>
+    <v-container
+            class="fill-height"
+            fluid
+            dark
+    >
+        <v-row
+                align="center"
+                justify="center"
+        >
+            <v-col
+                    cols="12"
+                    sm="8"
+                    md="4"
+            >
+                <form class="whiteBackGround">
+                    <div class="row align-center justify-center">
+                        <h2 class="card-title">Личный кабинет сотрудника</h2>
+                    </div>
+                    <v-text-field
+                            v-model="email"
+                            :error-messages="emailErrors"
+                            label="E-mail"
+                            required
+                            @input="$v.email.$touch()"
+                            @blur="$v.email.$touch()"
+                    ></v-text-field>
+                    <v-text-field
+                            v-model="password"
+                            :error-messages="passwordErrors"
+                            :counter="6"
+                            label="Пароль"
+                            required
+                            @input="$v.password.$touch()"
+                            @blur="$v.password.$touch()"
+                    ></v-text-field>
+                    <div class="buttonDiv row align-center justify-center">
+                        <v-btn
+                                class="mr-4"
+                                :disabled="$v.$invalid || loading"
+                                @click.prevent="submit"
+                        >Регистрация
+                        </v-btn>
+                        <v-btn @click="clear">Очистить</v-btn>
+                    </div>
+                </form>
+            </v-col>
+        </v-row>
+    </v-container>
 </template>
 
 <script>
-    import {email, required, minLength} from 'vuelidate/lib/validators'
+    import {validationMixin} from 'vuelidate'
+    import {required, minLength, email} from 'vuelidate/lib/validators'
 
     export default {
         name: 'registration',
@@ -63,17 +59,32 @@
             email: '',
             password: ''
         }),
+        mixins: [validationMixin],
+        validations: {
+            email: {required, email},
+            password: {required, minLength: minLength(6)},
+        },
         computed: {
+            passwordErrors() {
+                const errors = []
+                if (!this.$v.password.$dirty) return errors
+                !this.$v.password.minLength && errors.push('Пароль должно быть 6 символов или больше')
+                !this.$v.password.required && errors.push('Поле обязательно для заполнения')
+                return errors
+            },
+            emailErrors() {
+                const errors = []
+                if (!this.$v.email.$dirty) return errors
+                !this.$v.email.email && errors.push('Введен не правильный e-mail')
+                !this.$v.email.required && errors.push('Поле обязательно для заполнения')
+                return errors
+            },
             loading() {
                 return this.$store.getters.loading
             }
         },
-        validations: {
-            email: {email, required},
-            password: {required, minLength: minLength(6)}
-        },
         methods: {
-            async submitHandler() {
+            async submit() {
 
                 if (this.$v.$invalid) {
                     this.$v.$touch()
@@ -88,15 +99,29 @@
                 try {
                     this.$store.commit('clearError')
                     this.$store.commit('setLoading', true)
-                    const user = await this.$store.dispatch('register', formData)
-                    console.log(user)
+                    await this.$store.dispatch('register', formData)
                     this.$store.commit('clearLoading')
                     this.$router.push('/login')
                 } catch (e) {
                     this.$store.commit('clearLoading')
                 }
-            }
+            },
+            clear() {
+                this.$v.$reset()
+                this.password = ''
+                this.email = ''
+            },
         }
-    }
 
+    }
 </script>
+
+<style>
+    .buttonDiv{
+        margin-top: 40px;
+    }
+    .whiteBackGround{
+        background-color: white;
+        padding: 30px;
+    }
+</style>

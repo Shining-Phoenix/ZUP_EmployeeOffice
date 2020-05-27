@@ -34,8 +34,8 @@ export default {
                 commit('setUser', JSON.stringify(resp.data.user))
             } catch (e) {
                 var eDescription = ''
-                if (e.response && e.response.data && e.response.data.message && ((e.response.status === 401) || (e.response.status === 404))) {
-                    eDescription = e.response.data.message
+                if (e.data && e.data.message && ((e.status >= 400) && (e.status < 500))) {
+                    eDescription = e.data.message
                 } else {
                     console.log(e)
                     eDescription = 'Ошибка авторизации!'
@@ -52,8 +52,9 @@ export default {
                 return  resp.data
             } catch (e) {
                 var eDescription = ''
-                if (e.response && e.response.data && e.response.data.message && ((e.response.status === 401) || (e.response.status === 404))) {
-                    eDescription = e.response.data.message
+                console.log(e)
+                if (e.data && e.data.message && ((e.status >= 400) && (e.status < 500))) {
+                    eDescription = e.data.message
                 } else {
                     console.log(e)
                     eDescription = 'Ошибка регистрации!'

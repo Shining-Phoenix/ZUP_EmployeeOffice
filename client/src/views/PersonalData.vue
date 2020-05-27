@@ -1,27 +1,30 @@
 <template>
-    <Loader v-if="loading"/>
+    <div>
+        <v-container  v-if="loading">
+            <Loader/>
+        </v-container>
+        <v-container
+                class="fill-height"
+                fluid
+                v-else>
 
-    <div v-else class="row">
-        <div class="material-placeholder">
-            <div class="row">
-                <div class="col s4">
-                    <div class="center">
-                        <img
-                                class="z-depth-5"
-                                width="500"
-                                :src="employeeData.image_src"
-                        />
-                    </div>
-                </div>
-                <div class="col s8">
+            <v-row>
+                <v-col cols="5">
+                    <v-img
+                            align="center"
+                            class="z-depth-5 v-image-center"
+                            width="500"
+                            :src="employeeData.image_src"
+                    />
+                </v-col>
+                <v-col cols="7">
                     <h2> {{employeeData.surname + ' ' + employeeData.user_name + ' ' + employeeData.patronymic}} </h2>
                     <h3> {{employeeData.organization_name}} </h3>
                     <h3> {{employeeData.subdivision_name}} </h3>
                     <h3> {{employeeData.position_name}} </h3>
-                </div>
-            </div>
-        </div>
-
+                </v-col>
+            </v-row>
+        </v-container>
     </div>
 </template>
 
@@ -41,12 +44,8 @@
 </script>
 
 <style scoped>
-    h2{
-        margin-top: 0;
-        margin-bottom: 40px;
-        color: orange;
-    }
-    h3{
-        margin-left: 30px;
+    .v-image-center{
+        margin-left: auto;
+        margin-right: auto;
     }
 </style>

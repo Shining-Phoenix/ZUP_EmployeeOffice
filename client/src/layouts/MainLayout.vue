@@ -1,17 +1,21 @@
 <template>
   <div>
     <Loader v-if="loading"/>
-    <div class="app-main-layout" v-else>
+    <v-app id="inspire"  v-else>
       <Navbar @click="isOpen = !isOpen"/>
 
       <Sidebar v-model="isOpen"/>
 
-      <main class="app-content" :class="{full: !isOpen}">
-        <div class="app-page">
-          <router-view/>
-        </div>
-      </main>
-    </div>
+      <v-content :class="{full: !isOpen}">
+        <router-view/>
+        <v-tooltip
+                v-model="showTooltip"
+                right
+                close-delay="10">
+          <span> {{ message }} </span>
+        </v-tooltip>
+      </v-content>
+    </v-app>
   </div>
 </template>
 
@@ -23,8 +27,10 @@
   export default {
     name: 'main-layout',
     data: () => ({
-      isOpen: true,
-      loading: true
+      isOpen: false,
+      loading: true,
+      showTooltip: false,
+      message: ''
     }),
     async mounted() {
       if (!Object.keys(this.$store.getters.info).length) {
@@ -45,7 +51,9 @@
     watch: {
       error(fbError) {
         if (fbError) {
-          this.$message(messages[fbError] || fbError || 'Что-то пошло не так')
+          this.message = messages[fbError] || fbError || 'Что-то пошло не так'
+          this.showTooltip = true
+          setInterval(()=>this.showTooltip = false, 5000)
         }
       }
     }

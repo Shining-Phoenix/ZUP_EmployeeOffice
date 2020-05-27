@@ -1,18 +1,13 @@
 <template>
-  <nav class="navbar teal">
-    <div class="nav-wrapper">
-      <div class="navbar-left">
-        <a href="#" @click.prevent="$emit('click')">
-          <i class="material-icons black-text">dehaze</i>
-        </a>
-      </div>
+  <v-app-bar
+          app
+          dense
+          dark
+  >
+    <v-app-bar-nav-icon @click.prevent="$emit('click')"></v-app-bar-nav-icon>
 
-      <h5 class="header center">Личный кабинет сотрудника</h5>
-      <div class="spacer"></div>
-    </div>
-  </nav>
+    <v-toolbar-title dark>Личный кабинет сотрудника</v-toolbar-title>
+  </v-app-bar>
 </template>
 
-<script>
 
-</script>

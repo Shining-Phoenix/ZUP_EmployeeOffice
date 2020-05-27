@@ -1,16 +1,20 @@
 <template>
-  <div class="app-loader">
-    <div class="preloader-wrapper active">
-      <div class="spinner-layer spinner-blue-only">
-        <div class="circle-clipper left">
-          <div class="circle"></div>
-        </div><div class="gap-patch">
-          <div class="circle"></div>
-        </div><div class="circle-clipper right">
-          <div class="circle"></div>
-        </div>
-      </div>
-    </div>
+  <div class="container">
+      <v-progress-circular
+              indeterminate
+              color="primary"
+              class="center"
+      >
+      </v-progress-circular>
   </div>
 </template>
+
+<style scoped>
+  div{
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+  }
+
+</style>
 

@@ -5,7 +5,6 @@ import 'materialize-css/dist/js/materialize.min'
 import router from './router'
 import store from './store'
 import dateFilter from '@/filters/date.filter'
-import messagePlugin from '@/utils/message.plugin'
 import Loader from '@/components/app/Loader'
 import axios from 'axios'
 import vueNumeralFilterInstaller from 'vue-numeral-filter';
@@ -13,7 +12,6 @@ import vuetify from './plugins/vuetify';
 
 Vue.config.productionTip = false
 
-Vue.use(messagePlugin)
 Vue.use(Vuelidate)
 Vue.use(vueNumeralFilterInstaller, { locale: 'ru' });
 Vue.filter('date', dateFilter)

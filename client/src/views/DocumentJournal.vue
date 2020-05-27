@@ -9,7 +9,3 @@
         name: "document-journal"
     }
 </script>
-
-<style scoped>
-
-</style>
