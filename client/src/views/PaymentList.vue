@@ -32,8 +32,8 @@
                             dark
                     >
                         <v-spacer></v-spacer>
-                        <v-btn text color="primary" @click="menu = false">Отмена</v-btn>
-                        <v-btn text color="primary" @click="$refs.menu.save(date)">OK</v-btn>
+                        <v-btn text color="normal" @click="menu = false">Отмена</v-btn>
+                        <v-btn text color="normal" @click="$refs.menu.save(date)">OK</v-btn>
                     </v-date-picker>
                 </v-menu>
             </v-col>
@@ -99,8 +99,6 @@
             }
         },
         mounted() {
-            // this.selectMonth = M.FormSelect.init(this.$refs.selectMonth, {defaults: [2]})
-            // this.selectYear = M.FormSelect.init(this.$refs.selectYear, {defaults: [2]})
             this.getPaymentList()
 
         },
