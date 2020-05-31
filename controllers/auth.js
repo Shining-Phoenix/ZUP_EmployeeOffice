@@ -22,7 +22,8 @@ module.exports.login = async function(req, res) {
             res.status(200).json({
                 user: {
                     id: candidate.pk,
-                    isAdmin: false},
+                    isAdmin: false,
+                    basePk: candidate.base_pk                },
                 token: `Bearer ${token}`
             })
         } else {

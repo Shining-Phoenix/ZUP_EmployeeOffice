@@ -5,6 +5,7 @@ const pictureRoutes = require('./routes/picture')
 const userRoutes = require('./routes/user')
 const employeesRouter = require('./routes/employee')
 const commonRouter = require('./routes/common')
+const inquiryRequestRouter = require('./routes/inquiryRequest')
 const bodyParser = require('body-parser')
 
 const app = express()
@@ -22,5 +23,6 @@ app.use('/api/picture', pictureRoutes)
 app.use('/api/user', userRoutes)
 app.use('/api/employee', employeesRouter)
 app.use('/api/common', commonRouter)
+app.use('/api/inquiry-request', inquiryRequestRouter)
 
 module.exports = app

@@ -4,17 +4,35 @@ import App from './App.vue'
 import 'materialize-css/dist/js/materialize.min'
 import router from './router'
 import store from './store'
-import dateFilter from '@/filters/date.filter'
+//import dateFilter from '@/filters/date.filter'
 import Loader from '@/components/app/Loader'
 import axios from 'axios'
 import vueNumeralFilterInstaller from 'vue-numeral-filter';
-import vuetify from './plugins/vuetify';
+import VueFilterDateFormat from '@vuejs-community/vue-filter-date-format'
+import vuetify from './plugins/vuetify'
 
 Vue.config.productionTip = false
 
 Vue.use(Vuelidate)
-Vue.use(vueNumeralFilterInstaller, { locale: 'ru' });
-Vue.filter('date', dateFilter)
+Vue.use(vueNumeralFilterInstaller, { locale: 'ru' })
+Vue.use(VueFilterDateFormat, {
+    dayOfWeekNames: [
+        'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday',
+        'Friday', 'Saturday'
+    ],
+    dayOfWeekNamesShort: [
+        'Su', 'Mo', 'Tu', 'We', 'Tr', 'Fr', 'Sa'
+    ],
+    monthNames: [
+        'January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'
+    ],
+    monthNamesShort: [
+        'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+    ]
+})
+//Vue.filter('date', dateFilter)
 Vue.component('Loader', Loader)
 
 store.commit('setToken', localStorage.getItem('auth-token'))

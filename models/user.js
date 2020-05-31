@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs')
 module.exports.findUserByEmail = async (value) => {
 
     try {
-        const sql = `SELECT pk, email, user_password  FROM users WHERE email = $1`;
+        const sql = `SELECT pk, email, user_password, base_pk  FROM users WHERE email = $1`;
         const {rows} = await db.query(sql, [value.email]);
 
         if (rows.length) {

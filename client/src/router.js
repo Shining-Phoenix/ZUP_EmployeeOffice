@@ -33,6 +33,24 @@ const router = new Router({
             component: () => import('./views/DocumentJournal.vue')
         },
         {
+            path: '/inquiry-request/:id',
+            name: 'inquiry-requestl',
+            meta: {layout: 'main', auth: true},
+            component: () => import('./views/InquiryRequest')
+        },
+        {
+            path: '/new-inquiry-request',
+            name: 'new-inquiry-request',
+            meta: {layout: 'main', auth: true},
+            component: () => import('./views/NewInquiryRequest')
+        },
+        {
+            path: '/inquiry-request-list',
+            name: 'inquiry-requestl-list',
+            meta: {layout: 'main', auth: true},
+            component: () => import('./views/InquiryRequestList')
+        },
+        {
             path: '/payment-list',
             name: 'payment_list',
             meta: {layout: 'main', auth: true},

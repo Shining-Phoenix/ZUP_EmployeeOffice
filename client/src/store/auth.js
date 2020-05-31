@@ -70,7 +70,7 @@ export default {
         },
         getUserBasePK({state}) {
             const user = JSON.parse(state.user)
-            return user ? user.base_pk : null
+            return user ? user.basePk : null
         },
         logout({commit}) {
             commit('clearInfo')

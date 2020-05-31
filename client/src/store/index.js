@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import auth from './auth'
 import info from './info'
 import employee from './employee'
+import inquiryRequest from './inquiryRequest'
 
 Vue.use(Vuex)
 
@@ -36,6 +37,7 @@ export default new Vuex.Store({
   modules: {
     auth,
     info,
-    employee
+    employee,
+    inquiryRequest
   }
 })
