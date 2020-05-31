@@ -98,6 +98,21 @@ module.exports.updateInquiryRequestById = async (inquiryRequest) => {
     try {
         await client.query('BEGIN')
 
+        const selectSql = `
+        SELECT 
+                users.base_pk
+            FROM 
+                inquiry_request 
+                    INNER JOIN users on(inquiry_request.user_pk = users.pk)        
+            WHERE    
+                inquiry_request.pk = $1`
+
+        const selectRows = await client.query({
+                rowMode: 'array',
+                text : selectSql}, [inquiryRequest.pk])
+
+        const basePk = selectRows.rows[0][0]
+
         const doc_date = new Date(inquiryRequest.doc_date)
 
         const sql = `
@@ -114,7 +129,7 @@ module.exports.updateInquiryRequestById = async (inquiryRequest) => {
                 pk = $7
             RETURNING 
                 pk`
-        const {rows} = await db.query(sql, [
+        const {rows} = await client.query(sql, [
             doc_date,
             inquiryRequest.status_pk,
             inquiryRequest.type_pk,
@@ -124,7 +139,20 @@ module.exports.updateInquiryRequestById = async (inquiryRequest) => {
             inquiryRequest.pk
         ])
 
+
         const pk = rows[0].pk
+
+        const typeSql = `
+        SELECT
+            id_1c
+        FROM 
+            inquiry_request_type
+        WHERE 
+            pk = $1`
+
+        const resultType = await client.query(typeSql, [inquiryRequest.type_pk])
+        const id_1c = resultType.rows[0].id_1c
+        inquiryRequest.type_id_1c = id_1c
 
         const exchangeSQL = `
         INSERT INTO
@@ -132,18 +160,20 @@ module.exports.updateInquiryRequestById = async (inquiryRequest) => {
             ex_type,
             ex_data,
             event_pk,
-            ex_date
+            ex_date, 
+            base_pk
             )
         VALUES
-            ($1, $2, $3, $4)`
+            ($1, $2, $3, $4, $5)`
 
         inquiryRequest.pk = pk
 
         await client.query(exchangeSQL, [
             'InquiryRequest',
             JSON.stringify(inquiryRequest),
-            1,
-            new Date])
+            2,
+            new Date,
+            basePk])
 
         await client.query('COMMIT')
         client.release()
@@ -165,7 +195,6 @@ module.exports.createInquiryRequest = async (inquiryRequest) => {
         await client.query('BEGIN')
 
         const doc_date = new Date(inquiryRequest.doc_date)
-
 
         const sql = `
         INSERT INTO 
@@ -193,16 +222,29 @@ module.exports.createInquiryRequest = async (inquiryRequest) => {
 
         const pk = rows[0].pk
 
+        const typeSql = `
+        SELECT
+            id_1c
+        FROM 
+            inquiry_request_type
+        WHERE 
+            pk = $1`
+
+        const resultType = await client.query(typeSql, [inquiryRequest.type_pk])
+        const id_1c = resultType.rows[0].id_1c
+        inquiryRequest.type_id_1c = id_1c
+
         const exchangeSQL = `
         INSERT INTO
             exchange(
             ex_type,
             ex_data,
             event_pk,
-            ex_date
+            ex_date,
+            base_pk
             )
         VALUES
-            ($1, $2, $3, $4)`
+            ($1, $2, $3, $4, $5)`
 
         inquiryRequest.pk = pk
 
@@ -210,12 +252,47 @@ module.exports.createInquiryRequest = async (inquiryRequest) => {
             'InquiryRequest',
             JSON.stringify(inquiryRequest),
             1,
-            new Date])
+            new Date,
+            inquiryRequest.base_pk])
 
         await client.query('COMMIT')
         client.release()
 
         return pk
+
+    } catch (e) {
+        console.log(e)
+        await client.query('ROOLBACK')
+        client.release()
+        throw e}
+}
+
+//Выполняется только из 1с
+//Поэтому для обмена не регистрируем
+module.exports.patchInquiryRequest = async (inquiryRequestData) => {
+
+    const client = await db.client()
+
+    try {
+        await client.query('BEGIN')
+
+        for (field of inquiryRequestData.fields){
+            const sql = `
+            UPDATE
+                inquiry_request
+            SET
+                ` + field.name + ` = $1
+            WHERE 
+                pk = $2`
+
+
+            console.log(sql)
+            await client.query(sql, [field.value,
+                                    inquiryRequestData.pk])
+        }
+
+        await client.query('COMMIT')
+        client.release()
 
     } catch (e) {
         console.log(e)

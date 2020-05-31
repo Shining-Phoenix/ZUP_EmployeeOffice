@@ -8,6 +8,7 @@ router.get('/by-user', passport.authenticate('jwt', {session: false}), controlle
 router.get('/by-id', passport.authenticate('jwt', {session: false}), controller.getInquiryRequestById)
 router.put('/by-id', passport.authenticate('jwt', {session: false}), controller.updateInquiryRequestById)
 router.post('/', passport.authenticate('jwt', {session: false}), controller.createInquiryRequest)
+router.patch('/', passport.authenticate('jwt', {session: false}), controller.patchInquiryRequest)
 router.delete('/', passport.authenticate('jwt', {session: false}), controller.deletyInquiryRequest)
 
 router.get('/statuses', passport.authenticate('jwt', {session: false}), controller.getInquiryRequestStatuses)

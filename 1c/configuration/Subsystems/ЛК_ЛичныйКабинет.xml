@@ -21,6 +21,7 @@
 		</Properties>
 		<ChildObjects>
 			<Subsystem>Администрирование</Subsystem>
+			<Subsystem>ЗаявкиНаСправки</Subsystem>
 		</ChildObjects>
 	</Subsystem>
 </MetaDataObject>

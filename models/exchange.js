@@ -1,15 +1,21 @@
 const db = require('../shared/pgdb')
 
-module.exports.getObjects = async () => {
+module.exports.getObjects = async (params) => {
 
     const client = await db.client()
 
     try {
         const sql = `
-            SELECT *
-            FROM exchange
+            SELECT 
+                *
+            FROM 
+                exchange
+            WHERE
+                base_pk = $1 
+                AND confirmed = false
+            
                 `
-        const {rows} = await client.query(sql)
+        const {rows} = await client.query(sql, [+params.base_pk])
 
         for (exObject of rows){
             if (exObject.ex_type === 'InquiryRequest'){
@@ -28,7 +34,7 @@ module.exports.getObjects = async () => {
 
         await client.query('COMMIT')
         client.release()
-        return rows
+        return {data: rows}
     } catch (e) {
         console.log(e)
         await client.query('ROOLBACK')
@@ -43,15 +49,19 @@ module.exports.confirmObjects = async (arrayOfObjects) => {
     try {
         await client.query('BEGIN')
 
+        console.log(arrayOfObjects)
+
         for (exObject of arrayOfObjects) {
 
             const sql = `
-                DELETE 
-                FROM 
-                    exchange
+                UPDATE
+                    exchange 
+                SET
+                    confirmed = true                    
                 WHERE
                     pk = $1`
-            const {rows} = await db.query(sql, [exObject.pk])
+
+            await db.query(sql, [exObject.pk])
 
             await client.query('COMMIT')
             client.release()

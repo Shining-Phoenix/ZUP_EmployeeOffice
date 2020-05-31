@@ -70,10 +70,15 @@
 			<CommonModule>ЛК_ОбработкаСобытийСервер</CommonModule>
 			<CommonModule>ЛК_ОбменДаннымиПовтИсп</CommonModule>
 			<CommonModule>ЛК_ЛогированиеСервер</CommonModule>
+			<CommonModule>ЛК_ОбщегоНазначенияВызовСервера</CommonModule>
 			<Catalog>ПодразделенияОрганизаций</Catalog>
 			<Catalog>Должности</Catalog>
 			<Catalog>Организации</Catalog>
 			<Catalog>ФизическиеЛица</Catalog>
+			<Catalog>ЛК_СтатусыЗаявокНаСправки</Catalog>
+			<Catalog>ЛК_ТипыСправок</Catalog>
+			<Catalog>Пользователи</Catalog>
+			<Document>ЛК_ЗаявкиНаСправки</Document>
 			<Enum>ЛК_ВидыСобытийСОбъектамиЛК</Enum>
 			<Enum>ЛК_СтатусОбменаСЛК</Enum>
 			<DataProcessor>ЛК_Администрирование</DataProcessor>
@@ -83,6 +88,7 @@
 			<InformationRegister>ЛК_ОчередьОбменаСЛКПроизвольнымиДанными</InformationRegister>
 			<InformationRegister>ФотографииФизическихЛиц</InformationRegister>
 			<InformationRegister>КадроваяИсторияСотрудников</InformationRegister>
+			<InformationRegister>ЛК_СоответствиеОбъектовДляОбмена</InformationRegister>
 			<AccumulationRegister>НачисленияУдержанияПоСотрудникам</AccumulationRegister>
 		</ChildObjects>
 	</Configuration>

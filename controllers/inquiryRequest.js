@@ -70,3 +70,13 @@ module.exports.deletyInquiryRequest = async function(req, res) {
     //     throw e
     // }
 }
+
+module.exports.patchInquiryRequest = async function(req, res) {
+    try {
+        const userData = await inquiryRequest.patchInquiryRequest(req.body)
+        res.status(200).json(userData)
+    } catch (e) {
+        errorHandler(res, e)
+        throw e
+    }
+}

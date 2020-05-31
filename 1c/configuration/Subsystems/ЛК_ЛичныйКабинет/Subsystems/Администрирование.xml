@@ -20,6 +20,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">DataProcessor.ЛК_Администрирование</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ЛК_ОчередьОбменаСЛКСсылочнымиДанными</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ЛК_ОчередьОбменаСЛКПроизвольнымиДанными</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.ЛК_СоответствиеОбъектовДляОбмена</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

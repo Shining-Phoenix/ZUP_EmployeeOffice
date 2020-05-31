@@ -200,6 +200,8 @@
 					<Comment/>
 					<Type>
 						<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+						<v8:Type>cfg:CatalogRef.ЛК_ТипыСправок</v8:Type>
+						<v8:Type>cfg:DocumentRef.ЛК_ЗаявкиНаСправки</v8:Type>
 						<v8:Type>cfg:CatalogRef.Должности</v8:Type>
 						<v8:Type>cfg:CatalogRef.ПодразделенияОрганизаций</v8:Type>
 					</Type>

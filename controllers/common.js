@@ -47,3 +47,12 @@ module.exports.deleteEmployeePosition = async function(req, res) {
         errorHandler(res, e)
     }
 }
+
+module.exports.createInquiryRequestType = async function(req, res) {
+    try {
+        const userData = await common.createInquiryRequestType(req.body)
+        res.status(200).json(userData)
+    } catch (e) {
+        errorHandler(res, e)
+    }
+}

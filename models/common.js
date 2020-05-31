@@ -89,3 +89,25 @@ module.exports.deleteEmployeePosition = async (employeePosition) => {
     return {pk: employeePosition.pk}
 
 }
+
+module.exports.createInquiryRequestType = async (inquiryRequestType) => {
+
+    const sql = `
+        INSERT INTO  
+          inquiry_request_type (
+            type_name,
+            id_1c,
+            deleted,
+            base_pk         
+          ) 
+        VALUES($1, $2, $3, $4)
+        RETURNING pk`;
+    const {rows} = await db.query(sql,
+        [inquiryRequestType.type_name,
+            inquiryRequestType.id_1c,
+            inquiryRequestType.deleted,
+            inquiryRequestType.base_pk]);
+
+    return rows[0]
+
+}

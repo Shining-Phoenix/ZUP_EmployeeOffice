@@ -51,7 +51,6 @@
                             <v-icon
                                     small
                                     @click="editItem(item)"
-                                    :disabled="item.disabled_on_web"
                             >
                                 mdi-pencil
                             </v-icon>

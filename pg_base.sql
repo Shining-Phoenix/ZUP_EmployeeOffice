@@ -3,29 +3,16 @@
 --Host     : localhost
 --Database : ZUP_EmployeeOffice
 
--- Definition for sequence users_pk_seq (OID = 16653):
-CREATE SEQUENCE users_pk_seq
-    START WITH 1
-    INCREMENT BY 1
-    MAXVALUE 2147483647
-    NO MINVALUE
-    CACHE 1;
--- Definition for sequence user_groups_pk_seq (OID = 16668):
-CREATE SEQUENCE user_groups_pk_seq
-    START WITH 1
-    INCREMENT BY 1
-    MAXVALUE 2147483647
-    NO MINVALUE
-    CACHE 1;
+
 -- Structure for table users (OID = 16589):
---SET SESSION AUTHORIZATION 'postgres';
+SET SESSION AUTHORIZATION 'postgres';
 SET search_path = public, pg_catalog;
 CREATE TABLE users (
     surname varchar(50),
     user_name varchar(50),
     patronymic varchar(50),
     id_1c varchar(36),
-    pk integer DEFAULT nextval('users_pk_seq'::regclass) NOT NULL,
+    pk integer DEFAULT nextval('public.users_pk_seq'::regclass) NOT NULL,
     email varchar(100) NOT NULL,
     user_password varchar(100),
     image_src varchar(200),
@@ -41,6 +28,20 @@ CREATE TABLE users_groups (
     group_pk integer NOT NULL,
     user_pk integer NOT NULL
 ) WITHOUT OIDS;
+-- Definition for sequence users_pk_seq (OID = 16653):
+CREATE SEQUENCE users_pk_seq
+    START WITH 1
+    INCREMENT BY 1
+    MAXVALUE 2147483647
+    NO MINVALUE
+    CACHE 1;
+-- Definition for sequence user_groups_pk_seq (OID = 16668):
+CREATE SEQUENCE user_groups_pk_seq
+    START WITH 1
+    INCREMENT BY 1
+    MAXVALUE 2147483647
+    NO MINVALUE
+    CACHE 1;
 -- Structure for table employee_position (OID = 24764):
 CREATE TABLE employee_position (
     position_name varchar(200),
@@ -116,6 +117,90 @@ CREATE TABLE payment_list (
     payment_group varchar(100) NOT NULL,
     payment_group_id integer
 ) WITHOUT OIDS;
+-- Definition for sequence inquiryRequestStatus_pk_seq (OID = 90309):
+CREATE SEQUENCE "inquiryRequestStatus_pk_seq"
+    START WITH 1
+    INCREMENT BY 1
+    MAXVALUE 2147483647
+    NO MINVALUE
+    CACHE 1;
+-- Structure for table inquiry_request_status (OID = 90311):
+CREATE TABLE inquiry_request_status (
+    pk integer DEFAULT nextval('"inquiryRequestStatus_pk_seq"'::regclass) NOT NULL,
+    status varchar(30),
+    disabled_on_web boolean DEFAULT false NOT NULL
+) WITHOUT OIDS;
+-- Definition for sequence inquiry_request_type_pk_seq (OID = 90326):
+CREATE SEQUENCE inquiry_request_type_pk_seq
+    START WITH 1
+    INCREMENT BY 1
+    MAXVALUE 2147483647
+    NO MINVALUE
+    CACHE 1;
+-- Structure for table inquiry_request_type (OID = 90328):
+CREATE TABLE inquiry_request_type (
+    pk integer DEFAULT nextval('inquiry_request_type_pk_seq'::regclass) NOT NULL,
+    type_name varchar(30) NOT NULL,
+    id_1c varchar(36) NOT NULL,
+    base_pk integer DEFAULT 0 NOT NULL,
+    deleted boolean NOT NULL
+) WITHOUT OIDS;
+-- Definition for sequence inquiry_request_pk_seq (OID = 90338):
+CREATE SEQUENCE inquiry_request_pk_seq
+    START WITH 1
+    INCREMENT BY 1
+    MAXVALUE 2147483647
+    NO MINVALUE
+    CACHE 1;
+-- Structure for table inquiry_request (OID = 90340):
+CREATE TABLE inquiry_request (
+    pk integer DEFAULT nextval('inquiry_request_pk_seq'::regclass) NOT NULL,
+    doc_date timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    user_pk integer NOT NULL,
+    status_pk integer NOT NULL,
+    type_pk integer NOT NULL,
+    doc_number varchar(20),
+    description varchar(1000),
+    deleted boolean DEFAULT false NOT NULL
+) WITHOUT OIDS;
+-- Definition for sequence exchange_pk_seq (OID = 98504):
+CREATE SEQUENCE exchange_pk_seq
+    START WITH 1
+    INCREMENT BY 1
+    MAXVALUE 2147483647
+    NO MINVALUE
+    CACHE 1;
+-- Structure for table exchange (OID = 98506):
+CREATE TABLE exchange (
+    pk integer DEFAULT nextval('exchange_pk_seq'::regclass) NOT NULL,
+    ex_type varchar(50) NOT NULL,
+    ex_data varchar NOT NULL,
+    event_pk integer NOT NULL,
+    ex_date timestamp without time zone NOT NULL,
+    base_pk integer NOT NULL,
+    confirmed boolean DEFAULT false NOT NULL
+) WITHOUT OIDS;
+-- Definition for sequence exchange_event_pk_seq (OID = 98515):
+CREATE SEQUENCE exchange_event_pk_seq
+    START WITH 1
+    INCREMENT BY 1
+    MAXVALUE 2147483647
+    NO MINVALUE
+    CACHE 1;
+-- Structure for table exchange_event (OID = 98517):
+CREATE TABLE exchange_event (
+    pk integer DEFAULT nextval('exchange_event_pk_seq'::regclass) NOT NULL,
+    event_name varchar(30) NOT NULL
+) WITHOUT OIDS;
+--
+-- Data for blobs (OID = 90311) (LIMIT 0,5)
+--
+INSERT INTO inquiry_request_status (pk, status, disabled_on_web) VALUES (3, 'В работе', true);
+INSERT INTO inquiry_request_status (pk, status, disabled_on_web) VALUES (4, 'Отменена', true);
+INSERT INTO inquiry_request_status (pk, status, disabled_on_web) VALUES (2, 'Отправлена  в 1С', true);
+INSERT INTO inquiry_request_status (pk, status, disabled_on_web) VALUES (5, 'Выполнена', true);
+INSERT INTO inquiry_request_status (pk, status, disabled_on_web) VALUES (1, 'Новая', false);
+COMMIT;
 -- Definition for index users_email_uniq (OID = 16695):
 CREATE UNIQUE INDEX users_email_uniq ON public.users USING btree (email);
 -- Definition for index users_id_1c_uniq (OID = 16697):
@@ -153,4 +238,23 @@ ALTER TABLE ONLY workplace
 -- Definition for index pk_payment_list (OID = 65737):
 ALTER TABLE ONLY payment_list
     ADD CONSTRAINT pk_payment_list PRIMARY KEY (base_pk, employee_pk, payment_month, payment_position, payment_group);
+-- Definition for index inquiryRequestStatus_pkey (OID = 90315):
+ALTER TABLE ONLY inquiry_request_status
+    ADD CONSTRAINT "inquiryRequestStatus_pkey" PRIMARY KEY (pk);
+-- Definition for index inquiry_request_type_pkey (OID = 90332):
+ALTER TABLE ONLY inquiry_request_type
+    ADD CONSTRAINT inquiry_request_type_pkey PRIMARY KEY (pk);
+-- Definition for index inquiryRequest_pkey (OID = 90345):
+ALTER TABLE ONLY inquiry_request
+    ADD CONSTRAINT "inquiryRequest_pkey" PRIMARY KEY (pk);
+-- Definition for index exchange_pkey (OID = 98513):
+ALTER TABLE ONLY exchange
+    ADD CONSTRAINT exchange_pkey PRIMARY KEY (pk);
+-- Definition for index exchange_event_pkey (OID = 98521):
+ALTER TABLE ONLY exchange_event
+    ADD CONSTRAINT exchange_event_pkey PRIMARY KEY (pk);
+-- Definition for index Foreign_key_exchange__exchange_event (OID = 98523):
+ALTER TABLE ONLY exchange
+    ADD CONSTRAINT "Foreign_key_exchange__exchange_event" FOREIGN KEY (event_pk) REFERENCES exchange_event(pk) ON UPDATE CASCADE ON DELETE RESTRICT;
+SET search_path = pg_catalog, pg_catalog;
 COMMENT ON SCHEMA public IS 'standard public schema';

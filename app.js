@@ -6,6 +6,7 @@ const userRoutes = require('./routes/user')
 const employeesRouter = require('./routes/employee')
 const commonRouter = require('./routes/common')
 const inquiryRequestRouter = require('./routes/inquiryRequest')
+const exchangeRouter = require('./routes/exchange')
 const bodyParser = require('body-parser')
 
 const app = express()
@@ -24,5 +25,6 @@ app.use('/api/user', userRoutes)
 app.use('/api/employee', employeesRouter)
 app.use('/api/common', commonRouter)
 app.use('/api/inquiry-request', inquiryRequestRouter)
+app.use('/api/exchange', exchangeRouter)
 
 module.exports = app

@@ -9,5 +9,6 @@ router.post('/employee-position', passport.authenticate('jwt', {session: false})
 router.put('/employee-position', passport.authenticate('jwt', {session: false}), controller.updateEmployeePosition)
 router.delete('/employee-position', passport.authenticate('jwt', {session: false}), controller.deleteEmployeePosition)
 
+router.post('/inquiry-request-type', passport.authenticate('jwt', {session: false}), controller.createInquiryRequestType)
 
 module.exports = router

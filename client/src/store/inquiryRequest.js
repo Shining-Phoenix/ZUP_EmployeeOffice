@@ -25,8 +25,10 @@ export default{
         async createInquiryRequest({dispatch, commit}, inquiryRequest) {
             try {
                 const Uid = await dispatch('getUid')
+                const basePk = await dispatch('getUserBasePK')
                 const data = {...inquiryRequest}
                 data.user_pk = Uid
+                data.base_pk = basePk;
                 const pk = await axios.post('/api/inquiry-request/',  data)
                 inquiryRequest.pk = pk
                 commit('createInquiryRequest', inquiryRequest)

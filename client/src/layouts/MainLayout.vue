@@ -16,7 +16,6 @@
                   :key="link.url"
                   :to="link.url"
                   link
-                  @click.native.prevent="click"
           >
             <v-list-item-content>
               <v-list-item-title>{{ link.title }}</v-list-item-title>
@@ -97,7 +96,10 @@
         if (fbError) {
           this.message = messages[fbError] || fbError || 'Что-то пошло не так'
           this.showTooltip = true
-          setInterval(()=>this.showTooltip = false, 5000)
+          setInterval(()=> {
+            this.showTooltip = false
+            this.$store.commit('clearError')
+          }, 5000)
         }
       }
     }

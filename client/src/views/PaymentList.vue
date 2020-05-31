@@ -18,7 +18,6 @@
                         <v-text-field
                                 v-model="date"
                                 label="Выберите месяц"
-                                prepend-icon="event"
                                 readonly
                                 v-on="on"
                         ></v-text-field>
