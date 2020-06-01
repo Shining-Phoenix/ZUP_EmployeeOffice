@@ -4,6 +4,17 @@
 	<setForAttributesByDefault>true</setForAttributesByDefault>
 	<independentRightsOfChildObjects>false</independentRightsOfChildObjects>
 	<object>
+		<name>InformationRegister.ЛК_СоответствиеОбъектовДляОбмена</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>Update</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>InformationRegister.ЛК_ОчередьОбменаСЛКСсылочнымиДанными</name>
 		<right>
 			<name>Read</name>

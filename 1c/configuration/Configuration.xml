@@ -64,6 +64,7 @@
 			<CommonPicture>КадровыйУчет48</CommonPicture>
 			<Role>ЛК_Пользователь</Role>
 			<Role>ЛК_Администратор</Role>
+			<Role>ЛК_ИзменениеЗаявокНаСправки</Role>
 			<CommonModule>ЛК_ОбменДаннымиСервер</CommonModule>
 			<CommonModule>ЛК_РаботаСФункциямиКлиентСервер</CommonModule>
 			<CommonModule>ЛК_РаботаСJSONСервер</CommonModule>
