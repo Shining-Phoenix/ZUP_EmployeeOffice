@@ -4,6 +4,9 @@
 	<UsePostingMode>Auto</UsePostingMode>
 	<RepostOnWrite>true</RepostOnWrite>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
 	<ChildItems>
 		<UsualGroup name="ОбязательныеРеквизиты" id="22">
 			<Title>
@@ -83,6 +86,7 @@
 				<InputField name="Статус" id="10">
 					<DataPath>Объект.Статус</DataPath>
 					<EditMode>EnterOnInput</EditMode>
+					<ListChoiceMode>true</ListChoiceMode>
 					<ContextMenu name="СтатусКонтекстноеМеню" id="11"/>
 					<ExtendedTooltip name="СтатусРасширеннаяПодсказка" id="12"/>
 				</InputField>
@@ -97,6 +101,7 @@
 		</UsualGroup>
 		<InputField name="ФизическоеЛицо" id="52">
 			<DataPath>Объект.ФизическоеЛицо</DataPath>
+			<ReadOnly>true</ReadOnly>
 			<Width>30</Width>
 			<ContextMenu name="ФизическоеЛицоКонтекстноеМеню" id="53"/>
 			<ExtendedTooltip name="ФизическоеЛицоРасширеннаяПодсказка" id="54"/>
