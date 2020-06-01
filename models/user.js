@@ -20,7 +20,7 @@ module.exports.findUserByEmail = async (value) => {
 module.exports.findUserById = async (value) => {
 
     try {
-        const sql = `SELECT pk, email FROM users WHERE pk = $1`;
+        const sql = `SELECT pk, email, user_password, base_pk  FROM users WHERE pk = $1`;
         const {rows} = await db.query(sql, [value]);
 
         if (rows.length) {

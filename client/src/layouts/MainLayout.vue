@@ -47,12 +47,21 @@
       <v-content
               class="fill-height">
         <router-view/>
-        <v-tooltip
+        <v-snackbar
                 v-model="showTooltip"
+                top
                 right
-                close-delay="10">
-          <span> {{ message }} </span>
-        </v-tooltip>
+                timeout="5000"
+        >
+          {{ message }}
+          <v-btn
+                  color="grey"
+                  text
+                  @click="showTooltip = false"
+          >
+            Закрыть
+          </v-btn>
+        </v-snackbar>
       </v-content>
     </v-app>
   </div>
@@ -94,12 +103,9 @@
     watch: {
       error(fbError) {
         if (fbError) {
+          this.showTooltip = false
           this.message = messages[fbError] || fbError || 'Что-то пошло не так'
           this.showTooltip = true
-          setInterval(()=> {
-            this.showTooltip = false
-            this.$store.commit('clearError')
-          }, 5000)
         }
       }
     }

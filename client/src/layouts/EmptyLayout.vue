@@ -2,11 +2,21 @@
     <v-app id="inspire">
         <v-content class="darkBackground">
             <router-view/>
-            <v-tooltip
+            <v-snackbar
                     v-model="showTooltip"
-                    close-delay="10">
-                <span> {{ message }} </span>
-            </v-tooltip>
+                    top
+                    right
+                    timeout="5000"
+            >
+                {{ message }}
+                <v-btn
+                        color="grey"
+                        text
+                        @click="showTooltip = false"
+                >
+                    Закрыть
+                </v-btn>
+            </v-snackbar>
         </v-content>
     </v-app>
 </template>
@@ -28,9 +38,9 @@
         watch: {
             error(fbError) {
                 if (fbError) {
+                    this.showTooltip = false
                     this.message = messages[fbError] || fbError || 'Что-то пошло не так'
                     this.showTooltip = true
-                    setInterval(()=>this.showTooltip = false, 5000)
                 }
             }
         }
