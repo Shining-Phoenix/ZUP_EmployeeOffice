@@ -1,13 +1,61 @@
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const User = require('../models/user')
 const keys = require('../config/keys')
 const errorHandler = require('../utils/errorHandler')
+const db = require('../shared/pgdb')
 
+saveUser = async (user) => {
+
+    const fields = Object.keys(user)
+    const strFields = '(' + fields.join(', ') + ')'
+    const values = Object.values(user)
+    let strValues = ''
+
+    fields.forEach((item, i) => strValues += '$' + (i + 1) + ', ')
+    console.log(strFields)
+    strValues = strValues.substr(0, strValues.length - 2)
+
+    const sql = `INSERT INTO users` + strFields + ` VALUES(` + strValues + `) RETURNING pk`;
+
+    const {rows} = await db.query(sql, values);
+    console.log(rows)
+
+    return {
+        email: user.email,
+        password: user.user_password,
+        pk: rows[0].pk
+    }
+}
+
+findUserByEmail = async (value) => {
+
+    const sql = `SELECT pk, email, user_password, base_pk  FROM users WHERE email = $1`;
+    const {rows} = await db.query(sql, [value.email]);
+
+    if (rows.length) {
+        return rows[0]
+    }
+
+    return null
+
+}
+
+getFirstUser = async (value) => {
+
+    const sql = `SELECT *  FROM users LIMIT 1`;
+    const {rows} = await db.query(sql);
+
+    if (rows.length) {
+        return rows[0]
+    }
+
+    return null
+
+}
 
 module.exports.login = async function(req, res) {
 
-    const candidate = await User.findUserByEmail({email: req.body.email})
+    const candidate = await findUserByEmail({email: req.body.email})
 
     if (candidate) {
         // Проверка пароля, пользователь существует
@@ -42,7 +90,7 @@ module.exports.login = async function(req, res) {
 
 module.exports.register = async function(req, res) {
 
-    const firstUser = await User.getFirstUser()
+    const firstUser = await getFirstUser()
     if (firstUser) {
         res.status(409).json({
             message: 'Пользователи уже существуют! Регистрация не возможна.',
@@ -51,7 +99,7 @@ module.exports.register = async function(req, res) {
         return
     }
 
-    const candidate = await User.findUserByEmail({email: req.body.email})
+    const candidate = await findUserByEmail({email: req.body.email})
 
     if (candidate) {
         res.status(409).json({
@@ -71,7 +119,7 @@ module.exports.register = async function(req, res) {
         }
 
         try {
-            const resp = await User.save(user);
+            const resp = await saveUser(user);
             res.status(200).json({
                 email: user.email,
                 password: user.user_password,
@@ -79,6 +127,7 @@ module.exports.register = async function(req, res) {
                 })
         } catch(e) {
             errorHandler(res, e)
+            throw e
         }
 
     }

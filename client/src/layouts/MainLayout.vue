@@ -51,7 +51,6 @@
                 v-model="showTooltip"
                 top
                 right
-                timeout="5000"
         >
           {{ message }}
           <v-btn

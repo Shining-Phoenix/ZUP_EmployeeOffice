@@ -6,8 +6,7 @@
         <v-container
                 class="fill-height"
                 fluid
-                v-else>
-
+                v-else-if="employeeData">
             <v-row>
                 <v-col cols="5">
                     <v-img
@@ -25,6 +24,11 @@
                 </v-col>
             </v-row>
         </v-container>
+        <v-container v-else>
+            <h3>
+                Ошибка получения данных
+            </h3>
+        </v-container>
     </div>
 </template>
 
@@ -38,7 +42,6 @@
         async mounted() {
             this.employeeData = await this.$store.dispatch('fetchEmployeeData')
             this.loading = false
-
         }
     }
 </script>
