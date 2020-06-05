@@ -6,7 +6,7 @@
             <h3>Расчетные листки</h3>
         </div>
         <v-row>
-            <v-col cols="2">
+            <v-col cols="2" class="pb-0">
                 <v-menu
                         ref="menu"
                         v-model="menu"
@@ -23,6 +23,7 @@
                                 label="Выберите месяц"
                                 readonly
                                 v-on="on"
+                                hide-details
                         ></v-text-field>
                     </template>
                     <v-date-picker
@@ -45,7 +46,7 @@
             <v-col cols="6">
                 <div v-for = "(groupItem) in paiments"
                      :key="groupItem.group">
-                        <h4 primary>{{ groupItem.group }}</h4>
+                        <h4 primary class="ml-2">{{ groupItem.group }}</h4>
                         <v-simple-table>
                             <tbody>
                             <tr v-for = "item in groupItem.items"
