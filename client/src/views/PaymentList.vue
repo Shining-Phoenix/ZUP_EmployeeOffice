@@ -35,16 +35,9 @@
                     >
                         <v-spacer></v-spacer>
                         <v-btn text color="normal" @click="menu = false">Отмена</v-btn>
-                        <v-btn text color="normal" @click="$refs.menu.save(date)">OK</v-btn>
+                        <v-btn text color="normal" @click="$refs.menu.save(date); getPaymentList()">OK</v-btn>
                     </v-date-picker>
                 </v-menu>
-            </v-col>
-            <v-col cols="3">
-                <v-btn
-                        large
-                        @click="getPaymentList"
-                        :disabled = "loading"
-                >Сформировать</v-btn>
             </v-col>
         </v-row>
         <Loader v-if="loading"/>
