@@ -56,6 +56,12 @@ const router = new Router({
             meta: {layout: 'main', auth: true},
             component: () => import('./views/PaymentList.vue')
         },
+        {
+            path: '/work-schedule-data',
+            name: 'work-schedule-data',
+            meta: {layout: 'main', auth: true},
+            component: () => import('./views/WorkScheduleData.vue')
+        },
     ]
 })
 

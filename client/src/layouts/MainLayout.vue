@@ -79,7 +79,8 @@
       links: [
         {title: 'Личные данные', url: '/', exact: true},
         {title: 'Расчетные листки', url: '/payment-list'},
-        {title: 'Заявки на справки', url: '/inquiry-request-list'}
+        {title: 'Заявки на справки', url: '/inquiry-request-list'},
+        {title: 'Графики работы', url: '/work-schedule-data'}
       ],
     }),
     methods: {

@@ -8,8 +8,18 @@ const commonRouter = require('./routes/common')
 const inquiryRequestRouter = require('./routes/inquiryRequest')
 const exchangeRouter = require('./routes/exchange')
 const bodyParser = require('body-parser')
+const morgan = require('morgan')
 
 const app = express()
+
+if(app.get("env")=="production") {
+
+    var accessLogStream = fs.createWriteStream(__dirname + '/logs/' + "access.log", {flags: 'a'});
+    app.use(morgan({stream: accessLogStream}));
+}
+else {
+    app.use(morgan("dev"));
+}
 
 app.use(passport.initialize())
 require('./middleware/passport')(passport)

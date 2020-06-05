@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.9">
+	<InformationRegister uuid="6cf85cc2-3baa-43a6-96e1-071d031f5b0d">
+		<InternalInfo>
+			<xr:GeneratedType name="InformationRegisterRecord.ГрафикиРаботыПоВидамВремени" category="Record">
+				<xr:TypeId>ed2ba56c-c8aa-4b39-b4cb-22dd38e4c0ef</xr:TypeId>
+				<xr:ValueId>fa7e43d4-7fd4-4ee1-8c0b-c62ea1f607ae</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="InformationRegisterManager.ГрафикиРаботыПоВидамВремени" category="Manager">
+				<xr:TypeId>5e95cee4-b604-4b98-abce-6e71e7d9f06e</xr:TypeId>
+				<xr:ValueId>c9dd2e45-9238-4f7e-abf1-8f984b3d7356</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="InformationRegisterSelection.ГрафикиРаботыПоВидамВремени" category="Selection">
+				<xr:TypeId>d27f39b8-8fae-46ca-bf74-a8bfa762d037</xr:TypeId>
+				<xr:ValueId>92a03e09-4aad-4453-b4e7-43300c00b488</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="InformationRegisterList.ГрафикиРаботыПоВидамВремени" category="List">
+				<xr:TypeId>3198b678-f3e8-4714-a0ba-83d995f9bd20</xr:TypeId>
+				<xr:ValueId>7de1718b-a629-4d97-9f94-b0ee4c297d4f</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="InformationRegisterRecordSet.ГрафикиРаботыПоВидамВремени" category="RecordSet">
+				<xr:TypeId>50c5ed98-2a62-4a95-8ae5-688f04df23c8</xr:TypeId>
+				<xr:ValueId>a40a0cb8-67ec-4a2f-a8f1-a966dfa9f752</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="InformationRegisterRecordKey.ГрафикиРаботыПоВидамВремени" category="RecordKey">
+				<xr:TypeId>dafd7761-88a3-4bf0-8a1a-ad28661f0cb4</xr:TypeId>
+				<xr:ValueId>b0093776-fd6e-4e6b-8231-bf2e35a1f91d</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="InformationRegisterRecordManager.ГрафикиРаботыПоВидамВремени" category="RecordManager">
+				<xr:TypeId>4295cae1-b226-4a10-8546-0d2cd214758f</xr:TypeId>
+				<xr:ValueId>b79f247e-4dc7-41d5-af2d-18aeb6784dec</xr:ValueId>
+			</xr:GeneratedType>
+		</InternalInfo>
+		<Properties>
+			<Name>ГрафикиРаботыПоВидамВремени</Name>
+			<Comment/>
+			<ObjectBelonging>Adopted</ObjectBelonging>
+			<ExtendedConfigurationObject>4bff9338-e555-488e-b8a7-8bf9084e046d</ExtendedConfigurationObject>
+			<InformationRegisterPeriodicity>Nonperiodical</InformationRegisterPeriodicity>
+			<WriteMode>Independent</WriteMode>
+		</Properties>
+		<ChildObjects/>
+	</InformationRegister>
+</MetaDataObject>
