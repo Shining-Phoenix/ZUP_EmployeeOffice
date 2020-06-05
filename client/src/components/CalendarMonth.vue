@@ -48,7 +48,6 @@
                     } else {
                         for (let i = 0; i < 6; i++) calendar += '<td> </td>'
                     }
-                    console.log(this.days)
 
                     for (let i = 1; i <= Dlast; i++) {
 

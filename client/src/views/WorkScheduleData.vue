@@ -7,14 +7,15 @@
                 <h3>Графики работы </h3>
             </div>
             <v-row>
-                <v-col cols="2">
+                <v-col cols="2" class="pb-0">
                     <v-select
                             :items="years"
                             label="Выберете год"
                             ref="yearSelect"
                             v-model="year"
                             @change="changeYear"
-                            class="mb-0"
+                            class="mb-0 pb-0"
+                            hide-details
                     ></v-select>
                 </v-col>
             </v-row>
@@ -23,22 +24,22 @@
             <Loader/>
         </v-container>
         <v-container
-                class="fill-height mb-5"
+                class="fill-height mb-5 pt-0"
                 fluid
                 v-else-if="employeeData"
                 v-for="emploee of employeeData"
                 :key="emploee.employee"
-        >
-            <calendar-month
-                    v-for="monthData of emploee.months"
-                    :key="monthData.month"
+            >
+                <calendar-month
+                        v-for="monthData of emploee.months"
+                        :key="monthData.month"
 
-                    :year="year"
-                    :month="monthData.month"
-                    :days="monthData.days"
-                    class="mb-5"
-                    >
-            </calendar-month>
+                        :year="year"
+                        :month="monthData.month"
+                        :days="monthData.days"
+                        class="mb-5 flex-30 mr-10"
+                        >
+                </calendar-month>
         </v-container>
         <v-container v-else>
             <h3>
@@ -81,3 +82,10 @@
         }
     }
 </script>
+
+<style>
+    .flex-30{
+        flex: 20%;
+        min-height: 157px;
+    }
+</style>
