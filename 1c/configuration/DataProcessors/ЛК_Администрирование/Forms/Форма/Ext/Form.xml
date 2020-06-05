@@ -86,6 +86,12 @@
 							<CommandName>Form.Command.СоздатьКадровуюИсторию</CommandName>
 							<ExtendedTooltip name="СоздатьКадровуюИсториюРасширеннаяПодсказка" id="27"/>
 						</Button>
+						<Button name="СоздатьИсториюИзмененияГрафиков" id="36">
+							<Type>UsualButton</Type>
+							<Width>30</Width>
+							<CommandName>Form.Command.СоздатьИсториюИзмененияГрафиков</CommandName>
+							<ExtendedTooltip name="СоздатьИсториюИзмененияГрафиковРасширеннаяПодсказка" id="37"/>
+						</Button>
 						<Button name="СоздатьРасчетныеЛистки" id="34">
 							<Type>UsualButton</Type>
 							<Width>30</Width>
@@ -300,6 +306,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>СоздатьРасчетныеЛистки</Action>
+		</Command>
+		<Command name="СоздатьИсториюИзмененияГрафиков" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать историю изменения графиков</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать историю изменения графиков</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьИсториюИзмененияГрафиков</Action>
 		</Command>
 	</Commands>
 </Form>

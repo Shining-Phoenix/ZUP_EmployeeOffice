@@ -28,6 +28,23 @@ export default {
                 commit('setError', eDescription)
                 throw eDescription
             }
+        },
+        async fetchEmployeeWorkScheduleData({dispatch, commit}, year) {
+            try {
+                const Uid = await dispatch('getUid')
+                const base_pk = await dispatch('getUserBasePK')
+                const resp = await axios.get('/api/employee/employee-work-schedules-data-for-period', {params:
+                        {pk: Uid,
+                         base_pk,
+                         year}
+                })
+                return resp.data
+            } catch (e) {
+                console.log(e)
+                const eDescription = 'Ошибка запроса данных графика работы!'
+                commit('setError', eDescription)
+                throw eDescription
+            }
         }
     }
 }

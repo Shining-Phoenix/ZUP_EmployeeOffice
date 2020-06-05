@@ -79,6 +79,8 @@
 			<Catalog>ЛК_СтатусыЗаявокНаСправки</Catalog>
 			<Catalog>ЛК_ТипыСправок</Catalog>
 			<Catalog>Пользователи</Catalog>
+			<Catalog>ВидыИспользованияРабочегоВремени</Catalog>
+			<Catalog>ГрафикиРаботыСотрудников</Catalog>
 			<Document>ЛК_ЗаявкиНаСправки</Document>
 			<Enum>ЛК_ВидыСобытийСОбъектамиЛК</Enum>
 			<Enum>ЛК_СтатусОбменаСЛК</Enum>
@@ -90,7 +92,10 @@
 			<InformationRegister>ФотографииФизическихЛиц</InformationRegister>
 			<InformationRegister>КадроваяИсторияСотрудников</InformationRegister>
 			<InformationRegister>ЛК_СоответствиеОбъектовДляОбмена</InformationRegister>
+			<InformationRegister>ГрафикРаботыСотрудников</InformationRegister>
+			<InformationRegister>ГрафикиРаботыПоВидамВремени</InformationRegister>
 			<AccumulationRegister>НачисленияУдержанияПоСотрудникам</AccumulationRegister>
+			<AccumulationRegister>ДанныеИндивидуальныхГрафиковСотрудников</AccumulationRegister>
 		</ChildObjects>
 	</Configuration>
 </MetaDataObject>

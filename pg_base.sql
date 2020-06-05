@@ -1,9 +1,3 @@
---PostgreSQL Maestro 19.10.0.4
-------------------------------------------
---Host     : localhost
---Database : ZUP_EmployeeOffice
-
-
 -- Structure for table users (OID = 16589):
 SET SESSION AUTHORIZATION 'postgres';
 SET search_path = public, pg_catalog;
@@ -12,7 +6,7 @@ CREATE TABLE users (
     user_name varchar(50),
     patronymic varchar(50),
     id_1c varchar(36),
-    pk integer DEFAULT nextval('public.users_pk_seq'::regclass) NOT NULL,
+    pk integer DEFAULT nextval('users_pk_seq'::regclass) NOT NULL,
     email varchar(100) NOT NULL,
     user_password varchar(100),
     image_src varchar(200),
@@ -192,6 +186,70 @@ CREATE TABLE exchange_event (
     pk integer DEFAULT nextval('exchange_event_pk_seq'::regclass) NOT NULL,
     event_name varchar(30) NOT NULL
 ) WITHOUT OIDS;
+-- Definition for sequence work_schedule_pk_seq (OID = 114882):
+CREATE SEQUENCE work_schedule_pk_seq
+    START WITH 1
+    INCREMENT BY 1
+    MAXVALUE 2147483647
+    NO MINVALUE
+    CACHE 1;
+-- Structure for table tabel_work_schedule (OID = 114884):
+CREATE TABLE tabel_work_schedule (
+    pk integer DEFAULT nextval('work_schedule_pk_seq'::regclass) NOT NULL,
+    emloyee_id_1c varchar(36) NOT NULL,
+    work_date date NOT NULL,
+    work_hour real DEFAULT 0 NOT NULL,
+    types_of_time_pk integer NOT NULL,
+    base_pk integer
+) WITHOUT OIDS;
+-- Definition for sequence TypesOfTime_pk_seq (OID = 114891):
+CREATE SEQUENCE "TypesOfTime_pk_seq"
+    START WITH 1
+    INCREMENT BY 1
+    MAXVALUE 2147483647
+    NO MINVALUE
+    CACHE 1;
+-- Structure for table types_of_time (OID = 114893):
+CREATE TABLE types_of_time (
+    pk integer DEFAULT nextval('"TypesOfTime_pk_seq"'::regclass) NOT NULL,
+    time_name varchar(50),
+    id_1c varchar(36),
+    time_kod varchar(3),
+    base_pk integer,
+    deleted boolean DEFAULT false NOT NULL,
+    general_time_id_ic varchar(36),
+    time_name_id varchar(50)
+) WITHOUT OIDS;
+-- Structure for table work_schedules (OID = 123078):
+CREATE TABLE work_schedules (
+    id_1c varchar(36) NOT NULL,
+    base_pk integer NOT NULL,
+    title varchar(100)
+) WITHOUT OIDS;
+-- Structure for table general_work_schedules_data (OID = 123083):
+CREATE TABLE general_work_schedules_data (
+    base_pk integer NOT NULL,
+    work_schedule_id_1c varchar(36) NOT NULL,
+    work_date date NOT NULL,
+    types_of_time_id_1c varchar(36) NOT NULL,
+    work_hour real
+) WITHOUT OIDS;
+-- Structure for table personal_work_schedules_data (OID = 123088):
+CREATE TABLE personal_work_schedules_data (
+    base_pk integer NOT NULL,
+    employee_id_1c varchar(36) NOT NULL,
+    work_date date NOT NULL,
+    types_of_time_id_1c varchar(36) NOT NULL,
+    work_hour real
+) WITHOUT OIDS;
+-- Structure for table employee_work_schedules (OID = 123093):
+CREATE TABLE employee_work_schedules (
+    employee_id_1c varchar(36) NOT NULL,
+    base_pk integer NOT NULL,
+    date_from date NOT NULL,
+    date_to date,
+    work_schedules_id_1c varchar(36)
+) WITHOUT OIDS;
 --
 -- Data for blobs (OID = 90311) (LIMIT 0,5)
 --
@@ -256,5 +314,23 @@ ALTER TABLE ONLY exchange_event
 -- Definition for index Foreign_key_exchange__exchange_event (OID = 98523):
 ALTER TABLE ONLY exchange
     ADD CONSTRAINT "Foreign_key_exchange__exchange_event" FOREIGN KEY (event_pk) REFERENCES exchange_event(pk) ON UPDATE CASCADE ON DELETE RESTRICT;
+-- Definition for index work_schedule_pkey (OID = 114889):
+ALTER TABLE ONLY tabel_work_schedule
+    ADD CONSTRAINT work_schedule_pkey PRIMARY KEY (pk);
+-- Definition for index TypesOfTime_pkey (OID = 114897):
+ALTER TABLE ONLY types_of_time
+    ADD CONSTRAINT "TypesOfTime_pkey" PRIMARY KEY (pk);
+-- Definition for index work_schedules_Index01 (OID = 123081):
+ALTER TABLE ONLY work_schedules
+    ADD CONSTRAINT "work_schedules_Index01" PRIMARY KEY (base_pk, id_1c);
+-- Definition for index genera-work schedules-data_Index01 (OID = 123086):
+ALTER TABLE ONLY general_work_schedules_data
+    ADD CONSTRAINT "genera-work schedules-data_Index01" PRIMARY KEY (base_pk, work_schedule_id_1c, work_date, types_of_time_id_1c);
+-- Definition for index personal-work schedules-data_Index01 (OID = 123091):
+ALTER TABLE ONLY personal_work_schedules_data
+    ADD CONSTRAINT "personal-work schedules-data_Index01" PRIMARY KEY (base_pk, employee_id_1c, work_date, types_of_time_id_1c);
+-- Definition for index employee_work_schedules_Index01 (OID = 123096):
+ALTER TABLE ONLY employee_work_schedules
+    ADD CONSTRAINT "employee_work_schedules_Index01" PRIMARY KEY (base_pk, employee_id_1c, date_from);
 SET search_path = pg_catalog, pg_catalog;
 COMMENT ON SCHEMA public IS 'standard public schema';

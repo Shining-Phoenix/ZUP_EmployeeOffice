@@ -1,6 +1,6 @@
 {
   "name": "employee-office",
-  "version": "0.7.0",
+  "version": "0.7.5",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,9 +10,8 @@
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "ShiningPhoenix",
-  "license": "ISC",
+  "license": "Mozilla Public License 2.0",
   "dependencies": {
-    "@vuejs-community/vue-filter-date-format": "^1.3.2",
     "app-root-path": "^3.0.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
