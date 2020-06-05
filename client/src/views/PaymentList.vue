@@ -2,8 +2,11 @@
     <v-container
             class="fill-height flexStart"
             fluid>
+        <div class="page-title">
+            <h3>Расчетные листки</h3>
+        </div>
         <v-row>
-            <v-col cols="2">
+            <v-col cols="2" class="pb-0">
                 <v-menu
                         ref="menu"
                         v-model="menu"
@@ -20,6 +23,7 @@
                                 label="Выберите месяц"
                                 readonly
                                 v-on="on"
+                                hide-details
                         ></v-text-field>
                     </template>
                     <v-date-picker
@@ -32,16 +36,9 @@
                     >
                         <v-spacer></v-spacer>
                         <v-btn text color="normal" @click="menu = false">Отмена</v-btn>
-                        <v-btn text color="normal" @click="$refs.menu.save(date)">OK</v-btn>
+                        <v-btn text color="normal" @click="$refs.menu.save(date); getPaymentList()">OK</v-btn>
                     </v-date-picker>
                 </v-menu>
-            </v-col>
-            <v-col cols="3">
-                <v-btn
-                        large
-                        @click="getPaymentList"
-                        :disabled = "loading"
-                >Сформировать</v-btn>
             </v-col>
         </v-row>
         <Loader v-if="loading"/>
@@ -49,7 +46,7 @@
             <v-col cols="6">
                 <div v-for = "(groupItem) in paiments"
                      :key="groupItem.group">
-                        <h4 primary>{{ groupItem.group }}</h4>
+                        <h4 primary class="ml-2">{{ groupItem.group }}</h4>
                         <v-simple-table>
                             <tbody>
                             <tr v-for = "item in groupItem.items"

@@ -3,7 +3,17 @@
         <v-breadcrumbs
                 :items="breadcrumbItems"
                 large
-                light></v-breadcrumbs>
+                light>
+
+            <template v-slot:item="{ item }">
+                <v-breadcrumbs-item
+                        :to="item.to"
+                        :disabled="item.link"
+                >
+                   <h3> {{ item.text }} </h3>
+                </v-breadcrumbs-item>
+            </template>
+        </v-breadcrumbs>
         <v-container v-if="loading">
             <Loader/>
         </v-container>

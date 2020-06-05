@@ -18,7 +18,11 @@
                   link
           >
             <v-list-item-content>
-              <v-list-item-title>{{ link.title }}</v-list-item-title>
+              <v-list-item-title>
+                <v-icon class="mr-3">
+                  {{link.icon}}
+                </v-icon>
+                {{ link.title }}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
           <v-divider></v-divider>
@@ -28,7 +32,11 @@
                   @click.native.prevent="logout"
           >
             <v-list-item-content>
-              <v-list-item-title>Выход</v-list-item-title>
+              <v-list-item-title>
+                <v-icon class="mr-3">
+                  mdi-logout
+                </v-icon>
+                Выход</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-list>
@@ -77,10 +85,10 @@
       showTooltip: false,
       message: '',
       links: [
-        {title: 'Личные данные', url: '/', exact: true},
-        {title: 'Расчетные листки', url: '/payment-list'},
-        {title: 'Заявки на справки', url: '/inquiry-request-list'},
-        {title: 'Графики работы', url: '/work-schedule-data'}
+        {title: 'Личные данные', url: '/', exact: true, icon: 'mdi-account'},
+        {title: 'Расчетные листки', url: '/payment-list', icon: 'mdi-currency-usd'},
+        {title: 'Заявки на справки', url: '/inquiry-request-list', icon: 'mdi-account-question'},
+        {title: 'Графики работы', url: '/work-schedule-data', icon: 'mdi-clock-outline'}
       ],
     }),
     methods: {
