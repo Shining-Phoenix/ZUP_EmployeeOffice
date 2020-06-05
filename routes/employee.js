@@ -10,5 +10,12 @@ router.delete('/workplace', passport.authenticate('jwt', {session: false}), cont
 router.post('/', passport.authenticate('jwt', {session: false}), controller.createEmployee)
 router.get('/payment-list', passport.authenticate('jwt', {session: false}), controller.getPaymentList)
 router.post('/payment-list', passport.authenticate('jwt', {session: false}), controller.createPaymentList)
+router.post('/work-schedule', passport.authenticate('jwt', {session: false}), controller.updateWorkSchedule)
+
+router.post('/personal-work-schedules-data', passport.authenticate('jwt', {session: false}), controller.createPersonalWorkSchedulesData)
+
+router.post('/employee-work-schedules-data', passport.authenticate('jwt', {session: false}), controller.createEmployeeWorkSchedulesData)
+
+router.get('/employee-work-schedules-data-for-period', passport.authenticate('jwt', {session: false}), controller.getEmployeeWorkSchedulesDataForPeriod)
 
 module.exports = router

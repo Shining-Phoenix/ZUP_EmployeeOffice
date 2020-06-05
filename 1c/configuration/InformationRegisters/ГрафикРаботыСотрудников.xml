@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.9">
+	<InformationRegister uuid="6bd4cb8e-3e71-4ad9-ac1f-d0417d2fa039">
+		<InternalInfo>
+			<xr:GeneratedType name="InformationRegisterRecord.ГрафикРаботыСотрудников" category="Record">
+				<xr:TypeId>bc8b75e4-b44a-466a-a4b6-eea6265888c7</xr:TypeId>
+				<xr:ValueId>ecef0476-c446-4a4d-9e8f-9cb9fb4c0ebe</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="InformationRegisterManager.ГрафикРаботыСотрудников" category="Manager">
+				<xr:TypeId>890ae711-bdf5-45d9-af38-908f8dbc17b3</xr:TypeId>
+				<xr:ValueId>5f4a7f79-008c-4d0f-ab04-8bb2c90f9238</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="InformationRegisterSelection.ГрафикРаботыСотрудников" category="Selection">
+				<xr:TypeId>3f7905c5-3a4c-42c8-bd2f-931f375fd16c</xr:TypeId>
+				<xr:ValueId>b143ca5f-a450-434b-a6f6-bbc3e15e6eaf</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="InformationRegisterList.ГрафикРаботыСотрудников" category="List">
+				<xr:TypeId>f0e40bcf-ed66-4896-8f1b-3ec95268bd89</xr:TypeId>
+				<xr:ValueId>1b3b7383-83d1-42d4-bd7e-1c1a3e0801c4</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="InformationRegisterRecordSet.ГрафикРаботыСотрудников" category="RecordSet">
+				<xr:TypeId>1d8206e0-2c16-4c87-9b1d-2661b33fb92c</xr:TypeId>
+				<xr:ValueId>a57be94b-57ed-4e8f-bf91-fa6c3c9f6024</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="InformationRegisterRecordKey.ГрафикРаботыСотрудников" category="RecordKey">
+				<xr:TypeId>46a2f0d5-9c8b-4cc2-bd3d-8767a14ee17f</xr:TypeId>
+				<xr:ValueId>eecdb515-c761-404b-9614-12fdff1d66b5</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="InformationRegisterRecordManager.ГрафикРаботыСотрудников" category="RecordManager">
+				<xr:TypeId>25e44385-4c9e-414a-ad62-1ba34b00768c</xr:TypeId>
+				<xr:ValueId>6cfa0e11-97ad-4d30-abbb-f80f861bb341</xr:ValueId>
+			</xr:GeneratedType>
+		</InternalInfo>
+		<Properties>
+			<Name>ГрафикРаботыСотрудников</Name>
+			<Comment/>
+			<ObjectBelonging>Adopted</ObjectBelonging>
+			<ExtendedConfigurationObject>4d99a042-b913-4e82-a535-83b4b6716894</ExtendedConfigurationObject>
+			<InformationRegisterPeriodicity>Second</InformationRegisterPeriodicity>
+			<WriteMode>RecorderSubordinate</WriteMode>
+		</Properties>
+		<ChildObjects/>
+	</InformationRegister>
+</MetaDataObject>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.9">
+	<AccumulationRegister uuid="8953dacd-5761-4b19-88c4-e707e51cb270">
+		<InternalInfo>
+			<xr:GeneratedType name="AccumulationRegisterRecord.ДанныеИндивидуальныхГрафиковСотрудников" category="Record">
+				<xr:TypeId>fee23309-58bf-4416-b25b-f6232d0ce8c1</xr:TypeId>
+				<xr:ValueId>041cbf0d-df8c-4b90-ac85-c3deb884c88c</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="AccumulationRegisterManager.ДанныеИндивидуальныхГрафиковСотрудников" category="Manager">
+				<xr:TypeId>1618cce7-e0b6-4350-91b3-9bf7cb18dae8</xr:TypeId>
+				<xr:ValueId>60d4f886-ae87-4ea1-a15e-9b79e60bf70e</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="AccumulationRegisterSelection.ДанныеИндивидуальныхГрафиковСотрудников" category="Selection">
+				<xr:TypeId>d38f0102-949c-4a9a-8b34-fa63c88050f0</xr:TypeId>
+				<xr:ValueId>9ec04fa8-1e3a-4838-809b-fbc6072e8812</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="AccumulationRegisterList.ДанныеИндивидуальныхГрафиковСотрудников" category="List">
+				<xr:TypeId>7d26804d-4e71-4559-8020-1419d5f492aa</xr:TypeId>
+				<xr:ValueId>918fc86e-5a29-40db-a7f5-45e0c2910dd2</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="AccumulationRegisterRecordSet.ДанныеИндивидуальныхГрафиковСотрудников" category="RecordSet">
+				<xr:TypeId>15cde319-b820-4faa-b95c-6ebca26f0300</xr:TypeId>
+				<xr:ValueId>9da4196f-47a5-4dff-ba5a-1d9aff6009ab</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="AccumulationRegisterRecordKey.ДанныеИндивидуальныхГрафиковСотрудников" category="RecordKey">
+				<xr:TypeId>7a9d3bec-30d0-4bd6-a6ef-f1d15b3e660a</xr:TypeId>
+				<xr:ValueId>9994baac-350a-4fa3-ac74-01fe2932c6d0</xr:ValueId>
+			</xr:GeneratedType>
+		</InternalInfo>
+		<Properties>
+			<Name>ДанныеИндивидуальныхГрафиковСотрудников</Name>
+			<Comment/>
+			<ObjectBelonging>Adopted</ObjectBelonging>
+			<ExtendedConfigurationObject>723e2157-61f7-4f1c-9edb-451608305ac7</ExtendedConfigurationObject>
+			<RegisterType>Turnovers</RegisterType>
+		</Properties>
+		<ChildObjects/>
+	</AccumulationRegister>
+</MetaDataObject>
