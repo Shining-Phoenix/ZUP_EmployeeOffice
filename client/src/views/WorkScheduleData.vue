@@ -3,6 +3,9 @@
         <v-container
                 class="fill-height flexStart mb-0"
                 fluid>
+            <div class="page-title">
+                <h3>Графики работы </h3>
+            </div>
             <v-row>
                 <v-col cols="2">
                     <v-select

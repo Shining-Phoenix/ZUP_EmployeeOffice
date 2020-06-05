@@ -2,6 +2,9 @@
     <v-container
             class="fill-height flexStart"
             fluid>
+        <div class="page-title">
+            <h3>Расчетные листки</h3>
+        </div>
         <v-row>
             <v-col cols="2">
                 <v-menu
