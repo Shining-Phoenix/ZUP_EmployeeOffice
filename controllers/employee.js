@@ -204,23 +204,7 @@ module.exports.getPaymentList = async function (req, res) {
         const {rows} = await db.query(sql, [paymentList.pk,
             paymentList.payment_month]);
 
-        const paymentData = []
-        let currentGroup = ''
-
-        rows.forEach(item => {
-            if (currentGroup != item.payment_group) {
-                let paymentBlock = {
-                    group: item.payment_group,
-                    items: []
-                }
-                paymentData.push(paymentBlock)
-                currentGroup = item.payment_group
-            }
-            paymentData[paymentData.length - 1].items.push(item)
-        })
-
-        const userData = paymentData
-        res.status(200).json(userData)
+        res.status(200).json(rows)
     } catch (e) {
         errorHandler(res, e)
         throw e
