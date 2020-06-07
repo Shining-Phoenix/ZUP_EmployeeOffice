@@ -193,14 +193,13 @@ CREATE SEQUENCE work_schedule_pk_seq
     MAXVALUE 2147483647
     NO MINVALUE
     CACHE 1;
--- Structure for table tabel_work_schedule (OID = 114884):
-CREATE TABLE tabel_work_schedule (
+-- Structure for table employee_tabel (OID = 114884):
+CREATE TABLE employee_tabel (
     pk integer DEFAULT nextval('work_schedule_pk_seq'::regclass) NOT NULL,
-    emloyee_id_1c varchar(36) NOT NULL,
-    work_date date NOT NULL,
-    work_hour real DEFAULT 0 NOT NULL,
-    types_of_time_pk integer NOT NULL,
-    base_pk integer
+    employee_id_1c varchar(36) NOT NULL,
+    base_pk integer,
+    tabel_data varchar,
+    tabel_month date
 ) WITHOUT OIDS;
 -- Definition for sequence TypesOfTime_pk_seq (OID = 114891):
 CREATE SEQUENCE "TypesOfTime_pk_seq"
@@ -315,7 +314,7 @@ ALTER TABLE ONLY exchange_event
 ALTER TABLE ONLY exchange
     ADD CONSTRAINT "Foreign_key_exchange__exchange_event" FOREIGN KEY (event_pk) REFERENCES exchange_event(pk) ON UPDATE CASCADE ON DELETE RESTRICT;
 -- Definition for index work_schedule_pkey (OID = 114889):
-ALTER TABLE ONLY tabel_work_schedule
+ALTER TABLE ONLY employee_tabel
     ADD CONSTRAINT work_schedule_pkey PRIMARY KEY (pk);
 -- Definition for index TypesOfTime_pkey (OID = 114897):
 ALTER TABLE ONLY types_of_time
@@ -332,5 +331,8 @@ ALTER TABLE ONLY personal_work_schedules_data
 -- Definition for index employee_work_schedules_Index01 (OID = 123096):
 ALTER TABLE ONLY employee_work_schedules
     ADD CONSTRAINT "employee_work_schedules_Index01" PRIMARY KEY (base_pk, employee_id_1c, date_from);
+-- Definition for index employee_tabel_Index01 (OID = 139490):
+ALTER TABLE ONLY employee_tabel
+    ADD CONSTRAINT "employee_tabel_Index01" UNIQUE (employee_id_1c, base_pk, tabel_month);
 SET search_path = pg_catalog, pg_catalog;
 COMMENT ON SCHEMA public IS 'standard public schema';
