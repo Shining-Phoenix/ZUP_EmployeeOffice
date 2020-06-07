@@ -62,7 +62,6 @@
                'month',
                'showBlockName'],
         mounted() {
-            console.log(this.tabelData.tabel_data)
             let innerHTML = this.$refs.dateTable.innerHTML
             const dayCount = this.getMaxDate()
             let colCount

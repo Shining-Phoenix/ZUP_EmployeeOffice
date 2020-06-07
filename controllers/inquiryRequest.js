@@ -270,9 +270,9 @@ module.exports.createInquiryRequest = async function (req, res) {
         await client.query('COMMIT')
         client.release()
 
-        const userData = pk
+        console.log(pk)
 
-        res.status(200).json(userData)
+        res.status(200).json(pk)
     } catch (e) {
         errorHandler(res, e)
         await client.query('ROOLBACK')

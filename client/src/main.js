@@ -66,6 +66,9 @@ new Vue({
             }
         );
 
+    },
+    mounted(){
+        this.$nextTick(()=>document.body.classList.add('app-mounted'))
     }
 }
     ).$mount('#app')
