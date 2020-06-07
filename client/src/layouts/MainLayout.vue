@@ -88,7 +88,8 @@
         {title: 'Личные данные', url: '/', exact: true, icon: 'mdi-account'},
         {title: 'Расчетные листки', url: '/payment-list', icon: 'mdi-currency-usd'},
         {title: 'Заявки на справки', url: '/inquiry-request-list', icon: 'mdi-account-question'},
-        {title: 'Графики работы', url: '/work-schedule-data', icon: 'mdi-clock-outline'}
+        {title: 'Графики работы', url: '/work-schedule-data', icon: 'mdi-clock-outline'},
+        {title: 'Табель', url: '/tabel', icon: 'mdi-calendar'},
       ],
     }),
     methods: {

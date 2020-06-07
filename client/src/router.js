@@ -62,6 +62,12 @@ const router = new Router({
             meta: {layout: 'main', auth: true},
             component: () => import('./views/WorkScheduleData.vue')
         },
+        {
+            path: '/tabel',
+            name: 'tabel',
+            meta: {layout: 'main', auth: true},
+            component: () => import('./views/Tabel.vue')
+        },
     ]
 })
 

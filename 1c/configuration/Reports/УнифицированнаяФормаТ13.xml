@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.9">
+	<Report uuid="ce288bc0-b877-4de4-82eb-7dde4fea8976">
+		<InternalInfo>
+			<xr:GeneratedType name="ReportObject.УнифицированнаяФормаТ13" category="Object">
+				<xr:TypeId>4e380b8d-447f-47da-9303-61d75a8539db</xr:TypeId>
+				<xr:ValueId>f6a8aa84-98a5-442f-b071-53d77a61ca5f</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="ReportManager.УнифицированнаяФормаТ13" category="Manager">
+				<xr:TypeId>1b70d93e-8cb3-43e9-a9a3-c5eb70a5dd84</xr:TypeId>
+				<xr:ValueId>609be1f9-1e01-42c7-8831-2942c954e89e</xr:ValueId>
+			</xr:GeneratedType>
+		</InternalInfo>
+		<Properties>
+			<Name>УнифицированнаяФормаТ13</Name>
+			<Comment/>
+			<ObjectBelonging>Adopted</ObjectBelonging>
+			<ExtendedConfigurationObject>cb3aeee6-cfd1-4a6c-8706-be483fb774a6</ExtendedConfigurationObject>
+		</Properties>
+		<ChildObjects/>
+	</Report>
+</MetaDataObject>

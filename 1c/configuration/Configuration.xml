@@ -84,6 +84,7 @@
 			<Document>ЛК_ЗаявкиНаСправки</Document>
 			<Enum>ЛК_ВидыСобытийСОбъектамиЛК</Enum>
 			<Enum>ЛК_СтатусОбменаСЛК</Enum>
+			<Report>УнифицированнаяФормаТ13</Report>
 			<DataProcessor>ЛК_Администрирование</DataProcessor>
 			<InformationRegister>ЛК_НастройкиСервисов</InformationRegister>
 			<InformationRegister>ЛК_ПользователиЛК</InformationRegister>
