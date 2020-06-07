@@ -88,7 +88,7 @@
     .calendar thead tr:first-child {
         font-size: large;
         background-color: #212121;
-        color: white;
+        color: #E0E0E0;
     }
     .calendar thead tr:last-child {
         font-size: medium;

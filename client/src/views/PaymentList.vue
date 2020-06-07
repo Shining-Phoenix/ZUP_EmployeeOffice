@@ -42,23 +42,45 @@
             </v-col>
         </v-row>
         <Loader v-if="loading"/>
-        <v-row v-else-if="!loading && paiments.length && paiments.length > 0">
-            <v-col cols="6">
-                <div v-for = "(groupItem) in paiments"
-                     :key="groupItem.group">
-                        <h4 primary class="ml-2">{{ groupItem.group }}</h4>
-                        <v-simple-table>
-                            <tbody>
-                            <tr v-for = "item in groupItem.items"
-                                :key="item.payment_position">
-                                <td width="40%" class="no-padding">{{ item.payment_position }}</td>
-                                <td width="20%" class="no-padding rightText">{{ item.payment_sum | numeral('0,0.00')  }}</td>
-                            </tr>
-                            </tbody>
-                         </v-simple-table>
-                </div>
-            </v-col>
-        </v-row>
+        <v-container
+                v-else-if="!loading && paiments.length && paiments.length > 0"
+                class="ml-0 pl-0"
+        >
+            <v-row>
+                <v-col cols="6">
+                    <payment-group
+                        :data="nachisleno"
+                    ></payment-group>
+                    <payment-group
+                            v-if="lgoti.items.length"
+                            :data="lgoti"
+                    ></payment-group>
+                </v-col>
+                <v-col cols="6">
+                    <payment-group
+                            v-if="uderzano.items.length"
+                            :data="uderzano"
+                    ></payment-group>
+                    <payment-group
+                            v-if="viplacheno.items.length"
+                            :data="viplacheno"
+                    ></payment-group>
+                </v-col>
+            </v-row>
+            <v-row>
+                <v-col cols="6">
+                    <payment-group
+                            :data="dolgZaPredpriyztiemNaNachalo"
+                    ></payment-group>
+                </v-col>
+                <v-col cols="6">
+                    <payment-group
+                            :data="dolgZaPredpriyztiemNaKonec"
+                    ></payment-group>
+                </v-col>
+            </v-row>
+        </v-container>
+
         <v-row  v-else-if="!loading">
             <v-col cols="12">
                 <h3>Данные отсутствуют</h3>
@@ -68,13 +90,22 @@
 </template>
 
 <script>
+    import PaymentGroup from "../components/PaymentGroup";
+
     export default {
+        components: {PaymentGroup},
         name: "payment-list",
         data: () => ({
             date: new Date().toISOString().substr(0, 7),
             menu: false,
             modal: false,
-            loading: true
+            loading: true,
+            dolgZaPredpriyztiemNaNachalo:null,
+            dolgZaPredpriyztiemNaKonec: null,
+            nachisleno: null,
+            uderzano: null,
+            viplacheno: null,
+            lgoti: null
         }),
         methods: {
             async getPaymentList() {
@@ -84,6 +115,31 @@
                     const payment_month = new Date(this.date)
                     payment_month.setHours(0)
                     const data = await this.$store.dispatch("fetchEmployeePaymentList", {payment_month})
+
+                    this.dolgZaPredpriyztiemNaNachalo = {
+                        name: 'Долг предприятия на начало',
+                        items: data.filter(item => item.payment_group ==='Входящее сальдо месяца')}
+                    this.dolgZaPredpriyztiemNaKonec ={
+                        name: 'Долг предприятия на конец',
+                        items: data.filter(item => item.payment_group === 'Сальдо по итогам расчетов за месяц')
+                    }
+                    this.nachisleno ={
+                        name: 'Начислено',
+                        items: data.filter(item => item.payment_group === 'Начислено')
+                    }
+                    this.uderzano ={
+                        name: 'Удержано',
+                        items: data.filter(item => item.payment_group === 'Удержано')
+                    }
+                    this.viplacheno ={
+                        name: 'Выплачено',
+                        items: data.filter(item => item.payment_group === 'Выплачено')
+                    }
+                    this.lgoti ={
+                        name: 'Льготы',
+                        items: data.filter(item => item.payment_group === 'Льготы')
+                    }
+
                     this.paiments = data
                 }
                 catch (e) {
@@ -103,16 +159,9 @@
 </script>
 
 <style scoped>
-    .rightText{
-        text-align: right;
-    }
+
     .flexStart{
         align-content: flex-start;
-    }
-    h4{
-        border-top: thin solid rgba(0, 0, 0, 0.12);
-        border-bottom: thin solid rgba(0, 0, 0, 0.12);
-        background-color: rgba(0, 0, 0, 0.12);
     }
 
 </style>

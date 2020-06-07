@@ -100,42 +100,6 @@
 						</Button>
 					</ChildItems>
 				</UsualGroup>
-				<UsualGroup name="ГруппаНСИ" id="24">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>НСИ</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа НСИ</v8:content>
-						</v8:item>
-					</ToolTip>
-					<Group>Vertical</Group>
-					<ExtendedTooltip name="ГруппаНСИРасширеннаяПодсказка" id="25"/>
-					<ChildItems>
-						<Button name="СоздатьОрганизации" id="18">
-							<Type>UsualButton</Type>
-							<Width>30</Width>
-							<CommandName>Form.Command.СоздатьОрганизации</CommandName>
-							<ExtendedTooltip name="СоздатьОрганизацииРасширеннаяПодсказка" id="19"/>
-						</Button>
-						<Button name="СоздатьПодразделения" id="20">
-							<Type>UsualButton</Type>
-							<Width>30</Width>
-							<CommandName>Form.Command.СоздатьПодразделения</CommandName>
-							<ExtendedTooltip name="СоздатьПодразделенияРасширеннаяПодсказка" id="21"/>
-						</Button>
-						<Button name="СоздатьДолжности" id="22">
-							<Type>UsualButton</Type>
-							<Width>30</Width>
-							<CommandName>Form.Command.СоздатьДолжности</CommandName>
-							<ExtendedTooltip name="СоздатьДолжностиРасширеннаяПодсказка" id="23"/>
-						</Button>
-					</ChildItems>
-				</UsualGroup>
 				<UsualGroup name="ГруппаОбщие" id="28">
 					<Title>
 						<v8:item>

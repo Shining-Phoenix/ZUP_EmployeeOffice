@@ -45,6 +45,26 @@ export default {
                 commit('setError', eDescription)
                 throw eDescription
             }
+        },
+        async fetchEmployeeTabel({dispatch, commit}, month) {
+            try {
+                const Uid = await dispatch('getUid')
+                const resp = await axios.get('/api/employee/tabel', {params:
+                        {pk: Uid,
+                            month}
+                })
+                let itemData
+                for (itemData of resp.data){
+                    itemData.tabel_data = JSON.parse(itemData.tabel_data)
+                }
+
+                return resp.data
+            } catch (e) {
+                console.log(e)
+                const eDescription = 'Ошибка запроса данных табеля работы!'
+                commit('setError', eDescription)
+                throw eDescription
+            }
         }
     }
 }

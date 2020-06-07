@@ -204,23 +204,7 @@ module.exports.getPaymentList = async function (req, res) {
         const {rows} = await db.query(sql, [paymentList.pk,
             paymentList.payment_month]);
 
-        const paymentData = []
-        let currentGroup = ''
-
-        rows.forEach(item => {
-            if (currentGroup != item.payment_group) {
-                let paymentBlock = {
-                    group: item.payment_group,
-                    items: []
-                }
-                paymentData.push(paymentBlock)
-                currentGroup = item.payment_group
-            }
-            paymentData[paymentData.length - 1].items.push(item)
-        })
-
-        const userData = paymentData
-        res.status(200).json(userData)
+        res.status(200).json(rows)
     } catch (e) {
         errorHandler(res, e)
         throw e
@@ -475,7 +459,7 @@ module.exports.getEmployeeWorkSchedulesDataForPeriod = async function (req, res)
         await client.query('BEGIN')
 
         params.begin_date = new Date(params.year, 0, 1, 0, 0, 0, 0)
-        params.end_date = new Date(+params.year+1 , 1, 1, 0, 0, 0, 0)
+        params.end_date = new Date(+params.year + 1, 1, 1, 0, 0, 0, 0)
 
         const sqlCreate = `
                     Create Temp Table Prioritet AS
@@ -663,5 +647,80 @@ module.exports.getEmployeeWorkSchedulesDataForPeriod = async function (req, res)
         throw e
     }
 }
+
+module.exports.updatEemployeeTabel = async function (req, res) {
+    const client = await db.client()
+
+    try {
+        const employeeData = req.body
+
+        await client.query('BEGIN')
+
+        const deletySql = `
+            DELETE FROM
+                employee_tabel
+            WHERE  
+                base_pk = $1   
+                AND employee_id_1c = $2
+                AND tabel_month = $3`
+        await client.query(deletySql,
+            [employeeData.base_pk,
+                employeeData.employee_id_1c,
+                employeeData.tabel_month]);
+
+
+        const insertSql =
+            `INSERT INTO 
+                        employee_tabel(
+                            base_pk,
+                            employee_id_1c,
+                            tabel_month,
+                            tabel_data)
+                    VALUES($1, $2, $3, $4) `
+        await client.query(insertSql,
+            [employeeData.base_pk,
+                employeeData.employee_id_1c,
+                employeeData.tabel_month,
+                employeeData.tabel_data])
+
+
+        await client.query('COMMIT')
+        client.release()
+
+        res.status(200).json({})
+    } catch (e) {
+        errorHandler(res, e)
+        await client.query('ROOLBACK')
+        client.release()
+        throw e
+    }
+}
+
+module.exports.getEmployeeTabel = async function (req, res) {
+    try {
+        const pk = req.user.pk
+        const month = req.query.month
+        const sql = ` Select
+                        employee_tabel.tabel_data
+                        from
+                        employee_tabel
+                        inner join employee on (employee_tabel.base_pk = employee.base_pk
+                                               and employee_tabel.employee_id_1c = employee.pk)
+                        inner join users on (employee.base_pk = users.base_pk
+                                            and employee.user_id_1c = users.id_1c)                    
+                        where 
+                        users.pk = $1
+                        and 
+                        employee_tabel.tabel_month = $2`
+
+
+        const {rows} = await db.query(sql, [pk, month])
+
+        res.status(200).json(rows)
+    } catch (e) {
+        errorHandler(res, e)
+    }
+}
+
 
 
