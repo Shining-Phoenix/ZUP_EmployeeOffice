@@ -28,7 +28,7 @@
                             >{{item.doc_date | dateFormat('DD.MM.YYYY HH:mm:ss')}}
                             </v-chip>
                             <v-chip v-else-if="item.disabled_on_web"
-                                    :color="'grey'"
+                                    :color="'#E0E0E0'"
                             >{{item.doc_date | dateFormat('DD.MM.YYYY HH:mm:ss')}}
                             </v-chip>
                             <span v-else>{{item.doc_date | dateFormat('DD.MM.YYYY HH:mm:ss')}}</span>
@@ -113,6 +113,14 @@
     }
 </script>
 
-<style scoped>
+<style>
+
+    .v-data-table-header{
+        background-color: #212121;
+    }
+    .theme--light.v-data-table thead tr th{
+        color: #E0E0E0;
+        font-size: 16px;
+    }
 
 </style>

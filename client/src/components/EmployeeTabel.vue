@@ -175,8 +175,8 @@
         border-color: #212121;
     }
     .employee-tabel_header-days{
-        background-color: #424242;
-        color: white;
+        background-color: #212121;
+        color: #E0E0E0;
     }
     .employee-tabel_row-days{
         min-height: 50px;

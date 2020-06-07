@@ -43,7 +43,9 @@
         </v-row>
         <Loader v-if="loading"/>
         <v-container
-                v-else-if="!loading && paiments.length && paiments.length > 0">
+                v-else-if="!loading && paiments.length && paiments.length > 0"
+                class="ml-0 pl-0"
+        >
             <v-row>
                 <v-col cols="6">
                     <payment-group
