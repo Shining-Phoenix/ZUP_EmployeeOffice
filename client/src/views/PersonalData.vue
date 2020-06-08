@@ -40,8 +40,11 @@
             employeeData: {}
         }),
         async mounted() {
-            this.employeeData = await this.$store.dispatch('fetchEmployeeData')
-            this.loading = false
+            try {
+                this.employeeData = await this.$store.dispatch('fetchEmployeeData')
+            }finally {
+                this.loading = false
+            }
         }
     }
 </script>
