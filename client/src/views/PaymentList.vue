@@ -2,7 +2,7 @@
     <div
             class="fill-height flexStart"
             fluid>
-        <v-container class="page-title">
+        <v-container class="page-title mb-0">
             <h3>Расчетные листки</h3>
             <v-row>
                 <v-col cols="2" class="pb-0">
@@ -46,10 +46,10 @@
         </v-container>
         <v-container
                 v-else-if="!loading && paiments.length && paiments.length > 0"
-                class="ml-3 pl-0"
+                class="ml-3 mb-0 pl-0 mr-10 pt-0"
         >
-            <v-row>
-                <v-col cols="6">
+            <v-row class="mt-0 pt-0">
+                <v-col cols="56" class="mt-0 pt-0">
                     <payment-group
                         :data="nachisleno"
                     ></payment-group>
@@ -58,7 +58,7 @@
                             :data="lgoti"
                     ></payment-group>
                 </v-col>
-                <v-col cols="6">
+                <v-col cols="6" class="mt-0 pt-0">
                     <payment-group
                             v-if="uderzano.items.length"
                             :data="uderzano"

@@ -9,11 +9,11 @@
 
         <v-container
                 v-else
-                class="fill-height"
+                class="fill-height mb-0 pt-0"
                 fluid
                 dark>
             <v-row>
-                <v-col cols="12">
+                <v-col cols="12" class="mt-0 pt-0">
                     <v-data-table
                             :headers="headers"
                             :items="records"
