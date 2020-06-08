@@ -1,50 +1,52 @@
 <template>
-    <v-container
+    <div
             class="fill-height flexStart"
             fluid>
-        <div class="page-title">
+        <v-container class="page-title">
             <h3>Расчетные листки</h3>
-        </div>
-        <v-row>
-            <v-col cols="2" class="pb-0">
-                <v-menu
-                        ref="menu"
-                        v-model="menu"
-                        :close-on-content-click="false"
-                        :return-value.sync="date"
-                        transition="scale-transition"
-                        offset-y
-                        max-width="290px"
-                        min-width="290px"
-                >
-                    <template v-slot:activator="{ on }">
-                        <v-text-field
-                                v-model="date"
-                                label="Выберите месяц"
-                                readonly
-                                v-on="on"
-                                hide-details
-                        ></v-text-field>
-                    </template>
-                    <v-date-picker
-                            v-model="date"
-                            type="month"
-                            no-title
-                            scrollable
-                            locale="ru"
-                            dark
+            <v-row>
+                <v-col cols="2" class="pb-0">
+                    <v-menu
+                            ref="menu"
+                            v-model="menu"
+                            :close-on-content-click="false"
+                            :return-value.sync="date"
+                            transition="scale-transition"
+                            offset-y
+                            max-width="290px"
+                            min-width="290px"
                     >
-                        <v-spacer></v-spacer>
-                        <v-btn text color="normal" @click="menu = false">Отмена</v-btn>
-                        <v-btn text color="normal" @click="$refs.menu.save(date); getPaymentList()">OK</v-btn>
-                    </v-date-picker>
-                </v-menu>
-            </v-col>
-        </v-row>
-        <Loader v-if="loading"/>
+                        <template v-slot:activator="{ on }">
+                            <v-text-field
+                                    v-model="date"
+                                    label="Выберите месяц"
+                                    readonly
+                                    v-on="on"
+                                    hide-details
+                            ></v-text-field>
+                        </template>
+                        <v-date-picker
+                                v-model="date"
+                                type="month"
+                                no-title
+                                scrollable
+                                locale="ru"
+                                dark
+                        >
+                            <v-spacer></v-spacer>
+                            <v-btn text color="normal" @click="menu = false">Отмена</v-btn>
+                            <v-btn text color="normal" @click="$refs.menu.save(date); getPaymentList()">OK</v-btn>
+                        </v-date-picker>
+                    </v-menu>
+                </v-col>
+            </v-row>
+        </v-container>
+        <v-container  v-if="loading">
+            <Loader/>
+        </v-container>
         <v-container
                 v-else-if="!loading && paiments.length && paiments.length > 0"
-                class="ml-0 pl-0"
+                class="ml-3 pl-0"
         >
             <v-row>
                 <v-col cols="6">
@@ -86,7 +88,7 @@
                 <h3>Данные отсутствуют</h3>
             </v-col>
         </v-row>
-    </v-container>
+    </div>
 </template>
 
 <script>

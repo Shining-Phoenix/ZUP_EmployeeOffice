@@ -461,8 +461,6 @@ module.exports.getEmployeeWorkSchedulesDataForPeriod = async function (req, res)
         params.begin_date = new Date(params.year, 0, 1, 0, 0, 0, 0)
         params.end_date = new Date(+params.year + 1, 0, 1, 0, 0, 0, 0)
 
-        console.log(params.end_date)
-
         const sqlCreate = `
                     Create Temp Table Prioritet AS
                     Select DISTINCT

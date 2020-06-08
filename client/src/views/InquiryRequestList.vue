@@ -1,5 +1,8 @@
 <template>
     <div>
+        <v-container class="page-title">
+            <h3>История заявок </h3>
+        </v-container>
         <v-container v-if="loading">
             <Loader/>
         </v-container>
@@ -9,9 +12,6 @@
                 class="fill-height"
                 fluid
                 dark>
-            <div class="page-title">
-                <h3>История заявок </h3>
-            </div>
             <v-row>
                 <v-col cols="12">
                     <v-data-table
