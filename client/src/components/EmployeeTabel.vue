@@ -69,7 +69,7 @@
             innerHTML = '<tr class="employee-tabel_header-days">'
             for (let i=1; i <= colCount; i++){
                 if (i === colCount && colCount === 16) {
-                    innerHTML += '<td width="5%">' + 'x' + '</td>'
+                    innerHTML += '<td width="5%" class="employee-tabel_row-days__td">' + 'x' + '</td>'
                 } else {
                     innerHTML += '<td width="5%" class="employee-tabel_row-days__td">' + i + '</td>'
                 }
@@ -92,7 +92,7 @@
             innerHTML += '<tr class="employee-tabel_row-days">'
             for (let i=1; i <= colCount; i++){
                 if (i === colCount && colCount === 16) {
-                    innerHTML += '<td width="5%">' + 'x' + '</td>'
+                    innerHTML += '<td width="5%" class="employee-tabel_row-days__td">' + 'x' + '</td>'
                 } else {
                     if (this.tabelData.tabel_data['ДополнительноеЗначение' + i] )
                         innerHTML += '<td width="5%" class="employee-tabel_row-days__td">' + this.tabelData.tabel_data['ДополнительноеЗначение' + i]  + '</td>'

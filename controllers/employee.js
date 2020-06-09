@@ -953,7 +953,6 @@ module.exports.getEmployeeTabel = async function (req, res) {
 
                 resultArray.push({tabel_data: JSON.stringify(resultObject)})
             }
-            console.log(resultArray)
             res.status(200).json(resultArray)
         }   
     } catch (e) {
