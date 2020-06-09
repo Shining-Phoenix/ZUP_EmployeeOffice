@@ -88,9 +88,11 @@
             },
         },
         async mounted() {
-            await this.$store.dispatch('fetchInquiryRequestsByUser')
-            this.loading = false
-        },
+            try {
+                await this.$store.dispatch('fetchInquiryRequestsByUser')
+            } finally {
+                this.loading = false}
+                    },
         methods: {
             editItem(item) {
                 try {

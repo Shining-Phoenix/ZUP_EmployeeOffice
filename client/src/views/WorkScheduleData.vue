@@ -75,7 +75,7 @@
                 this.loading = true
                 try {
                     this.employeeData = await this.$store.dispatch('fetchEmployeeWorkScheduleData', this.year)
-                }finally {
+                } finally {
                     this.loading = false
                 }
             }

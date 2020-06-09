@@ -50,7 +50,6 @@
                     }
 
                     for (let i = 1; i <= Dlast; i++) {
-
                         const arrayDay = this.days.find((currentValue)=>{
                             const dayNumber = new Date(currentValue.work_date).getDate()
                             return dayNumber === i

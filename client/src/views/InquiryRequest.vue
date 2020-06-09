@@ -100,20 +100,23 @@
         }),
         async mounted() {
             const id = +this.$route.params.id
-            if (this.$store.getters.inquiryRequestList === null){
-                await this.$store.dispatch('fetchInquiryRequestsByUser')
+            try {
+                if (this.$store.getters.inquiryRequestList === null) {
+                    await this.$store.dispatch('fetchInquiryRequestsByUser')
+                }
+                this.record = this.$store.getters.inquiryRequestListByPk(id)
+                if (this.record) {
+                    this.types = await this.$store.dispatch('fetchInquiryRequestTypes')
+                    this.types.forEach((item) => this.typesSel.push({
+                        text: item.type_name,
+                        value: item.pk
+                    }))
+                    this.selectedType = this.record.type_pk
+                    this.description = this.record.description
+                }
             }
-            this.record = this.$store.getters.inquiryRequestListByPk(id)
-            if (this.record){
-                this.types = await this.$store.dispatch('fetchInquiryRequestTypes')
-                this.types.forEach((item) => this.typesSel.push({
-                    text: item.type_name,
-                    value: item.pk
-                }))
-                this.selectedType = this.record.type_pk
-                this.description = this.record.description}
-
-            this.loading = false
+            finally {
+                this.loading = false}
 
         },
         computed: {

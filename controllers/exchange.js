@@ -2,7 +2,6 @@ const errorHandler = require('../utils/errorHandler')
 const db = require('../shared/pgdb')
 
 module.exports.getObjects = async function (req, res) {
-
     const client = await db.client()
 
     try {

@@ -60,7 +60,6 @@ module.exports.updateUser = async function (req, res) {
     try {
         const user = req.boby
 
-
         const sql = `
         UPDATE 
           users 

@@ -64,25 +64,20 @@
         mounted() {
             let innerHTML = this.$refs.dateTable.innerHTML
             const dayCount = this.getMaxDate()
-            let colCount
-            if (dayCount === 31) {colCount = 16} else {colCount = 15}
+            const colCount = dayCount === 31 ? 16 : 15
 
-            let i
             innerHTML = '<tr class="employee-tabel_header-days">'
-            for (i=1; i <= colCount; i++){
-
+            for (let i=1; i <= colCount; i++){
                 if (i === colCount && colCount === 16) {
                     innerHTML += '<td width="5%">' + 'x' + '</td>'
                 } else {
                     innerHTML += '<td width="5%" class="employee-tabel_row-days__td">' + i + '</td>'
                 }
-
             }
             innerHTML += '</tr>'
 
             innerHTML += '<tr class="employee-tabel_row-days">'
-            for (i=1; i <= colCount; i++){
-
+            for (let i=1; i <= colCount; i++){
                 if (i === colCount && colCount === 16) {
                     innerHTML += '<td width="5%" class="employee-tabel_row-days__td">' + 'x' + '</td>'
                 } else {
@@ -91,13 +86,11 @@
                     else
                         innerHTML += '<td width="5%" class="employee-tabel_row-days__td"></td>'
                 }
-
             }
             innerHTML += '</tr>'
 
             innerHTML += '<tr class="employee-tabel_row-days">'
-            for (i=1; i <= colCount; i++){
-
+            for (let i=1; i <= colCount; i++){
                 if (i === colCount && colCount === 16) {
                     innerHTML += '<td width="5%">' + 'x' + '</td>'
                 } else {
@@ -106,46 +99,37 @@
                     else
                         innerHTML += '<td width="5%" class="employee-tabel_row-days__td"></td>'
                 }
-
             }
             innerHTML += '</tr>'
 
             innerHTML += '<tr class="employee-tabel_header-days">'
-            for (i=16; i <= colCount + 15; i++){
-
+            for (let i=16; i <= colCount + 15; i++){
                 if (i > dayCount) {
                     innerHTML += '<td width="5%" class="employee-tabel_row-days__td">' + 'x' + '</td>'
                 } else {
                     innerHTML += '<td width="5%" class="employee-tabel_row-days__td">' + i + '</td>'
                 }
-
             }
             innerHTML += '</tr>'
 
             innerHTML += '<tr class="employee-tabel_row-days">'
-            for (i=16; i <= dayCount; i++){
-
+            for (let i=16; i <= dayCount; i++){
                     if (this.tabelData.tabel_data['Символ' + i] )
                         innerHTML += '<td width="5%" class="employee-tabel_row-days__td">' + this.tabelData.tabel_data['Символ' + i]  + '</td>'
                     else
                         innerHTML += '<td width="5%"></td>'
-
             }
             innerHTML += '</tr>'
 
             innerHTML += '<tr class="employee-tabel_row-days">'
-            for (i=16; i <= dayCount; i++){
+            for (let i=16; i <= dayCount; i++){
 
                 if (this.tabelData.tabel_data['ДополнительноеЗначение' + i] )
                     innerHTML += '<td width="5%" class="employee-tabel_row-days__td">' + this.tabelData.tabel_data['ДополнительноеЗначение' + i]  + '</td>'
                 else
                     innerHTML += '<td width="5%"></td>'
-
-
             }
             innerHTML += '</tr>'
-
-
 
             this.$refs.dateTable.innerHTML = innerHTML
         },
