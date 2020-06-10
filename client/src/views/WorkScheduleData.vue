@@ -58,7 +58,7 @@
         name: "work-schedule-data",
         data: () => ({
             loading: true,
-            employeeData: {},
+            employeeData: null,
             years: [],
             year: new Date().getFullYear()
             }),
@@ -75,7 +75,11 @@
                 this.loading = true
                 try {
                     this.employeeData = await this.$store.dispatch('fetchEmployeeWorkScheduleData', this.year)
-                } finally {
+                } catch (e) {
+                    this.employeeData = null
+                }
+
+                finally {
                     this.loading = false
                 }
             }

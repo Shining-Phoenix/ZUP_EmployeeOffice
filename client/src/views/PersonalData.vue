@@ -37,7 +37,7 @@
         name: "personal-data",
         data: () => ({
             loading: true,
-            employeeData: {}
+            employeeData: null
         }),
         async mounted() {
             try {
