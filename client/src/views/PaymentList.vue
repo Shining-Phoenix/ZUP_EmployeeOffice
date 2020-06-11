@@ -2,7 +2,7 @@
     <div
             class="fill-height flexStart"
             fluid>
-        <v-container class="page-title mb-0">
+        <v-container class="page-title mb-0 ml-0">
             <h3>Расчетные листки</h3>
             <v-row>
                 <v-col cols="2" class="pb-0">
