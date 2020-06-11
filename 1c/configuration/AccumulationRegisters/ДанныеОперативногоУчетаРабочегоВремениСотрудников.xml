@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.9">
+	<AccumulationRegister uuid="2bd28dbf-8fdc-4f5c-b8f5-70fac8b2ea89">
+		<InternalInfo>
+			<xr:GeneratedType name="AccumulationRegisterRecord.ДанныеОперативногоУчетаРабочегоВремениСотрудников" category="Record">
+				<xr:TypeId>dd6aedee-eddc-4665-b9b0-b2fe1b3fa6be</xr:TypeId>
+				<xr:ValueId>ada2eb97-b71a-400b-83a8-631f80af9d71</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="AccumulationRegisterManager.ДанныеОперативногоУчетаРабочегоВремениСотрудников" category="Manager">
+				<xr:TypeId>03ef2ea0-722a-4423-b85c-2e21354dc1d2</xr:TypeId>
+				<xr:ValueId>48693569-4574-4c21-a0d6-eaf1240bb21c</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="AccumulationRegisterSelection.ДанныеОперативногоУчетаРабочегоВремениСотрудников" category="Selection">
+				<xr:TypeId>af6c91c2-3566-4d69-88b7-9adec84f17f9</xr:TypeId>
+				<xr:ValueId>773331bb-4662-4d7b-ac65-93c412f61276</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="AccumulationRegisterList.ДанныеОперативногоУчетаРабочегоВремениСотрудников" category="List">
+				<xr:TypeId>cfe24471-f55d-4506-ad08-e3e871339d23</xr:TypeId>
+				<xr:ValueId>a5c8ef87-28aa-4854-99a9-8288736d4e4e</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="AccumulationRegisterRecordSet.ДанныеОперативногоУчетаРабочегоВремениСотрудников" category="RecordSet">
+				<xr:TypeId>a8a14ab2-214e-404f-9f8a-d52fd35afc55</xr:TypeId>
+				<xr:ValueId>de1bb6dc-74bf-4189-8c05-4df353c45651</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="AccumulationRegisterRecordKey.ДанныеОперативногоУчетаРабочегоВремениСотрудников" category="RecordKey">
+				<xr:TypeId>bd90a9ac-bd66-4d0b-b2ec-7d2ee854ecc4</xr:TypeId>
+				<xr:ValueId>f26da561-fa3d-4049-8697-243bfa94ec55</xr:ValueId>
+			</xr:GeneratedType>
+		</InternalInfo>
+		<Properties>
+			<Name>ДанныеОперативногоУчетаРабочегоВремениСотрудников</Name>
+			<Comment/>
+			<ObjectBelonging>Adopted</ObjectBelonging>
+			<ExtendedConfigurationObject>0c77494a-9fc0-41ec-8d6e-3fe7dd3cc888</ExtendedConfigurationObject>
+			<RegisterType>Turnovers</RegisterType>
+		</Properties>
+		<ChildObjects/>
+	</AccumulationRegister>
+</MetaDataObject>

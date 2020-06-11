@@ -33,7 +33,7 @@ export default {
                 commit('setToken', resp.data.token)
                 commit('setUser', JSON.stringify(resp.data.user))
             } catch (e) {
-                var eDescription = ''
+                let eDescription = ''
                 if (e.data && e.data.message && ((e.status >= 400) && (e.status < 500))) {
                     eDescription = e.data.message
                 } else {
@@ -51,7 +51,7 @@ export default {
                 commit('setError', resp.data.pk)
                 return  resp.data
             } catch (e) {
-                var eDescription = ''
+                let eDescription = ''
                 console.log(e)
                 if (e.data && e.data.message && ((e.status >= 400) && (e.status < 500))) {
                     eDescription = e.data.message

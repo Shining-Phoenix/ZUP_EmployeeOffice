@@ -3,6 +3,7 @@
 	<ConfigVersions>
 		<Metadata name="AccumulationRegister.ДанныеИндивидуальныхГрафиковСотрудников" id="8953dacd-5761-4b19-88c4-e707e51cb270" configVersion="e7bbc2a0103bd3b6aa38d4b066d996e05ea2503c"/>
 		<Metadata name="AccumulationRegister.ДанныеИндивидуальныхГрафиковСотрудников.RecordSetModule" id="8953dacd-5761-4b19-88c4-e707e51cb270.1" configVersion="058856b8e0f22ed1f9266c5c2ecb45370523b98c"/>
+		<Metadata name="AccumulationRegister.ДанныеОперативногоУчетаРабочегоВремениСотрудников" id="2bd28dbf-8fdc-4f5c-b8f5-70fac8b2ea89" configVersion="bc93e202050d4ace1f35fe8becd3406dadc0fb48"/>
 		<Metadata name="AccumulationRegister.НачисленияУдержанияПоСотрудникам" id="eed555aa-0ed4-4b03-a9c0-520e87b6236f" configVersion="b037bf1bbf4d28e93e3aac32e25557d4075686e2"/>
 		<Metadata name="AccumulationRegister.НачисленияУдержанияПоСотрудникам.RecordSetModule" id="eed555aa-0ed4-4b03-a9c0-520e87b6236f.1" configVersion="4477d13e4c52e39c0962b09b810e0cc1d040b4b8"/>
 		<Metadata name="Catalog.ВидыИспользованияРабочегоВремени" id="c8304d23-b3a9-4f32-adc1-032a035ae99f" configVersion="4eea767d48f09d02ba4340806579639e8e0bf6a9"/>
@@ -41,7 +42,7 @@
 		<Metadata name="CommonModule.ЛК_РаботаСФункциямиКлиентСервер" id="e6a9727d-befa-4c63-9697-aa1a85a2150f" configVersion="b3125ad064db8546ec0b025a60411b1f5a4e0c81"/>
 		<Metadata name="CommonModule.ЛК_РаботаСФункциямиКлиентСервер.Module" id="e6a9727d-befa-4c63-9697-aa1a85a2150f.0" configVersion="831bcd7af9d300312ac941acdbdc08f5857d62f3"/>
 		<Metadata name="CommonPicture.КадровыйУчет48" id="c4289182-ac76-405d-ad20-e66034851c44" configVersion="5f9504a9e1ce71d8961c06c899c416ffed0bbe0a"/>
-		<Metadata name="Configuration.ZUP_EmployeeOffice" id="1b9eaada-ae35-4b7a-b392-91b9b4894192" configVersion="d8ecbf6af821d2fdc147e557169ab10e0712d403"/>
+		<Metadata name="Configuration.ZUP_EmployeeOffice" id="1b9eaada-ae35-4b7a-b392-91b9b4894192" configVersion="e8f726b53be19cff393cb303a49bc59a8c09a92d"/>
 		<Metadata name="Configuration.ZUP_EmployeeOffice.ManagedApplicationModule" id="8767be3d-f7a1-41f9-99ef-5123d9adec4e.6" configVersion="deb7737b9b9db4252cb2f572137f95dfe2e43b60"/>
 		<Metadata name="DataProcessor.ЛК_Администрирование" id="599f5fa6-a7b7-4bb3-a50a-358d89cc3189" configVersion="03593fdec828bdcdbd460e93457449b66c77dc28">
 			<Metadata name="DataProcessor.ЛК_Администрирование.Attribute.Пароль" id="67187821-8371-4fff-b278-c3e91a2d5b9c"/>
@@ -132,7 +133,7 @@
 		<Metadata name="InformationRegister.ФотографииФизическихЛиц.RecordSetModule" id="38be48fe-8399-4f06-80e0-e45380b2e95c.1" configVersion="fc23f621660ada786a32b53cb9e33ec055d222c8"/>
 		<Metadata name="Language.Русский" id="8795b39d-58b1-4a38-aaa6-786f36dc4555" configVersion="ebdeca04d16d122448a951d3bc1074de0f5c8fea"/>
 		<Metadata name="Report.УнифицированнаяФормаТ13" id="ce288bc0-b877-4de4-82eb-7dde4fea8976" configVersion="400b5c705c6678a5723b6dde8fb34c2c52fdf7bc"/>
-		<Metadata name="Report.УнифицированнаяФормаТ13.ObjectModule" id="ce288bc0-b877-4de4-82eb-7dde4fea8976.0" configVersion="689a4619512876d6184eef8e90f0aa096b298a46"/>
+		<Metadata name="Report.УнифицированнаяФормаТ13.ObjectModule" id="ce288bc0-b877-4de4-82eb-7dde4fea8976.0" configVersion="4e0c426ca5ee7e1325ce058cbce5c59ffb5537ef"/>
 		<Metadata name="Role.ЛК_Администратор" id="1d7632a0-a5b6-4c52-897f-36db2ece8fa9" configVersion="829956c365ff54c63944b9fe2336bfe6d8ef0e7d"/>
 		<Metadata name="Role.ЛК_Администратор.Rights" id="1d7632a0-a5b6-4c52-897f-36db2ece8fa9.0" configVersion="345a11b73751089782413d050775ed5385a086b5"/>
 		<Metadata name="Role.ЛК_ИзменениеЗаявокНаСправки" id="0af6c7e6-5a3d-4d6a-a6da-d996b4fa344b" configVersion="f5c746452e9385f47774ef99292f7a3715657687"/>

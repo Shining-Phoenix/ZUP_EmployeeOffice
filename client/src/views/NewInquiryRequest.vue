@@ -127,10 +127,9 @@
                 record.status = 'Новый'
                 this.selectedType = record.type_pk
                 this.record = record
-            }catch (e) {
-                1+1
+            }finally {
+                this.loading = false
             }
-            this.loading = false
         },
         computed: {
             descriptionErrors() {

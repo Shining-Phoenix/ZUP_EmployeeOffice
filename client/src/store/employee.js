@@ -53,8 +53,7 @@ export default {
                         {pk: Uid,
                             month}
                 })
-                let itemData
-                for (itemData of resp.data){
+                for (let itemData of resp.data){
                     itemData.tabel_data = JSON.parse(itemData.tabel_data)
                 }
 

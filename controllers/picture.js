@@ -3,7 +3,6 @@ const fs = require('fs');
 const db = require('../shared/pgdb')
 
 module.exports.createImage = async (req, res) => {
-
     const userId1c = req.body.userId1c
     const path = req.file && req.file.path || ''
 
@@ -17,5 +16,4 @@ module.exports.createImage = async (req, res) => {
         errorHandler(res, e)
         throw e
     }
-
 }
