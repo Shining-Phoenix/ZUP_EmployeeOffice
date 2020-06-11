@@ -75,7 +75,7 @@ module.exports.createEmployeeWorkplace = async function (req, res) {
                 workplace.subdivision_pk,
                 workplace.employee_pk,
                 workplace.date_from,
-                workplace.base_pk]);
+                req.user.base_pk]);
 
         const userData = rows[0]
         res.status(200).json(userData)
@@ -93,7 +93,7 @@ module.exports.createEmployeeWorkplaces = async function (req, res) {
 
         const deleteSql = 'DELETE FROM workplace WHERE base_pk = $1 AND employee_pk = $2'
         const result = await client.query(deleteSql,
-            [employeeWorkplacesData.base_pk,
+            [req.user.base_pk,
                 employeeWorkplacesData.employee_pk]);
 
         employeeWorkplacesData.workplaces.forEach(async workplace => {
@@ -114,7 +114,7 @@ module.exports.createEmployeeWorkplaces = async function (req, res) {
                     workplace.subdivision_pk,
                     employeeWorkplacesData.employee_pk,
                     workplace.date_from,
-                    employeeWorkplacesData.base_pk]);
+                    req.user.base_pk]);
         })
 
         await client.query('COMMIT')
@@ -142,7 +142,7 @@ module.exports.deleteEmployeeWorkplace = async function (req, res) {
               base_pk = $2`;
         const {rows} = await db.query(sql,
             [workplace.employee_pk,
-                workplace.base_pk]);
+                req.user.base_pk]);
 
         const userData = {pk: workplace.employee_pk}
         res.status(200).json(userData)
@@ -167,7 +167,7 @@ module.exports.createEmployee = async function (req, res) {
         RETURNING pk`
         const {rows} = await db.query(sql,
             [employee.pk,
-                employee.base_pk,
+                req.user.base_pk,
                 employee.user_id_1c]);
 
         const userData = rows[0]
@@ -228,7 +228,7 @@ module.exports.createPaymentList = async function (req, res) {
               payment_month = $3`;
         const {rows} = await client.query(sql,
             [paymentList.employee_pk,
-                paymentList.base_pk,
+                req.user.base_pk,
                 paymentList.payment_month]);
 
         const payments = paymentList.payments
@@ -250,7 +250,7 @@ module.exports.createPaymentList = async function (req, res) {
             const {rows} = await client.query(sql,
                 [paymentList.payment_month,
                     paymentList.employee_pk,
-                    paymentList.base_pk,
+                    req.user.base_pk,
                     item.payment_position,
                     item.payment_sum,
                     item.payment_group,
@@ -287,7 +287,7 @@ module.exports.updateWorkSchedule = async function (req, res) {
             WHERE    
                   base_pk = $1`;
         const {rows: typesOfTime} = await client.query(typesSql,
-            [workScheduleData.base_pk]);
+            [req.user.base_pk]);
 
         const employeeSql = `
             SELECT
@@ -309,7 +309,7 @@ module.exports.updateWorkSchedule = async function (req, res) {
                 AND work_date >= $2
                 AND work_date <= $3`
         await client.query(deletySql,
-            [workScheduleData.base_pk,
+            [req.user.base_pk,
                 workScheduleData.begin_date,
                 workScheduleData.end_date]);
 
@@ -361,7 +361,7 @@ module.exports.createPersonalWorkSchedulesData = async function (req, res) {
                 AND employee_id_1c = $2
                 AND work_date = $3`
         await client.query(deletySql,
-            [workScheduleData.base_pk,
+            [req.user.base_pk,
                 workScheduleData.employee_id_1c,
                 workScheduleData.work_date]);
 
@@ -377,7 +377,7 @@ module.exports.createPersonalWorkSchedulesData = async function (req, res) {
                         work_hour)
                 VALUES($1, $2, $3, $4, $5) `
             await client.query(insertSql,
-                [workScheduleData.base_pk,
+                [req.user.base_pk,
                     workScheduleData.employee_id_1c,
                     workScheduleData.work_date,
                     itemDate.types_of_time_id_1c,
@@ -414,7 +414,7 @@ module.exports.createEmployeeWorkSchedulesData = async function (req, res) {
                 AND employee_id_1c = $2
                 AND date_from >= $3`
         await client.query(deletySql,
-            [employeeData.base_pk,
+            [req.user.base_pk,
                 employeeData.employee_id_1c,
                 employeeData.date_from]);
 
@@ -430,7 +430,7 @@ module.exports.createEmployeeWorkSchedulesData = async function (req, res) {
                             work_schedules_id_1c)
                     VALUES($1, $2, $3, $4, $5) `
             await client.query(insertSql,
-                [employeeData.base_pk,
+                [req.user.base_pk,
                     employeeData.employee_id_1c,
                     itemDate.date_from,
                     itemDate.date_to,
@@ -479,7 +479,7 @@ module.exports.getEmployeeWorkSchedulesDataForPeriod = async function (req, res)
                                and users.pk = $4;`
         client.query(sqlCreate, [params.begin_date,
             params.end_date,
-            params.base_pk,
+            req.user.base_pk,
             params.pk])
         const sqlSel = `
                     Select 
@@ -592,7 +592,7 @@ module.exports.getEmployeeWorkSchedulesDataForPeriod = async function (req, res)
                 params.begin_date,
                 params.end_date,
                 params.pk,
-                params.base_pk,
+                req.user.base_pk,
                 params.begin_date,
                 params.end_date,
                 params.begin_date,
@@ -602,7 +602,7 @@ module.exports.getEmployeeWorkSchedulesDataForPeriod = async function (req, res)
                 params.begin_date,
                 params.end_date,
                 params.pk,
-                params.base_pk]);
+                req.user.base_pk]);
 
         const sqlDel = 'DROP Table Prioritet'
         await client.query(sqlDel)
@@ -860,7 +860,7 @@ module.exports.updatEemployeeTabel = async function (req, res) {
                 AND employee_id_1c = $2
                 AND tabel_month = $3`
         await client.query(deletySql,
-            [employeeData.base_pk,
+            [req.user.base_pk,
                 employeeData.employee_id_1c,
                 employeeData.tabel_month]);
 
@@ -874,7 +874,7 @@ module.exports.updatEemployeeTabel = async function (req, res) {
                             tabel_data)
                     VALUES($1, $2, $3, $4) `
         await client.query(insertSql,
-            [employeeData.base_pk,
+            [req.user.base_pk,
                 employeeData.employee_id_1c,
                 employeeData.tabel_month,
                 employeeData.tabel_data])

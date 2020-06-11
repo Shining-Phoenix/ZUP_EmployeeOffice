@@ -17,7 +17,7 @@ module.exports.getObjects = async function (req, res) {
                 AND confirmed = false
             
                 `
-        const {rows} = await client.query(sql, [+params.base_pk])
+        const {rows} = await client.query(sql, [+req.user.base_pk])
 
         for (exObject of rows) {
             if (exObject.ex_type === 'InquiryRequest') {
@@ -60,8 +60,11 @@ module.exports.confirmObjects = async function (req, res) {
                 SET
                     confirmed = true                    
                 WHERE
-                    pk = $1`
-            await db.query(sql, [exObject.pk])
+                    pk = $1
+                    and base_pk = $2`
+            await db.query(sql,
+                [exObject.pk,
+                    req.user.base_pk])
         }
 
         await client.query('COMMIT')

@@ -1,16 +1,16 @@
 const express = require('express')
-const passport = require('passport')
+const {checkPermission} = require('../controllers/auth')
 const controller = require('../controllers/inquiryRequest')
 const router = express.Router()
 
-router.get('/by-user', passport.authenticate('jwt', {session: false}), controller.getInquiryRequestByUser)
+router.get('/by-user', checkPermission(), controller.getInquiryRequestByUser)
 
-router.get('/by-id', passport.authenticate('jwt', {session: false}), controller.getInquiryRequestById)
-router.put('/by-id', passport.authenticate('jwt', {session: false}), controller.updateInquiryRequestById)
-router.post('/', passport.authenticate('jwt', {session: false}), controller.createInquiryRequest)
-router.patch('/', passport.authenticate('jwt', {session: false}), controller.patchInquiryRequest)
+router.get('/by-id', checkPermission(), controller.getInquiryRequestById)
+router.put('/by-id', checkPermission(), controller.updateInquiryRequestById)
+router.post('/', checkPermission(), controller.createInquiryRequest)
+router.patch('/', checkPermission(), controller.patchInquiryRequest)
 
-router.get('/statuses', passport.authenticate('jwt', {session: false}), controller.getInquiryRequestStatuses)
-router.get('/types', passport.authenticate('jwt', {session: false}), controller.getInquiryRequestTypes)
+router.get('/statuses', checkPermission(), controller.getInquiryRequestStatuses)
+router.get('/types', checkPermission(), controller.getInquiryRequestTypes)
 
 module.exports = router

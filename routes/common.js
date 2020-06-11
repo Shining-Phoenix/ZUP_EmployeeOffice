@@ -1,26 +1,27 @@
 const express = require('express')
 const passport = require('passport')
 const controller = require('../controllers/common')
+const {checkPermission} = require('../controllers/auth')
 const router = express.Router()
 
-router.post('/organisation', passport.authenticate('jwt', {session: false}), controller.addOrUpdateOrganisation)
+router.post('/organisation', checkPermission(['Admin']), controller.addOrUpdateOrganisation)
 
-router.post('/subdivision', passport.authenticate('jwt', {session: false}), controller.addOrUpdateSubdivision)
+router.post('/subdivision', checkPermission(['Admin']), controller.addOrUpdateSubdivision)
 
-router.post('/employee-position', passport.authenticate('jwt', {session: false}), controller.createEmployeePosition)
-router.put('/employee-position', passport.authenticate('jwt', {session: false}), controller.updateEmployeePosition)
-router.delete('/employee-position', passport.authenticate('jwt', {session: false}), controller.deleteEmployeePosition)
+router.post('/employee-position', checkPermission(['Admin']), controller.createEmployeePosition)
+router.put('/employee-position', checkPermission(['Admin']), controller.updateEmployeePosition)
+router.delete('/employee-position', checkPermission(), controller.deleteEmployeePosition)
 
-router.get('/type-of-time', passport.authenticate('jwt', {session: false}), controller.getTypeOfTime)
-router.post('/type-of-time', passport.authenticate('jwt', {session: false}), controller.createTypeOfTime)
-router.patch('/type-of-time', passport.authenticate('jwt', {session: false}), controller.updateTypeOfTime)
+router.get('/type-of-time', checkPermission(), controller.getTypeOfTime)
+router.post('/type-of-time', checkPermission(['Admin']), controller.createTypeOfTime)
+router.patch('/type-of-time', checkPermission(['Admin']), controller.updateTypeOfTime)
 
-router.post('/inquiry-request-type', passport.authenticate('jwt', {session: false}), controller.createInquiryRequestType)
+router.post('/inquiry-request-type', checkPermission(['Admin']), controller.createInquiryRequestType)
 
-router.post('/work-schedule', passport.authenticate('jwt', {session: false}), controller.createWorkSchedule)
-router.patch('/work-schedule', passport.authenticate('jwt', {session: false}), controller.updateWorkSchedule)
+router.post('/work-schedule', checkPermission(['Admin']), controller.createWorkSchedule)
+router.patch('/work-schedule', checkPermission(['Admin']), controller.updateWorkSchedule)
 
-router.post('/general-work-schedules-data', passport.authenticate('jwt', {session: false}), controller.createGeneralWorkSchedulesData)
+router.post('/general-work-schedules-data', checkPermission(['Admin']), controller.createGeneralWorkSchedulesData)
 
 
 module.exports = router

@@ -1,9 +1,9 @@
 const express = require('express')
-const passport = require('passport')
+const {checkPermission} = require('../controllers/auth')
 const controller = require('../controllers/exchange')
 const router = express.Router()
 
-router.get('/', passport.authenticate('jwt', {session: false}), controller.getObjects)
-router.post('/', passport.authenticate('jwt', {session: false}), controller.confirmObjects)
+router.get('/', checkPermission(['Admin']), controller.getObjects)
+router.post('/', checkPermission(['Admin']), controller.confirmObjects)
 
 module.exports = router

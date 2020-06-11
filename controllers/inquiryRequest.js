@@ -20,7 +20,7 @@ module.exports.getInquiryRequestStatuses = async function (req, res) {
 
 module.exports.getInquiryRequestTypes = async function (req, res) {
     try {
-        const base_pk = req.query.basePk
+        const base_pk = req.user.base_pk
         const sql = `
         SELECT 
             pk,
@@ -227,7 +227,7 @@ module.exports.createInquiryRequest = async function (req, res) {
             pk`
         const {rows} = await client.query(sql, [
             doc_date,
-            inquiryRequest.user_pk,
+            req.user.pk,
             inquiryRequest.status_pk,
             inquiryRequest.type_pk,
             inquiryRequest.doc_number,
@@ -265,7 +265,7 @@ module.exports.createInquiryRequest = async function (req, res) {
             JSON.stringify(inquiryRequest),
             1,
             new Date,
-            inquiryRequest.base_pk])
+            req.user.base_pk])
 
         await client.query('COMMIT')
         client.release()

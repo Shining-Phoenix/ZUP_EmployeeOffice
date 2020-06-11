@@ -12,7 +12,7 @@ module.exports.addOrUpdateOrganisation = async function(req, res) {
         const {rows} = await db.query(sql,
             [organisation.organization_name,
                 organisation.pk,
-                organisation.base_pk]);
+                req.user.base_pk]);
 
         const userData = rows[0]
         res.status(200).json(userData)
@@ -36,7 +36,7 @@ module.exports.addOrUpdateSubdivision = async function(req, res) {
                 subdivision.pk,
                 subdivision.parent_pk,
                 subdivision.organization_pk,
-                subdivision.base_pk]);
+                req.user.base_pk]);
 
         const userData = rows[0]
         res.status(200).json(userData)
@@ -60,7 +60,7 @@ module.exports.createEmployeePosition = async function(req, res) {
         const {rows} = await db.query(sql,
             [employeePosition.pk,
                 employeePosition.position_name,
-                employeePosition.base_pk]);
+                req.user.base_pk]);
 
         const userData = rows[0]
         res.status(200).json(userData)
@@ -85,7 +85,7 @@ module.exports.updateEmployeePosition = async function(req, res) {
         const {rows} = await db.query(sql,
             [employeePosition.position_name,
                 employeePosition.pk,
-                employeePosition.base_pk]);
+                req.user.base_pk]);
 
         const userData = {pk: employeePosition.pk}
         res.status(200).json(userData)
@@ -105,7 +105,7 @@ module.exports.deleteEmployeePosition = async function(req, res) {
          base_pk = $2`;
         const {rows} = await db.query(sql,
             [employeePosition.pk,
-                employeePosition.base_pk]);
+                req.user.base_pk]);
 
         const userData = {pk: employeePosition.pk}
         res.status(200).json(userData)
@@ -131,7 +131,7 @@ module.exports.createInquiryRequestType = async function(req, res) {
             [inquiryRequestType.type_name,
                 inquiryRequestType.id_1c,
                 inquiryRequestType.deleted,
-                inquiryRequestType.base_pk]);
+                req.user.base_pk]);
 
         const userData = rows[0]
         res.status(200).json(userData)
@@ -158,7 +158,7 @@ module.exports.getTypeOfTime = async function(req, res) {
         WHERE
             base_pk = $1`;
         const {rows} = await db.query(sql,
-            [typesOfTime.base_pk]);
+            [req.user.base_pk]);
 
         const userData = rows[0]
         res.status(200).json(userData)
@@ -187,7 +187,7 @@ module.exports.createTypeOfTime = async function(req, res) {
             [typesOfTime.time_name,
                 typesOfTime.id_1c,
                 typesOfTime.time_kod,
-                typesOfTime.base_pk,
+                req.user.base_pk,
                 typesOfTime.deleted,
                 typesOfTime.general_time_id_ic,
                 typesOfTime.time_name_id]);
@@ -221,12 +221,12 @@ module.exports.updateTypeOfTime = async function(req, res) {
             [typesOfTime.time_name,
                 typesOfTime.id_1c,
                 typesOfTime.time_kod,
-                typesOfTime.base_pk,
+                req.user.base_pk,
                 typesOfTime.deleted,
                 typesOfTime.general_time_id_ic,
                 typesOfTime.time_name_id,
                 typesOfTime.id_1c,
-                typesOfTime.base_pk
+                req.user.base_pk
             ]);
 
         const userData = rows[0]
@@ -249,7 +249,7 @@ module.exports.createWorkSchedule = async function(req, res) {
             VALUES($1, $2, $3)`
         const {rows} = await db.query(sql,
             [item.id_1c,
-                item.base_pk,
+                req.user.base_pk,
                 item.title]);
 
         res.status(200).json({})
@@ -272,7 +272,7 @@ module.exports.updateWorkSchedule = async function(req, res) {
         const {rows} = await db.query(sql,
             [item.title,
                 item.id_1c,
-                item.base_pk
+                req.user.base_pk
             ]);
 
         res.status(200).json({})
@@ -298,7 +298,7 @@ module.exports.createGeneralWorkSchedulesData = async function(req, res) {
             WHERE    
                   base_pk = $1`;
         const {rows: typesOfTime} = await client.query(typesSql,
-            [workScheduleData.base_pk]);
+            [req.user.base_pk]);
 
         const deletySql = `
             DELETE FROM
@@ -312,7 +312,7 @@ module.exports.createGeneralWorkSchedulesData = async function(req, res) {
                 [workScheduleData.work_schedule_id_1c,
                 workScheduleData.begin_date,
                 workScheduleData.end_date,
-                workScheduleData.base_pk]);
+                req.user.base_pk]);
 
         for (itemDate of workScheduleData.items){
 
@@ -326,7 +326,7 @@ module.exports.createGeneralWorkSchedulesData = async function(req, res) {
                         work_hour)
                 VALUES($1, $2, $3, $4, $5) `
             await client.query(insertSql,
-                    [workScheduleData.base_pk,
+                    [req.user.base_pk,
                     workScheduleData.work_schedule_id_1c,
                     itemDate.work_date,
                     itemDate.types_of_time_id_1c,

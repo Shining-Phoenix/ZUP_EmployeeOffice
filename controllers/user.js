@@ -5,8 +5,8 @@ const bcrypt = require('bcryptjs')
 module.exports.getUserInfoById = async function (req, res) {
     try{
         const value = req.user.pk
-        const sql = `SELECT surname, user_name, patronymic  FROM users WHERE pk = $1`;
-        const {rows} = await db.query(sql, [value]);
+        const sql = `SELECT surname, user_name, patronymic  FROM users WHERE pk = $1 and base_pk = $2`;
+        const {rows} = await db.query(sql, [value, req.user.base_pk]);
 
         let userData = null
         if (rows.length) {
@@ -21,7 +21,10 @@ module.exports.getUserInfoById = async function (req, res) {
 }
 
 module.exports.createUser = async function (req, res) {
+    const client = await db.client()
+
     try {
+        await client.query('BEGIN')
         const user = req.body
 
         const sql = `
@@ -31,8 +34,9 @@ module.exports.createUser = async function (req, res) {
                   patronymic,
                   id_1c,
                   email,
-                  user_password) 
-        VALUES($1, $2, $3, $4, $5, $6)
+                  user_password, 
+                  base_pk) 
+        VALUES($1, $2, $3, $4, $5, $6, $7)
         RETURNING pk`;
 
         const salt = bcrypt.genSaltSync(10)
@@ -45,13 +49,36 @@ module.exports.createUser = async function (req, res) {
                 user.patronymic,
                 user.id_1c,
                 user.email,
-                user_password]);
+                user_password,
+                user.base_pk]);
 
-        const userData = rows[0]
+        const pk = rows[0].pk
 
-        res.status(200).json(userData)
+        const sqlGroup = `
+            INSERT INTO
+                users_groups(
+                    group_pk,
+                    user.pk)
+                VALUES($1, S2)
+                `
+        await client.query(sqlGroup,
+                [0, pk]);
+
+
+        await client.query('COMMIT')
+        client.release()
+
+        return {
+            email: user.email,
+            password: user.user_password,
+            pk,
+            base_pk: user.base_pk,
+            roles: user.roles
+        }
     } catch (e) {
         errorHandler(res, e)
+        await client.query('ROOLBACK')
+        client.release()
         throw e
     }
 }
@@ -71,7 +98,8 @@ module.exports.updateUser = async function (req, res) {
           email = $5,
           user_password = $6 )          
         WHERE
-          pk = $7`;
+          pk = $7 
+          and base_pk = $8`;
 
         const salt = bcrypt.genSaltSync(10)
         const password = user.user_password
@@ -84,7 +112,8 @@ module.exports.updateUser = async function (req, res) {
                 user.id_1c,
                 user.email,
                 user_password,
-                user.pk]);
+                user.pk,
+                user.base_pk]);
 
         const userData = {pk: user.pk}
 
@@ -100,9 +129,9 @@ module.exports.deleteUser = async function (req, res) {
         const sql = `
         DELETE FROM users        
         WHERE
-         pk = $1`;
+         pk = $1 and base_pk`;
         const {rows} = await db.query(sql,
-            [user.pk]);
+            [user.pk, user.base_pk]);
 
         const userData = {pk: user.pk}
 
