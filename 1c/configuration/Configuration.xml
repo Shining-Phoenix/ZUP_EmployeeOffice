@@ -97,7 +97,6 @@
 			<InformationRegister>ГрафикиРаботыПоВидамВремени</InformationRegister>
 			<AccumulationRegister>НачисленияУдержанияПоСотрудникам</AccumulationRegister>
 			<AccumulationRegister>ДанныеИндивидуальныхГрафиковСотрудников</AccumulationRegister>
-			<AccumulationRegister>ДанныеОперативногоУчетаРабочегоВремениСотрудников</AccumulationRegister>
 		</ChildObjects>
 	</Configuration>
 </MetaDataObject>
