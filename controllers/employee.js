@@ -81,7 +81,6 @@ module.exports.createEmployeeWorkplace = async function (req, res) {
         res.status(200).json(userData)
     } catch (e) {
         errorHandler(res, e)
-        throw e
     }
 }
 
@@ -126,7 +125,6 @@ module.exports.createEmployeeWorkplaces = async function (req, res) {
         errorHandler(res, e)
         await client.query('ROOLBACK')
         client.release()
-        throw e
     }
 }
 
@@ -148,7 +146,6 @@ module.exports.deleteEmployeeWorkplace = async function (req, res) {
         res.status(200).json(userData)
     } catch (e) {
         errorHandler(res, e)
-        throw e
     }
 }
 
@@ -161,20 +158,47 @@ module.exports.createEmployee = async function (req, res) {
             employee (
               pk, 
               base_pk,
-              user_id_1c       
+              user_id_1c,
+              organization_pk       
              ) 
-        VALUES($1, $2, $3)
+        VALUES($1, $2, $3, $4)
         RETURNING pk`
         const {rows} = await db.query(sql,
             [employee.pk,
                 req.user.base_pk,
-                employee.user_id_1c]);
+                employee.user_id_1c,
+                employee.organization_pk]);
 
         const userData = rows[0]
         res.status(200).json(userData)
     } catch (e) {
         errorHandler(res, e)
-        throw e
+    }
+}
+
+module.exports.updateEmployee = async function (req, res) {
+    try {
+        const employee = req.body
+
+        const sql = `
+        UPDATE 
+            employee
+        SET  
+            organization_pk = $1       
+        WHERE
+            pk = $2 AND 
+            base_pk = $3 AND
+            user_id_1c = $4`
+        const {rows} = await db.query(sql,
+            [employee.organization_pk,
+                employee.pk,
+                req.user.base_pk,
+                employee.user_id_1c]);
+
+        const userData = {pk: employee.user_id_1c}
+        res.status(200).json(userData)
+    } catch (e) {
+        errorHandler(res, e)
     }
 }
 
@@ -201,13 +225,13 @@ module.exports.getPaymentList = async function (req, res) {
             payment_list.payment_group_id,
             payment_list.payment_group,
             payment_list.payment_position`
+        const paymentMonth = new Date(paymentList.payment_month)      
         const {rows} = await db.query(sql, [paymentList.pk,
-            paymentList.payment_month]);
+            paymentMonth]);   
 
         res.status(200).json(rows)
     } catch (e) {
         errorHandler(res, e)
-        throw e
     }
 }
 
@@ -266,7 +290,6 @@ module.exports.createPaymentList = async function (req, res) {
         errorHandler(res, e)
         await client.query('ROOLBACK')
         client.release()
-        throw e
     }
 }
 
@@ -341,7 +364,6 @@ module.exports.updateWorkSchedule = async function (req, res) {
         errorHandler(res, e)
         await client.query('ROOLBACK')
         client.release()
-        throw e
     }
 }
 
@@ -393,7 +415,6 @@ module.exports.createPersonalWorkSchedulesData = async function (req, res) {
         errorHandler(res, e)
         await client.query('ROOLBACK')
         client.release()
-        throw e
     }
 }
 
@@ -446,7 +467,6 @@ module.exports.createEmployeeWorkSchedulesData = async function (req, res) {
         errorHandler(res, e)
         await client.query('ROOLBACK')
         client.release()
-        throw e
     }
 }
 
@@ -644,7 +664,6 @@ module.exports.getEmployeeWorkSchedulesDataForPeriod = async function (req, res)
         errorHandler(res, e)
         await client.query('ROOLBACK')
         client.release()
-        throw e
     }
 }
 
@@ -840,7 +859,6 @@ const getUserWorkSchedulesDataForMonth = async function (base_pk, pk, year, mont
         errorHandler([base_pk, pk, year, month], e)
         await client.query('ROOLBACK')
         client.release()
-        throw e
     }
 }
 
@@ -888,7 +906,6 @@ module.exports.updatEemployeeTabel = async function (req, res) {
         errorHandler(res, e)
         await client.query('ROOLBACK')
         client.release()
-        throw e
     }
 }
 

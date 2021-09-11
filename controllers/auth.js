@@ -20,7 +20,7 @@ saveUser = async (user) => {
                         patronymic,
                         id_1c,
                         base_pk)
-                VALUES ($1, $2, $3, S4, S5, $6)     
+                VALUES ($1, $2, $3, $4, $5, $6, $7)     
                 `
         const {rows} = await client.query(sql,
             [user.email,
@@ -71,33 +71,36 @@ saveFirstUser = async (user) => {
 
         const sqlNewBase = `
                 INSERT INTO
-                    bases(description)
-                VALUES($1)
+                    bases(base_pk, description)
+                VALUES($1, $2)
                 RETURNING 
                     base_pk`
 
-        const {rows: baseRows} = await client.query(sqlNewBase, [user.base_description])
-        const base_pk = baseRows[0]
-
+        const {rows: baseRows} = await client.query(sqlNewBase, [0, user.base_description])
+        const basePk = baseRows[0]
         const sql = `
                 INSERT INTO 
                     users(
                         email,
                         user_password,
                         surname,
+                        user_name,
                         patronymic,
                         id_1c,
                         base_pk)
-                VALUES ($1, $2, $3, S4, S5, $6)     
+                VALUES ($1, $2, $3, $4, $5, $6, $7)  
+                RETURNING 
+                        pk
                 `
+               
         const {rows} = await client.query(sql,
             [user.email,
-                bcrypt.hashSync(user.password, salt),
+                user.user_password,
                 user.surname,
                 user.user_name,
                 user.patronymic,
                 user.id_1c,
-                base_pk]);
+                basePk.base_pk]);
 
         const pk = rows[0].pk
 
@@ -106,10 +109,10 @@ saveFirstUser = async (user) => {
             INSERT INTO
                 users_groups(
                     group_pk,
-                    user.pk)
-                VALUES($1, S2)
+                    user_pk)
+                VALUES($1, $2)
                 `
-            await client.query(sql,
+            await client.query(sqlGroup,
                 [userGroup, pk]);
         }
 
@@ -120,11 +123,12 @@ saveFirstUser = async (user) => {
             email: user.email,
             password: user.user_password,
             pk: pk,
-            base_pk,
+            base_pk: basePk.base_pk,
             roles: user.roles
         }
-    } catch (e) {
-        errorHandler(res, e)
+    
+    } 
+    catch (e) {
         await client.query('ROOLBACK')
         client.release()
         throw e
@@ -139,6 +143,8 @@ findUserByEmail = async (value) => {
         const sql = `SELECT pk, email, user_password, base_pk  FROM users WHERE email = $1`;
         const {rows} = await client.query(sql, [value.email]);
         const user = rows[0]
+
+        if (!user) {return user}
 
         const sqlGroup = `SELECT group_pk FROM users_groups WHERE user_pk = $1`
         const {rows: userGroup} = await client.query(sqlGroup, [user.pk])
@@ -172,7 +178,6 @@ getFirstUser = async (value) => {
 
         return rows[0]
     } catch (e) {
-        errorHandler(res, e)
         throw e
     }
 }
@@ -242,7 +247,8 @@ module.exports.register = async function (req, res) {
             user_name: req.body.user_name,
             patronymic: req.body.patronymic,
             id_1c: req.body.id_1c,
-            roles:[2]
+            roles:[2],
+            base_description: 'base_description'
         }
 
         try {

@@ -1,6 +1,21 @@
 -- Structure for table users (OID = 16589):
 SET SESSION AUTHORIZATION 'postgres';
 SET search_path = public, pg_catalog;
+-- Definition for sequence users_pk_seq (OID = 16653):
+CREATE SEQUENCE users_pk_seq
+    START WITH 1
+    INCREMENT BY 1
+    MAXVALUE 2147483647
+    NO MINVALUE
+    CACHE 1;
+-- Definition for sequence user_groups_pk_seq (OID = 16668):
+CREATE SEQUENCE user_groups_pk_seq
+    START WITH 1
+    INCREMENT BY 1
+    MAXVALUE 2147483647
+    NO MINVALUE
+    CACHE 1;
+
 CREATE TABLE users (
     surname varchar(50),
     user_name varchar(50),
@@ -22,20 +37,6 @@ CREATE TABLE users_groups (
     group_pk integer NOT NULL,
     user_pk integer NOT NULL
 ) WITHOUT OIDS;
--- Definition for sequence users_pk_seq (OID = 16653):
-CREATE SEQUENCE users_pk_seq
-    START WITH 1
-    INCREMENT BY 1
-    MAXVALUE 2147483647
-    NO MINVALUE
-    CACHE 1;
--- Definition for sequence user_groups_pk_seq (OID = 16668):
-CREATE SEQUENCE user_groups_pk_seq
-    START WITH 1
-    INCREMENT BY 1
-    MAXVALUE 2147483647
-    NO MINVALUE
-    CACHE 1;
 -- Structure for table employee_position (OID = 24764):
 CREATE TABLE employee_position (
     position_name varchar(200),
@@ -68,12 +69,15 @@ CREATE TABLE organization (
 CREATE TABLE employee (
     pk varchar(36) NOT NULL,
     base_pk integer NOT NULL,
-    user_id_1c varchar(36) NOT NULL
+    user_id_1c varchar(36) NOT NULL,
+    organization_pk varchar(36) NOT NULL
 ) WITHOUT OIDS;
 -- Definition for function InsertUpdateOrganisation (OID = 49355):
 SET check_function_bodies = false;
-CREATE FUNCTION "InsertUpdateOrganisation" (_organization_name varchar, _pk varchar, res_pk integer) RETURNS varchar
-    AS '', '
+CREATE FUNCTION "InsertUpdateOrganisation" (_organization_name varchar, _pk varchar, _base_pk integer) RETURNS varchar
+    AS '
+DECLARE
+	res_pk character varying;
 begin
 
 SELECT pk into res_pk FROM organization Where organization.pk = _pk;
@@ -82,13 +86,16 @@ IF NOT FOUND THEN
 ELSE
    UPDATE organization SET organization_name = _organization_name, pk = _pk, base_pk = _base_pk WHERE pk = res_pk;
 END IF;   
-  
-end
-'
+
+return res_pk;
+ 
+end'
     LANGUAGE plpgsql;
 -- Definition for function InsertUpdateSubdivision (OID = 49356):
-CREATE FUNCTION "InsertUpdateSubdivision" (_subdivision_name varchar, _pk varchar, _parent_pk varchar, _organization_pk varchar, res_pk integer) RETURNS varchar
-    AS '', '
+CREATE FUNCTION "InsertUpdateSubdivision" (_subdivision_name varchar, _pk varchar, _parent_pk varchar, _organization_pk varchar, _base_pk integer) RETURNS varchar
+    AS '
+DECLARE
+	res_pk character varying;    
 begin
 
 SELECT pk into res_pk FROM subdivision Where subdivision.pk = _pk;
@@ -97,6 +104,8 @@ IF NOT FOUND THEN
 ELSE
    UPDATE subdivision SET subdivision_name = _subdivision_name, pk = _pk, parent_pk = _parent_pk, organization_pk = _organization_pk, base_pk = _base_pk WHERE pk =_pk;
 END IF;   
+
+return res_pk;
   
 end
 '
@@ -336,3 +345,33 @@ ALTER TABLE ONLY employee_tabel
     ADD CONSTRAINT "employee_tabel_Index01" UNIQUE (employee_id_1c, base_pk, tabel_month);
 SET search_path = pg_catalog, pg_catalog;
 COMMENT ON SCHEMA public IS 'standard public schema';
+
+CREATE TABLE IF NOT EXISTS public.bases
+(
+    base_pk integer NOT NULL,
+    description character varying(1000) NOT NULL,
+    PRIMARY KEY (base_pk)
+);
+
+ALTER TABLE public.bases
+    OWNER to postgres;
+
+INSERT INTO public.exchange_event(
+	pk, event_name)
+	VALUES (1, 'New');
+
+INSERT INTO public.exchange_event(
+	pk, event_name)
+	VALUES (2, 'Updated');
+
+INSERT INTO public.user_groups(
+	group_name, pk)
+	VALUES ('User', 0);
+	
+INSERT INTO public.user_groups(
+	group_name, pk)
+	VALUES ('Admin', 1);
+	
+INSERT INTO public.user_groups(
+	group_name, pk)
+	VALUES ('SuperAdmin', 2);	    

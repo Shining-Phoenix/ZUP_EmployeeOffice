@@ -14,6 +14,5 @@ module.exports.createImage = async (req, res) => {
     } catch (e) {
         fs.unlinkSync(req.file.path)
         errorHandler(res, e)
-        throw e
     }
 }

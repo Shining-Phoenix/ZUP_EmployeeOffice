@@ -9,6 +9,7 @@ router.post('/workplace', checkPermission(['Admin']), controller.createEmployeeW
 router.post('/workplaces', checkPermission(['Admin']), controller.createEmployeeWorkplaces)
 router.delete('/workplace', checkPermission(['Admin']), controller.deleteEmployeeWorkplace)
 router.post('/', checkPermission(['Admin']), controller.createEmployee)
+router.post('/update', checkPermission(['Admin']), controller.updateEmployee)
 router.get('/payment-list', checkPermission(), controller.getPaymentList)
 router.post('/payment-list', checkPermission(['Admin']), controller.createPaymentList)
 

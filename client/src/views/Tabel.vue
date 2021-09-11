@@ -44,7 +44,7 @@
         <Loader v-if="loading"/>
         <div
                 v-else-if="!loading && tabelData.length && tabelData.length > 0"
-                class="row ml-0 mt-3 mr-2">
+                class="row ml-0 mt-3 mr-2 mb-10">
                 <employee-tabel
                     v-for = "tabel of tabelData"
                     :key="tabel.index"

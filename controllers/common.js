@@ -6,9 +6,9 @@ module.exports.addOrUpdateOrganisation = async function(req, res) {
         const organisation = req.body
         const sql = `
         SELECT 
-            res_pk as pk 
+        InsertUpdateOrganisation.InsertUpdateOrganisation as pk 
         FROM 
-            public."InsertUpdateOrganisation"($1, $2, $3)`;
+            public."InsertUpdateOrganisation"($1, $2, $3) as InsertUpdateOrganisation`;
         const {rows} = await db.query(sql,
             [organisation.organization_name,
                 organisation.pk,
@@ -18,7 +18,6 @@ module.exports.addOrUpdateOrganisation = async function(req, res) {
         res.status(200).json(userData)
     } catch (e) {
         errorHandler(res, e)
-        throw e
     }
 }
 
@@ -28,9 +27,9 @@ module.exports.addOrUpdateSubdivision = async function(req, res) {
 
         const sql = `
         SELECT 
-            res_pk as pk 
+        InsertUpdateSubdivision.InsertUpdateSubdivision as pk 
         FROM 
-            public."InsertUpdateSubdivision"($1, $2, $3, $4, $5)`;
+            public."InsertUpdateSubdivision"($1, $2, $3, $4, $5) as InsertUpdateSubdivision`;
         const {rows} = await db.query(sql,
             [subdivision.subdivision_name,
                 subdivision.pk,
@@ -66,7 +65,6 @@ module.exports.createEmployeePosition = async function(req, res) {
         res.status(200).json(userData)
     } catch (e) {
         errorHandler(res, e)
-        throw e
     }
 }
 
@@ -91,7 +89,6 @@ module.exports.updateEmployeePosition = async function(req, res) {
         res.status(200).json(userData)
     } catch (e) {
         errorHandler(res, e)
-        throw e
     }
 }
 
@@ -342,6 +339,5 @@ module.exports.createGeneralWorkSchedulesData = async function(req, res) {
         errorHandler(res, e)
         await client.query('ROOLBACK')
         client.release()
-        throw e
     }
 }

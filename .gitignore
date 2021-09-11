@@ -1,7 +1,7 @@
 node_modules
 client/etc
 client/node_modules
-/uploads/*
+/uploads/**
 
 #Ignore thumbnails created by Windows
 Thumbs.db

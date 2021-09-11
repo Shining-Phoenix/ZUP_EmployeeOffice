@@ -16,7 +16,6 @@ module.exports.getUserInfoById = async function (req, res) {
         res.status(200).json(userData)
     } catch (e) {
         errorHandler(res, e)
-        throw e
     }
 }
 
@@ -41,9 +40,9 @@ module.exports.createUser = async function (req, res) {
 
         const salt = bcrypt.genSaltSync(10)
         const password = user.user_password
-        const user_password = bcrypt.hashSync(password, salt)
-
-        const {rows} = await db.query(sql,
+        const user_password = bcrypt.hashSync(password, salt) 
+  
+        const {rows} = await client.query(sql,
             [user.surname,
                 user.user_name,
                 user.patronymic,
@@ -58,8 +57,8 @@ module.exports.createUser = async function (req, res) {
             INSERT INTO
                 users_groups(
                     group_pk,
-                    user.pk)
-                VALUES($1, S2)
+                    user_pk)
+                VALUES($1, $2)
                 `
         await client.query(sqlGroup,
                 [0, pk]);
@@ -67,19 +66,21 @@ module.exports.createUser = async function (req, res) {
 
         await client.query('COMMIT')
         client.release()
-
-        return {
+        
+        const userData = {
             email: user.email,
             password: user.user_password,
             pk,
             base_pk: user.base_pk,
             roles: user.roles
         }
+
+        res.status(200).json(userData)
+
     } catch (e) {
         errorHandler(res, e)
         await client.query('ROOLBACK')
         client.release()
-        throw e
     }
 }
 
@@ -120,7 +121,6 @@ module.exports.updateUser = async function (req, res) {
         res.status(200).json(userData)
     } catch (e) {
         errorHandler(res, e)
-        throw e
     }
 }
 
@@ -139,7 +139,6 @@ module.exports.deleteUser = async function (req, res) {
         res.status(200).json(userData)
     } catch (e) {
         errorHandler(res, e)
-        throw e
     }
 }
 

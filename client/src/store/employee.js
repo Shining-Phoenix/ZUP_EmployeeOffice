@@ -1,4 +1,5 @@
 import axios from 'axios'
+import formatDateToString from '../utils/common' 
 
 export default {
     actions: {
@@ -19,7 +20,7 @@ export default {
                 const Uid = await dispatch('getUid')
                 const resp = await axios.get('/api/employee/payment-list', {params:
                         {pk: Uid,
-                         payment_month: val.payment_month}
+                         payment_month: formatDateToString(val.payment_month)}
                 })
                 return resp.data
             } catch (e) {

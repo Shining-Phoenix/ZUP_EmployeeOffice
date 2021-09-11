@@ -1,6 +1,6 @@
 <template>
     <div class="employee-tabel">
-    <h3 v-if="showBlockName" class="mb-3"> Табельный номер: {{ tabelData.tabel_data['ТабНом'] }}</h3>
+    <h3 v-if="showBlockName" class="mt-3 mb-3"> Табельный номер: {{ tabelData.tabel_data['ТабНом'] }}</h3>
     <h3 class="mb-1"> Данные по дням: </h3>
         <table border="1"
                width="100%"
