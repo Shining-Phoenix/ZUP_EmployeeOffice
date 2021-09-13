@@ -46,7 +46,7 @@ module.exports.getEmployeeDataById = async function (req, res) {
 
         let userData = null
         if (rows.length) {
-            userData = rows[0]
+            userData = rows
         }
 
         res.status(200).json(userData)
@@ -159,15 +159,17 @@ module.exports.createEmployee = async function (req, res) {
               pk, 
               base_pk,
               user_id_1c,
-              organization_pk       
+              organization_pk,
+              deleted       
              ) 
-        VALUES($1, $2, $3, $4)
+        VALUES($1, $2, $3, $4, $5)
         RETURNING pk`
         const {rows} = await db.query(sql,
             [employee.pk,
                 req.user.base_pk,
                 employee.user_id_1c,
-                employee.organization_pk]);
+                employee.organization_pk,
+                employee.deleted]);
 
         const userData = rows[0]
         res.status(200).json(userData)

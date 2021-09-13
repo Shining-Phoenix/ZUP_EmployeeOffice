@@ -8,19 +8,30 @@
                 fluid
                 v-else-if="employeeData">
             <v-row>
-                <v-col cols="5">
+                <v-col cols="5" v-if = "employeeData && employeeData[0].image_src">
                     <v-img
                             align="center"
                             class="z-depth-5 v-image-center shadow"
                             width="500"
-                            :src="employeeData.image_src"
+                            :src="employeeData[0].image_src"
                     />
                 </v-col>
                 <v-col cols="7">
-                    <h2 class="mb-5"> {{employeeData.surname + ' ' + employeeData.user_name + ' ' + employeeData.patronymic}} </h2>
-                    <h3> {{employeeData.organization_name}} </h3>
-                    <h3> {{employeeData.subdivision_name}} </h3>
-                    <h3> {{employeeData.position_name}} </h3>
+                    <v-row v-if = "employeeData">
+                        <v-col cols="12">
+                            <h2 class="mb-5"> {{employeeData[0].surname + ' ' + employeeData[0].user_name + ' ' + employeeData[0].patronymic}} </h2>
+                        </v-col>
+                    </v-row>                       
+                    <v-row 
+                        v-for="employeeDataRow of employeeData"
+                        :key="employeeDataRow.employee_pk"
+                        >
+                        <v-col cols="12">
+                            <h3> {{employeeDataRow.organization_name}} </h3>
+                            <h3> {{employeeDataRow.subdivision_name}} </h3>
+                            <h3> {{employeeDataRow.position_name}} </h3>
+                        </v-col>
+                    </v-row>
                 </v-col>
             </v-row>
         </v-container>

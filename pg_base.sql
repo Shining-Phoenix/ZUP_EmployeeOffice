@@ -66,11 +66,15 @@ CREATE TABLE organization (
     base_pk integer
 ) WITHOUT OIDS;
 -- Structure for table employee (OID = 49340):
-CREATE TABLE employee (
-    pk varchar(36) NOT NULL,
+CREATE TABLE IF NOT EXISTS public.employee
+(
+    pk character varying(36) COLLATE pg_catalog."default" NOT NULL,
     base_pk integer NOT NULL,
-    user_id_1c varchar(36) NOT NULL,
-    organization_pk varchar(36) NOT NULL
+    user_id_1c character varying(36) COLLATE pg_catalog."default" NOT NULL,
+    organization_pk character varying(36) COLLATE pg_catalog."default" NOT NULL,
+    deleted boolean NOT NULL,
+    date_of_appointment date,
+    date_of_dismissal date
 ) WITHOUT OIDS;
 -- Definition for function InsertUpdateOrganisation (OID = 49355):
 SET check_function_bodies = false;

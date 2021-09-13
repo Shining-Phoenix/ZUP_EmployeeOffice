@@ -18,6 +18,8 @@ findUserById = async (value) => {
         const {rows} = await client.query(sql, [value]);
         const user = rows[0]
 
+        if (!user) {return user}
+
         const sqlGroup = `SELECT group_pk FROM users_groups WHERE user_pk = $1`
         const {rows: userGroup} = await client.query(sqlGroup, [value])
         const roles = []
