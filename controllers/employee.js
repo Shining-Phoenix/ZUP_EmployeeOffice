@@ -716,7 +716,8 @@ const getUserWorkSchedulesDataForMonth = async function (base_pk, pk, year, mont
                                 data.time_name,
                                 data.time_kod,
                                 data.employee_id_1c, 
-                                q
+                                q,
+                                data.tab_nom
                             FROM     
                                 (Select
                                 general_work_schedules_data.work_date,
@@ -724,7 +725,8 @@ const getUserWorkSchedulesDataForMonth = async function (base_pk, pk, year, mont
                                 types_of_time.time_name,
                                 types_of_time.time_kod,
                                 employee_work_schedules.employee_id_1c, 
-                                1 as q
+                                1 as q,
+                                employee.tab_nom
                                 From 
                                      employee_work_schedules
                                      inner join employee on (employee_work_schedules.employee_id_1c = employee.pk
@@ -767,7 +769,8 @@ const getUserWorkSchedulesDataForMonth = async function (base_pk, pk, year, mont
                             types_of_time.time_name,
                             types_of_time.time_kod,
                             employee_work_schedules.employee_id_1c,
-                            2
+                            2,
+                            employee.tab_nom
                             From
                                  employee_work_schedules
                                  inner join employee on (employee_work_schedules.employee_id_1c = employee.pk
@@ -844,6 +847,7 @@ const getUserWorkSchedulesDataForMonth = async function (base_pk, pk, year, mont
                 currentMonth = null
                 employeeBlock = {
                     employee: item.employee_id_1c,
+                    tab_nom: item.tab_nom,
                     months: []
                 }
                 result.push(employeeBlock)
@@ -936,19 +940,19 @@ module.exports.getEmployeeTabel = async function (req, res) {
                         employee_tabel.tabel_month = $2`
         
         const {rows} = await db.query(sql, [pk, month])
-        
         if (rows.length) {
             res.status(200).json(rows)
         } else {
             const monthDate = new Date(month)
             console.log(base_pk, pk, monthDate.getFullYear(), monthDate.getMonth())
             const schedulesData = await getUserWorkSchedulesDataForMonth(base_pk, pk, monthDate.getFullYear(), monthDate.getMonth())
-
+            console.log(JSON.stringify(schedulesData))
             const resultArray = []
             for (let person of schedulesData) {
                 const resultObject = {}
-                resultObject.Сотрудник = schedulesData.employee
-                resultObject.ТабНом = ''
+                resultObject.Сотрудник = person.employee
+                resultObject.ТабНом = person.tab_nom
+                console.log('tab nom' + person.tab_nom )
                 let monthHours = 0
                 let monthDays = 0
                 let dayOfMonth = {}
