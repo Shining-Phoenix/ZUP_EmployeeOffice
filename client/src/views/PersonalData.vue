@@ -27,6 +27,7 @@
                         :key="employeeDataRow.employee_pk"
                         >
                         <v-col cols="12">
+                            <h3> Таб. № {{employeeDataRow.tab_nom}} </h3>
                             <h3> {{employeeDataRow.organization_name}} </h3>
                             <h3> {{employeeDataRow.subdivision_name}} </h3>
                             <h3> {{employeeDataRow.position_name}} </h3>
