@@ -1,6 +1,6 @@
 <template>
     <div class="employee-tabel">
-    <h3 v-if="showBlockName" class="mt-3 mb-3"> Табельный номер: {{ tabelData.tabel_data['ТабНом'] }}</h3>
+    <h3 v-if="showBlockName" class="mt-3 employee-tabel_head"> Таб. № {{ tabelData.tabel_data['ТабНом'] }}</h3>
     <h3 class="mb-1"> Данные по дням: </h3>
         <table border="1"
                width="100%"
@@ -11,10 +11,10 @@
             >
              </tbody>
         </table>
-        <h3 class="mt-3 mb-1"> Отработано за месяц:</h3>
+        <h3> Отработано за месяц:</h3>
         <table border="1"
                width="30%"
-               class="employee-tabel_table">
+               class="employee-tabel_table mb-5">
             <tbody
             >
                 <tr class="employee-tabel_row-days">
@@ -153,6 +153,16 @@
     .employee-tabel{
         width: 100%;
     }
+
+    .employee-tabel_head{
+        background-color: darkgray;
+        padding-left: 5mm;
+        border-bottom-width: 1mm;
+        color: black;
+        border-bottom: 2mm;
+        border-bottom-color: darkgreen;
+    }
+
     .employee-tabel_table{
         border-collapse: collapse;
         border-color: #212121;
