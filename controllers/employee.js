@@ -14,7 +14,8 @@ module.exports.getEmployeeDataById = async function (req, res) {
                           users.user_name, 
                           users.patronymic, 
                           users.image_src, 
-                          users.id_1c 
+                          users.id_1c,
+                          employee.tab_nom 
                         FROM 
                           users as users 
                             left join employee as employee on ( users.id_1c = employee.user_id_1c and users.base_pk = employee.base_pk )   
@@ -160,16 +161,18 @@ module.exports.createEmployee = async function (req, res) {
               base_pk,
               user_id_1c,
               organization_pk,
-              deleted       
+              deleted,
+              tab_nom       
              ) 
-        VALUES($1, $2, $3, $4, $5)
+        VALUES($1, $2, $3, $4, $5, $6)
         RETURNING pk`
         const {rows} = await db.query(sql,
             [employee.pk,
                 req.user.base_pk,
                 employee.user_id_1c,
                 employee.organization_pk,
-                employee.deleted]);
+                employee.deleted,
+                employee.tab_nom]);
 
         const userData = rows[0]
         res.status(200).json(userData)
@@ -186,16 +189,20 @@ module.exports.updateEmployee = async function (req, res) {
         UPDATE 
             employee
         SET  
-            organization_pk = $1       
+            organization_pk = $1,
+            deleted = $2,
+            tab_nom = $3       
         WHERE
-            pk = $2 AND 
-            base_pk = $3 AND
-            user_id_1c = $4`
+            pk = $4 AND 
+            base_pk = $5 AND
+            user_id_1c = $6`
         const {rows} = await db.query(sql,
             [employee.organization_pk,
                 employee.pk,
                 req.user.base_pk,
-                employee.user_id_1c]);
+                employee.user_id_1c,
+                employee.deleted,
+                employee.tab_nom]);
 
         const userData = {pk: employee.user_id_1c}
         res.status(200).json(userData)

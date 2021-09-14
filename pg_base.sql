@@ -74,7 +74,8 @@ CREATE TABLE IF NOT EXISTS public.employee
     organization_pk character varying(36) COLLATE pg_catalog."default" NOT NULL,
     deleted boolean NOT NULL,
     date_of_appointment date,
-    date_of_dismissal date
+    date_of_dismissal date, 
+    tab_nom character varying(20) NOT NULL
 ) WITHOUT OIDS;
 -- Definition for function InsertUpdateOrganisation (OID = 49355):
 SET check_function_bodies = false;
