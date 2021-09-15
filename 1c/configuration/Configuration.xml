@@ -100,6 +100,7 @@
 			<InformationRegister>ЛК_СоответствиеОбъектовДляОбмена</InformationRegister>
 			<InformationRegister>ГрафикРаботыСотрудников</InformationRegister>
 			<InformationRegister>ГрафикиРаботыПоВидамВремени</InformationRegister>
+			<InformationRegister>ВидыЗанятостиСотрудников</InformationRegister>
 			<AccumulationRegister>НачисленияУдержанияПоСотрудникам</AccumulationRegister>
 			<AccumulationRegister>ДанныеИндивидуальныхГрафиковСотрудников</AccumulationRegister>
 		</ChildObjects>

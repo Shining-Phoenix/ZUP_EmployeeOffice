@@ -464,6 +464,58 @@ module.exports.createEmployeeWorkSchedulesData = async function (req, res) {
     }
 }
 
+module.exports.createTypesOfEmployment = async function (req, res) {
+    const client = await db.client()
+
+    try {
+        const employeeData = req.body
+
+        await client.query('BEGIN')
+
+
+        const deletySql = `
+            DELETE FROM
+                employee_type_of_employment
+            WHERE  
+                base_pk = $1   
+                AND employee_pk = $2
+                AND date_from >= $3`
+        await client.query(deletySql,
+            [req.user.base_pk,
+                employeeData.employee_id_1c,
+                employeeData.date_from]);
+
+        for (itemDate of employeeData.items) {
+
+            const insertSql =
+                `INSERT INTO 
+                    employee_type_of_employment(
+                            base_pk,
+                            employee_pk,
+                            date_from,
+                            date_to,
+                            type_of_employment)
+                    VALUES($1, $2, $3, $4, $5) `
+            await client.query(insertSql,
+                [req.user.base_pk,
+                    employeeData.employee_pk,
+                    itemDate.date_from,
+                    itemDate.date_to,
+                    itemDate.type_of_employment])
+        }
+
+
+        await client.query('COMMIT')
+        client.release()
+
+        res.status(200).json({})
+    } catch (e) {
+        errorHandler(res, e)
+        await client.query('ROOLBACK')
+        client.release()
+    }
+}
+
 module.exports.getEmployeeWorkSchedulesDataForPeriod = async function (req, res) {
     const client = await db.client()
 
@@ -969,6 +1021,50 @@ module.exports.getEmployeeTabel = async function (req, res) {
         }   
     } catch (e) {
         errorHandler(res, e)
+    }
+}
+
+module.exports.createEmployeeTypeOfEmployment = async function (req, res) {
+    const client = await db.client()
+    try {
+        const employeeWorkplacesData = req.body
+        await client.query('BEGIN')
+
+        const deleteSql = 'DELETE FROM types_of_employment WHERE base_pk = $1 AND employee_pk = $2 and date_from = $3'
+        const result = await client.query(deleteSql,
+            [req.user.base_pk,
+                employeeWorkplacesData.employee_pk]);
+
+        employeeWorkplacesData.workplaces.forEach(async workplace => {
+            const sql = `
+            INSERT INTO 
+                workplace (
+                  position_pk, 
+                  subdivision_pk,
+                  employee_pk,
+                  date_from,
+                  base_pk          
+                 ) 
+            VALUES($1, $2, $3, $4, $5)
+            RETURNING position_pk as pk`
+
+            const result = await client.query(sql,
+                [workplace.position_pk,
+                    workplace.subdivision_pk,
+                    employeeWorkplacesData.employee_pk,
+                    workplace.date_from,
+                    req.user.base_pk]);
+        })
+
+        await client.query('COMMIT')
+        client.release()
+        const userData = {pk: employeeWorkplacesData.employee_pk}
+
+        res.status(200).json(userData)
+    } catch (e) {
+        errorHandler(res, e)
+        await client.query('ROOLBACK')
+        client.release()
     }
 }
 

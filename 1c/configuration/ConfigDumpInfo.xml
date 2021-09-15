@@ -33,9 +33,9 @@
 		<Metadata name="CommonModule.ЛК_ОбменДаннымиПовтИсп" id="89a588ca-347f-4bb9-a47a-8bb4a0c04e27" configVersion="badea70a92a6a537cd77253f155d60d92d62ce0c"/>
 		<Metadata name="CommonModule.ЛК_ОбменДаннымиПовтИсп.Module" id="89a588ca-347f-4bb9-a47a-8bb4a0c04e27.0" configVersion="cb37f832b11f10330e403dd0f97acdc6688eac39"/>
 		<Metadata name="CommonModule.ЛК_ОбменДаннымиСервер" id="40798dc0-cb1d-43f8-8592-8f9c4bf58cfa" configVersion="a388a72d189c9913156be4abe43b195534b46eb0"/>
-		<Metadata name="CommonModule.ЛК_ОбменДаннымиСервер.Module" id="40798dc0-cb1d-43f8-8592-8f9c4bf58cfa.0" configVersion="9cfb0cee3802fd6d4613de223a2338ad343c6348"/>
+		<Metadata name="CommonModule.ЛК_ОбменДаннымиСервер.Module" id="40798dc0-cb1d-43f8-8592-8f9c4bf58cfa.0" configVersion="729d52d86ea7172d0a727f7fa3b97951bb6cf930"/>
 		<Metadata name="CommonModule.ЛК_ОбработкаСобытийСервер" id="c564cfa0-7872-4699-9b6c-f5c49785dc08" configVersion="6a0fc15a0294664adb206e3db3b1f127bff34456"/>
-		<Metadata name="CommonModule.ЛК_ОбработкаСобытийСервер.Module" id="c564cfa0-7872-4699-9b6c-f5c49785dc08.0" configVersion="ac8d064553401060c52fb68ce65fd3202997d293"/>
+		<Metadata name="CommonModule.ЛК_ОбработкаСобытийСервер.Module" id="c564cfa0-7872-4699-9b6c-f5c49785dc08.0" configVersion="6e1fa0ad738ce7b2420e08bebb8bea44b917910a"/>
 		<Metadata name="CommonModule.ЛК_ОбщегоНазначенияВызовСервера" id="fae9975b-31c6-4c96-84cd-e0563f8fa3fd" configVersion="b2333885104e395b81c33c9c197d1872227a8fc1"/>
 		<Metadata name="CommonModule.ЛК_ОбщегоНазначенияВызовСервера.Module" id="fae9975b-31c6-4c96-84cd-e0563f8fa3fd.0" configVersion="16ce287f9c6e5671e9fc73f1a367d3b3b7a20a61"/>
 		<Metadata name="CommonModule.ЛК_РаботаСJSONСервер" id="a6625281-af8c-4623-9a06-16f743375cc7" configVersion="ea4bc3f76e6233165639544f1e7c66f4dbce2567"/>
@@ -43,7 +43,7 @@
 		<Metadata name="CommonModule.ЛК_РаботаСФункциямиКлиентСервер" id="e6a9727d-befa-4c63-9697-aa1a85a2150f" configVersion="5ac547a40ee630c3afeca97d8e0ef00dc09a4517"/>
 		<Metadata name="CommonModule.ЛК_РаботаСФункциямиКлиентСервер.Module" id="e6a9727d-befa-4c63-9697-aa1a85a2150f.0" configVersion="bf35fb85e149f336f6a2ad03eaee14e63538c1d0"/>
 		<Metadata name="CommonPicture.КадровыйУчет48" id="c4289182-ac76-405d-ad20-e66034851c44" configVersion="417cbf8ccd70e2a92bcd3a843ba6e08c0d1ae588"/>
-		<Metadata name="Configuration.ZUP_EmployeeOffice" id="1b9eaada-ae35-4b7a-b392-91b9b4894192" configVersion="32ef434bb5d6d93308ec5728cf65981edc485ae2"/>
+		<Metadata name="Configuration.ZUP_EmployeeOffice" id="1b9eaada-ae35-4b7a-b392-91b9b4894192" configVersion="727361f3c9c6052c3d1c8b3cb07a7946b2559d02"/>
 		<Metadata name="Configuration.ZUP_EmployeeOffice.ManagedApplicationModule" id="8767be3d-f7a1-41f9-99ef-5123d9adec4e.6" configVersion="43d9fa43c534af35f4fe0c8da9ac6932be9cd5b5"/>
 		<Metadata name="DataProcessor.ЛК_Администрирование" id="599f5fa6-a7b7-4bb3-a50a-358d89cc3189" configVersion="cc7928a459977ffde9a368af62e8700922cd19a6">
 			<Metadata name="DataProcessor.ЛК_Администрирование.Attribute.Пароль" id="67187821-8371-4fff-b278-c3e91a2d5b9c"/>
@@ -75,6 +75,8 @@
 			<Metadata name="Enum.ЛК_СтатусОбменаСЛК.EnumValue.Выполнен" id="48b09c2c-8005-451f-80bc-03106b0867e2"/>
 			<Metadata name="Enum.ЛК_СтатусОбменаСЛК.EnumValue.Новый" id="a1f58133-bff1-4e39-b7fd-bd266bf8bd06"/>
 		</Metadata>
+		<Metadata name="InformationRegister.ВидыЗанятостиСотрудников" id="6b4c134a-518a-4031-bd1c-53c46f91c22d" configVersion="26ad4acc1a3a496145fcc99d333dd9cb22054f7a"/>
+		<Metadata name="InformationRegister.ВидыЗанятостиСотрудников.RecordSetModule" id="6b4c134a-518a-4031-bd1c-53c46f91c22d.1" configVersion="82b6319ce0546b1353b2359cdda5e657ceee4e9f"/>
 		<Metadata name="InformationRegister.ГрафикРаботыСотрудников" id="6bd4cb8e-3e71-4ad9-ac1f-d0417d2fa039" configVersion="7290c83f8a0ef70fbc36768293fd54b73edd4144"/>
 		<Metadata name="InformationRegister.ГрафикРаботыСотрудников.RecordSetModule" id="6bd4cb8e-3e71-4ad9-ac1f-d0417d2fa039.1" configVersion="36f7535945926ec5f84d315bea467e35a9706404"/>
 		<Metadata name="InformationRegister.ГрафикиРаботыПоВидамВремени" id="6cf85cc2-3baa-43a6-96e1-071d031f5b0d" configVersion="cc2218e0e8c3b2c5ed083f8a3c3ed77e661f041f"/>

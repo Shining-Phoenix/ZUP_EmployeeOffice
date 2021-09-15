@@ -412,4 +412,42 @@ SELECT
                             left join organization as organization on (subdivision.organization_pk = organization.pk)
                           WHERE 
                             users.pk = $1;'
-LANGUAGE sql;        
+LANGUAGE sql;
+
+CREATE TABLE IF NOT EXISTS public.employee_type_of_employment
+(
+    base_pk integer NOT NULL,
+    employee_pk character varying(36) NOT NULL,
+    date_from date NOT NULL,
+    date_to date NOT NULL,
+    type_of_employment integer,
+    PRIMARY KEY (base_pk, employee_pk, date_from)
+);
+
+CREATE OR REPLACE FUNCTION user_types_of_employment_for_date(_user_pk integer, _workplace_period timestamp with time zone)
+  RETURNS TABLE (employee_pk text, date_from date, type_of_employment integer) AS '
+SELECT 
+                          employee_type_of_employment.employee_pk,
+                          employee_type_of_employment.date_from,
+                          employee_type_of_employment.type_of_employment
+                        FROM 
+                          users as users 
+                            left join employee as employee on ( users.id_1c = employee.user_id_1c and users.base_pk = employee.base_pk )   
+                            left join employee_type_of_employment as employee_type_of_employment 
+                              inner join (SELECT 
+                                          employee_type_of_employment.employee_pk as employee_pk,
+                                          max(employee_type_of_employment.date_from) as date_from 
+                                       FROM employee_type_of_employment
+                                          inner join employee on ( employee_type_of_employment.employee_pk = employee.pk and employee_type_of_employment.base_pk = employee.base_pk) 
+                                             inner join users on ( employee.user_id_1c = users.id_1c and employee.base_pk = users.base_pk) 
+                                       WHERE 
+                                          date_from <= $2
+                                       GROUP BY
+                                          employee_type_of_employment.employee_pk) as vt_employee_type_of_employment_slice 
+                                       on (employee_type_of_employment.employee_pk = vt_employee_type_of_employment_slice.employee_pk
+                                                                                  and employee_type_of_employment.date_from = vt_employee_type_of_employment_slice.date_from)                          
+                            
+                            on (employee.pk = employee_type_of_employment.employee_pk AND employee.base_pk = employee_type_of_employment.base_pk)
+                          WHERE 
+                            users.pk = $1;'
+LANGUAGE sql;

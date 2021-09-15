@@ -20,6 +20,8 @@ router.get('/tabel', checkPermission(), controller.getEmployeeTabel)
 
 router.post('/personal-work-schedules-data', checkPermission(['Admin']), controller.createPersonalWorkSchedulesData)
 
+router.post('/types-of-employment', checkPermission(['Admin']), controller.createTypesOfEmployment)
+
 router.post('/employee-work-schedules-data', checkPermission(['Admin']), controller.createEmployeeWorkSchedulesData)
 
 router.get('/employee-work-schedules-data-for-period', checkPermission(), controller.getEmployeeWorkSchedulesDataForPeriod)

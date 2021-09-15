@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.12">
+	<InformationRegister uuid="6b4c134a-518a-4031-bd1c-53c46f91c22d">
+		<InternalInfo>
+			<xr:GeneratedType name="InformationRegisterRecord.ВидыЗанятостиСотрудников" category="Record">
+				<xr:TypeId>b6999911-d87f-40cc-ab9d-7005326d65f2</xr:TypeId>
+				<xr:ValueId>ad6b1785-5c96-4908-804b-a09ec9337af5</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="InformationRegisterManager.ВидыЗанятостиСотрудников" category="Manager">
+				<xr:TypeId>7b95ac10-c074-4873-ba3b-8aa4c417fee5</xr:TypeId>
+				<xr:ValueId>54f19fcf-16e1-4ae7-966a-797a4a271006</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="InformationRegisterSelection.ВидыЗанятостиСотрудников" category="Selection">
+				<xr:TypeId>83477289-58b6-41fc-95b8-7c3005b7b294</xr:TypeId>
+				<xr:ValueId>73c9e4e8-bacb-4848-ab83-a05d8c098340</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="InformationRegisterList.ВидыЗанятостиСотрудников" category="List">
+				<xr:TypeId>c271b5f7-32cb-4709-8a7a-6c333019becc</xr:TypeId>
+				<xr:ValueId>dd88bc7a-106d-47f6-8ff9-0babde94522a</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="InformationRegisterRecordSet.ВидыЗанятостиСотрудников" category="RecordSet">
+				<xr:TypeId>d4b4dc85-b79b-45ce-a56c-a52e15fba4c1</xr:TypeId>
+				<xr:ValueId>7fed4bac-6954-4b2c-9217-455dc2c61986</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="InformationRegisterRecordKey.ВидыЗанятостиСотрудников" category="RecordKey">
+				<xr:TypeId>0e58d36f-4b85-4dbf-a183-85bb9431607f</xr:TypeId>
+				<xr:ValueId>ab2de9c1-4d21-47de-8e35-48118b410fec</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="InformationRegisterRecordManager.ВидыЗанятостиСотрудников" category="RecordManager">
+				<xr:TypeId>67bdde6b-48a2-4618-8cb6-d123a7faf14c</xr:TypeId>
+				<xr:ValueId>c46f586e-6256-4e3d-8c5d-8ef8662250fe</xr:ValueId>
+			</xr:GeneratedType>
+		</InternalInfo>
+		<Properties>
+			<Name>ВидыЗанятостиСотрудников</Name>
+			<Comment/>
+			<ObjectBelonging>Adopted</ObjectBelonging>
+			<ExtendedConfigurationObject>e5b5b91e-1975-41cd-b4d1-c6c19ba8c6f0</ExtendedConfigurationObject>
+			<InformationRegisterPeriodicity>Second</InformationRegisterPeriodicity>
+			<WriteMode>RecorderSubordinate</WriteMode>
+		</Properties>
+		<ChildObjects/>
+	</InformationRegister>
+</MetaDataObject>
