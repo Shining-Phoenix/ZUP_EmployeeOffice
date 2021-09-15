@@ -136,7 +136,7 @@
 		<Metadata name="InformationRegister.ФотографииФизическихЛиц.RecordSetModule" id="38be48fe-8399-4f06-80e0-e45380b2e95c.1" configVersion="5f42e01238acf58469f24012f5fdddb2736c32b5"/>
 		<Metadata name="Language.Русский" id="8795b39d-58b1-4a38-aaa6-786f36dc4555" configVersion="547a26a177e3fa6059583970e34d755d48ad100b"/>
 		<Metadata name="Report.УнифицированнаяФормаТ13" id="ce288bc0-b877-4de4-82eb-7dde4fea8976" configVersion="910dde2c1b55cfbc74f050a69c1967cd347aa659"/>
-		<Metadata name="Report.УнифицированнаяФормаТ13.ObjectModule" id="ce288bc0-b877-4de4-82eb-7dde4fea8976.0" configVersion="8a33f88a7fbd218fd1388370e12f8cf34df90687"/>
+		<Metadata name="Report.УнифицированнаяФормаТ13.ObjectModule" id="ce288bc0-b877-4de4-82eb-7dde4fea8976.0" configVersion="8ff6a0534a3e55e34a1398cc3f477d6f5f58478a"/>
 		<Metadata name="Role.ЛК_Администратор" id="1d7632a0-a5b6-4c52-897f-36db2ece8fa9" configVersion="bc3e6b855bf44ab6466d48df2dd04b2f943865e5"/>
 		<Metadata name="Role.ЛК_Администратор.Rights" id="1d7632a0-a5b6-4c52-897f-36db2ece8fa9.0" configVersion="9018ce451596afc8f23a30f71c93ad3ced038539"/>
 		<Metadata name="Role.ЛК_ИзменениеЗаявокНаСправки" id="0af6c7e6-5a3d-4d6a-a6da-d996b4fa344b" configVersion="7eb3240bed06841de687e13fba3fb907b4b9211e"/>

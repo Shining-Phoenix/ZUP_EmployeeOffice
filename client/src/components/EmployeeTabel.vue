@@ -1,6 +1,9 @@
 <template>
     <div class="employee-tabel">
-    <h3 v-if="showBlockName" class="mt-3 employee-tabel_head"> Таб. № {{ tabelData.tabel_data['ТабНом'] }}</h3>
+    <h3 v-if="showBlockName" class="mt-3 employee-tabel_head"> Таб. № {{ tabelData.tabel_data['tabNom'] }}</h3>
+    <h3 v-if="showBlockName" class="employee-tabel_head"> {{ tabelData.tabel_data['organizationName'] }}</h3>
+    <h3 v-if="showBlockName" class="employee-tabel_head"> {{ tabelData.tabel_data['positionName'] }}</h3>
+
     <h3 class="mb-1"> Данные по дням: </h3>
         <table border="1"
                width="100%"

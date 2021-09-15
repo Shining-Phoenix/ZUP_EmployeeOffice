@@ -744,7 +744,16 @@ const getUserWorkSchedulesDataForMonth = async function (base_pk, pk, year, mont
             pk])
         const sqlSel = `
                     Select 
-                        * 
+                        endData.work_date,
+                        endData.work_hour,
+                        endData.time_name,
+                        endData.time_kod,
+                        endData.employee_id_1c, 
+                        endData.q,
+                        endData.tab_nom,  
+                        subdivision.subdivision_name,
+                        employee_position.position_name,
+                        organization.organization_name
                     FROM
                         (
                             (Select
@@ -843,6 +852,10 @@ const getUserWorkSchedulesDataForMonth = async function (base_pk, pk, year, mont
                                  employee_work_schedules.base_pk = $20
                             )
                         )  as endData
+                            left join (select * from user_workplaces_for_date($9, $2) ) as workplace on (workplace.employee_pk = endData.employee_id_1c )
+                            left join subdivision as subdivision on (workplace.subdivision_pk = subdivision.pk)
+                            left join employee_position as employee_position on (workplace.position_pk = employee_position.pk)
+                            left join organization as organization on (subdivision.organization_pk = organization.pk)
                     Order by
                         employee_id_1c,
                         work_date`
@@ -885,6 +898,9 @@ const getUserWorkSchedulesDataForMonth = async function (base_pk, pk, year, mont
                 employeeBlock = {
                     employee: item.employee_id_1c,
                     tab_nom: item.tab_nom,
+                    subdivision_name: item.subdivision_name,
+                    position_name: item.position_name,
+                    organization_name: item.organization_name,
                     months: []
                 }
                 result.push(employeeBlock)
@@ -985,8 +1001,11 @@ module.exports.getEmployeeTabel = async function (req, res) {
             const resultArray = []
             for (let person of schedulesData) {
                 const resultObject = {}
-                resultObject.Сотрудник = person.employee
-                resultObject.ТабНом = person.tab_nom
+                resultObject.employee = person.employee
+                resultObject.tabNom = person.tab_nom
+                resultObject.subdivisionName = person.subdivision_name
+                resultObject.positionName = person.position_name
+                resultObject.organizationName = person.organization_name
                 let monthHours = 0
                 let monthDays = 0
                 let dayOfMonth = {}
