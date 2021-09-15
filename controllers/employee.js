@@ -3,7 +3,7 @@ const db = require('../shared/pgdb')
 
 module.exports.getEmployeeDataById = async function (req, res) {
     try {
-        const value = req.user.pk
+        const userPk = req.user.pk
         const sql = `  SELECT 
                           workplace.employee_pk,
                           workplace.date_from,
@@ -19,22 +19,7 @@ module.exports.getEmployeeDataById = async function (req, res) {
                         FROM 
                           users as users 
                             left join employee as employee on ( users.id_1c = employee.user_id_1c and users.base_pk = employee.base_pk )   
-                            left join workplace as workplace 
-                              inner join (SELECT 
-                                          workplace.employee_pk as employee_pk,
-                                          max(workplace.date_from) as date_from 
-                                       FROM workplace
-                                          inner join employee on ( workplace.employee_pk = employee.pk and workplace.base_pk = employee.base_pk) 
-                                             inner join users on ( employee.user_id_1c = users.id_1c and employee.base_pk = users.base_pk) 
-                                       WHERE 
-                                          date_from <= $1 AND
-                                          users.pk = $2
-                                       GROUP BY
-                                          workplace.employee_pk) as vt_workplace_slice 
-                                       on (workplace.employee_pk = vt_workplace_slice.employee_pk
-                                                                                  and workplace.date_from = vt_workplace_slice.date_from)                          
-                            
-                            on (employee.pk = workplace.employee_pk AND employee.base_pk = workplace.base_pk)
+                            left join (select * from user_workplaces_for_date($1, $2) ) as workplace on (workplace.employee_pk = employee.pk )
                             left join subdivision as subdivision on (workplace.subdivision_pk = subdivision.pk)
                             left join employee_position as employee_position on (workplace.position_pk = employee_position.pk)
                             left join organization as organization on (subdivision.organization_pk = organization.pk)
@@ -43,7 +28,7 @@ module.exports.getEmployeeDataById = async function (req, res) {
         const today = new Date()
         today.setHours(23, 59, 59, 999)
 
-        const {rows} = await db.query(sql, [today, value, value]);
+        const {rows} = await db.query(sql, [userPk, today, userPk]);
 
         let userData = null
         if (rows.length) {

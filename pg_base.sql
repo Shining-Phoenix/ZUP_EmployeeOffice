@@ -379,4 +379,37 @@ INSERT INTO public.user_groups(
 	
 INSERT INTO public.user_groups(
 	group_name, pk)
-	VALUES ('SuperAdmin', 2);	    
+	VALUES ('SuperAdmin', 2);	
+
+CREATE OR REPLACE FUNCTION user_workplaces_for_date(_user_pk integer, _workplace_period timestamp with time zone)
+  RETURNS TABLE (employee_pk text, date_from date, subdivision_pk text, position_pk text, organization_pk text) AS '
+SELECT 
+                          workplace.employee_pk,
+                          workplace.date_from,
+                          subdivision.pk as subdivision_pk,
+                          employee_position.pk as position_pk,
+                          organization.pk as organization_pk
+                        FROM 
+                          users as users 
+                            left join employee as employee on ( users.id_1c = employee.user_id_1c and users.base_pk = employee.base_pk )   
+                            left join workplace as workplace 
+                              inner join (SELECT 
+                                          workplace.employee_pk as employee_pk,
+                                          max(workplace.date_from) as date_from 
+                                       FROM workplace
+                                          inner join employee on ( workplace.employee_pk = employee.pk and workplace.base_pk = employee.base_pk) 
+                                             inner join users on ( employee.user_id_1c = users.id_1c and employee.base_pk = users.base_pk) 
+                                       WHERE 
+                                          date_from <= $2
+                                       GROUP BY
+                                          workplace.employee_pk) as vt_workplace_slice 
+                                       on (workplace.employee_pk = vt_workplace_slice.employee_pk
+                                                                                  and workplace.date_from = vt_workplace_slice.date_from)                          
+                            
+                            on (employee.pk = workplace.employee_pk AND employee.base_pk = workplace.base_pk)
+                            left join subdivision as subdivision on (workplace.subdivision_pk = subdivision.pk)
+                            left join employee_position as employee_position on (workplace.position_pk = employee_position.pk)
+                            left join organization as organization on (subdivision.organization_pk = organization.pk)
+                          WHERE 
+                            users.pk = $1;'
+LANGUAGE sql;        
