@@ -98,6 +98,12 @@
 							<CommandName>Form.Command.СоздатьРасчетныеЛистки</CommandName>
 							<ExtendedTooltip name="СоздатьРасчетныеЛисткиРасширеннаяПодсказка" id="35"/>
 						</Button>
+						<Button name="СоздатьВидыЗанятости" id="38">
+							<Type>UsualButton</Type>
+							<Width>30</Width>
+							<CommandName>Form.Command.СоздатьВидыЗанятости</CommandName>
+							<ExtendedTooltip name="СоздатьВидыЗанятостиРасширеннаяПодсказка" id="39"/>
+						</Button>
 					</ChildItems>
 				</UsualGroup>
 				<UsualGroup name="ГруппаОбщие" id="28">
@@ -285,6 +291,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>СоздатьИсториюИзмененияГрафиков</Action>
+		</Command>
+		<Command name="СоздатьВидыЗанятости" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru1</v8:lang>
+					<v8:content>Создать виды занятости</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru1</v8:lang>
+					<v8:content>Создать виды занятости</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьВидыЗанятости</Action>
 		</Command>
 	</Commands>
 </Form>

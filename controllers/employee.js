@@ -15,7 +15,9 @@ module.exports.getEmployeeDataById = async function (req, res) {
                           users.patronymic, 
                           users.image_src, 
                           users.id_1c,
-                          employee.tab_nom 
+                          employee.tab_nom,
+                          employee.date_of_appointment,
+                          employee.date_of_dismissal 
                         FROM 
                           users as users 
                             left join employee as employee on ( users.id_1c = employee.user_id_1c and users.base_pk = employee.base_pk )   
@@ -147,9 +149,11 @@ module.exports.createEmployee = async function (req, res) {
               user_id_1c,
               organization_pk,
               deleted,
-              tab_nom       
+              tab_nom,
+              date_of_appointment,
+              date_of_dismissal       
              ) 
-        VALUES($1, $2, $3, $4, $5, $6)
+        VALUES($1, $2, $3, $4, $5, $6, $7, $8)
         RETURNING pk`
         const {rows} = await db.query(sql,
             [employee.pk,
@@ -157,7 +161,9 @@ module.exports.createEmployee = async function (req, res) {
                 employee.user_id_1c,
                 employee.organization_pk,
                 employee.deleted,
-                employee.tab_nom]);
+                employee.tab_nom,
+                employee.date_of_appointment,
+                employee.date_of_dismissal]);
 
         const userData = rows[0]
         res.status(200).json(userData)
@@ -176,18 +182,22 @@ module.exports.updateEmployee = async function (req, res) {
         SET  
             organization_pk = $1,
             deleted = $2,
-            tab_nom = $3       
+            tab_nom = $3,
+            date_of_appointment = $7,
+            date_of_dismissal = $8       
         WHERE
             pk = $4 AND 
             base_pk = $5 AND
             user_id_1c = $6`
         const {rows} = await db.query(sql,
             [employee.organization_pk,
+                employee.deleted,
+                employee.tab_nom,
                 employee.pk,
                 req.user.base_pk,
                 employee.user_id_1c,
-                employee.deleted,
-                employee.tab_nom]);
+                employee.date_of_appointment,
+                employee.date_of_dismissal]);
 
         const userData = {pk: employee.user_id_1c}
         res.status(200).json(userData)
@@ -472,7 +482,6 @@ module.exports.createTypesOfEmployment = async function (req, res) {
 
         await client.query('BEGIN')
 
-
         const deletySql = `
             DELETE FROM
                 employee_type_of_employment
@@ -482,7 +491,7 @@ module.exports.createTypesOfEmployment = async function (req, res) {
                 AND date_from >= $3`
         await client.query(deletySql,
             [req.user.base_pk,
-                employeeData.employee_id_1c,
+                employeeData.employee_pk,
                 employeeData.date_from]);
 
         for (itemDate of employeeData.items) {
@@ -1040,50 +1049,6 @@ module.exports.getEmployeeTabel = async function (req, res) {
         }   
     } catch (e) {
         errorHandler(res, e)
-    }
-}
-
-module.exports.createEmployeeTypeOfEmployment = async function (req, res) {
-    const client = await db.client()
-    try {
-        const employeeWorkplacesData = req.body
-        await client.query('BEGIN')
-
-        const deleteSql = 'DELETE FROM types_of_employment WHERE base_pk = $1 AND employee_pk = $2 and date_from = $3'
-        const result = await client.query(deleteSql,
-            [req.user.base_pk,
-                employeeWorkplacesData.employee_pk]);
-
-        employeeWorkplacesData.workplaces.forEach(async workplace => {
-            const sql = `
-            INSERT INTO 
-                workplace (
-                  position_pk, 
-                  subdivision_pk,
-                  employee_pk,
-                  date_from,
-                  base_pk          
-                 ) 
-            VALUES($1, $2, $3, $4, $5)
-            RETURNING position_pk as pk`
-
-            const result = await client.query(sql,
-                [workplace.position_pk,
-                    workplace.subdivision_pk,
-                    employeeWorkplacesData.employee_pk,
-                    workplace.date_from,
-                    req.user.base_pk]);
-        })
-
-        await client.query('COMMIT')
-        client.release()
-        const userData = {pk: employeeWorkplacesData.employee_pk}
-
-        res.status(200).json(userData)
-    } catch (e) {
-        errorHandler(res, e)
-        await client.query('ROOLBACK')
-        client.release()
     }
 }
 
