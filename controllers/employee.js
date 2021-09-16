@@ -17,16 +17,21 @@ module.exports.getEmployeeDataById = async function (req, res) {
                           users.id_1c,
                           employee.tab_nom,
                           employee.date_of_appointment,
-                          employee.date_of_dismissal 
+                          employee.date_of_dismissal,
+                          types_of_employment.type_of_employment 
                         FROM 
                           users as users 
                             left join employee as employee on ( users.id_1c = employee.user_id_1c and users.base_pk = employee.base_pk )   
-                            left join (select * from user_workplaces_for_date($1, $2) ) as workplace on (workplace.employee_pk = employee.pk )
-                            left join subdivision as subdivision on (workplace.subdivision_pk = subdivision.pk)
-                            left join employee_position as employee_position on (workplace.position_pk = employee_position.pk)
-                            left join organization as organization on (subdivision.organization_pk = organization.pk)
+                                left join (select * from user_workplaces_for_date($1, $2) ) as workplace on (workplace.employee_pk = employee.pk )
+                                    left join subdivision as subdivision on (workplace.subdivision_pk = subdivision.pk)
+                                    left join employee_position as employee_position on (workplace.position_pk = employee_position.pk)
+                                    left join organization as organization on (subdivision.organization_pk = organization.pk)
+                            
+                            left join (select * from user_types_of_employment_for_date($1, $2) ) as types_of_employment on (types_of_employment.employee_pk = employee.pk )
                           WHERE 
-                            users.pk = $3`
+                            users.pk = $3
+                          ORDER BY
+                            types_of_employment.type_of_employment`
         const today = new Date()
         today.setHours(23, 59, 59, 999)
 
@@ -762,7 +767,8 @@ const getUserWorkSchedulesDataForMonth = async function (base_pk, pk, year, mont
                         endData.tab_nom,  
                         subdivision.subdivision_name,
                         employee_position.position_name,
-                        organization.organization_name
+                        organization.organization_name,
+                        types_of_employment.type_of_employment
                     FROM
                         (
                             (Select
@@ -862,10 +868,13 @@ const getUserWorkSchedulesDataForMonth = async function (base_pk, pk, year, mont
                             )
                         )  as endData
                             left join (select * from user_workplaces_for_date($9, $2) ) as workplace on (workplace.employee_pk = endData.employee_id_1c )
-                            left join subdivision as subdivision on (workplace.subdivision_pk = subdivision.pk)
-                            left join employee_position as employee_position on (workplace.position_pk = employee_position.pk)
-                            left join organization as organization on (subdivision.organization_pk = organization.pk)
-                    Order by
+                                left join subdivision as subdivision on (workplace.subdivision_pk = subdivision.pk)
+                                left join employee_position as employee_position on (workplace.position_pk = employee_position.pk)
+                                left join organization as organization on (subdivision.organization_pk = organization.pk)
+                            left join (select * from user_types_of_employment_for_date($9, $2) ) as types_of_employment on (types_of_employment.employee_pk = endData.employee_id_1c )
+
+                    ORDER BY
+                        types_of_employment.type_of_employment,
                         employee_id_1c,
                         work_date`
         const {rows} = await client.query(sqlSel,
@@ -1003,7 +1012,28 @@ module.exports.getEmployeeTabel = async function (req, res) {
         
         const {rows} = await db.query(sql, [pk, month])
         if (rows.length) {
-            res.status(200).json(rows)
+            const monthDate = new Date(month)
+            const end_date = new Date(monthDate.getFullYear(), monthDate.getMonth() +1, 1, 0, 0, 0, 0)
+            const typesOfEmploymentSql = ` SELECT
+                        * 
+                    FROM 
+                        user_types_of_employment_for_date($1, $2) as types_of_employment
+                    ORDER BY
+                        type_of_employment`
+            
+            const {rows: typesOfEmployment} = await db.query(typesOfEmploymentSql, [pk, end_date])
+            const userData = []
+
+            for (let typeOfEmployment of typesOfEmployment) {
+                for (let tabelData of rows) {
+                    if (JSON.parse(tabelData.tabel_data).employee === typeOfEmployment.employee_pk){
+                        userData.push(tabelData)
+                        break
+                    }          
+                }
+            }
+
+            res.status(200).json(userData)
         } else {
             const monthDate = new Date(month)
             const schedulesData = await getUserWorkSchedulesDataForMonth(base_pk, pk, monthDate.getFullYear(), monthDate.getMonth())
