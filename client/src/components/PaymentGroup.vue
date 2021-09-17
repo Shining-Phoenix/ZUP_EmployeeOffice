@@ -35,7 +35,7 @@
     h4{
         border-top: thin solid rgba(0, 0, 0, 0.12);
         border-bottom: thin solid rgba(0, 0, 0, 0.12);
-        background-color: #212121;
+        background-color: #9c27b0;
         color: #E0E0E0;
     }
 

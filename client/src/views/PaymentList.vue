@@ -85,7 +85,7 @@
 
         <v-row  v-else-if="!loading">
             <v-col cols="12">
-                <h3>Данные отсутствуют</h3>
+                <h3 class = "ml-3">Данные отсутствуют</h3>
             </v-col>
         </v-row>
     </div>
