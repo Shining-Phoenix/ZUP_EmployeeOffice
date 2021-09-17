@@ -86,13 +86,13 @@
     }
     .calendar thead tr:first-child {
         font-size: large;
-        background-color: #212121;
+        background-color: #9c27b0;
         color: #E0E0E0;
     }
     .calendar thead tr:last-child {
         font-size: medium;
-        background-color: gray;
-        color: white;
+        background-color: #D8BFD8;
+        color: #9c27b0;
     }
     .calendar tbody td {
         color: rgb(44, 86, 122);
