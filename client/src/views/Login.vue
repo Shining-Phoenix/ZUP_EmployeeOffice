@@ -127,7 +127,7 @@
         margin-top: 40px;
     }
     .whiteBackGround{
-        background-color: white;
+        background-color: #D8BFD8;
         padding: 30px;
     }
 </style>

@@ -16,6 +16,7 @@
                   :key="link.url"
                   :to="link.url"
                   link
+                  color = "#9c27b0"
           >
             <v-list-item-content>
               <v-list-item-title>
@@ -30,6 +31,7 @@
                   :to="'/login?message=logout'"
                   link
                   @click.native.prevent="logout"
+
           >
             <v-list-item-content>
               <v-list-item-title>
@@ -43,6 +45,7 @@
       </v-navigation-drawer>
       <v-app-bar
               dark
+              color="purple"
               :clipped-left="$vuetify.breakpoint.lgAndUp"
               app
       >

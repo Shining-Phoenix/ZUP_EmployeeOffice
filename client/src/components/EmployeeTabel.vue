@@ -1,6 +1,7 @@
 <template>
     <div class="employee-tabel">
-    <h3 v-if="showBlockName" class="mt-3 employee-tabel_head"> Таб. № {{ tabelData.tabel_data['tabNom'] }}</h3>
+    <h3 
+    v-if="showBlockName" class="mt-3 employee-block-head"> Таб. № {{ tabelData.tabel_data['tabNom'] }}</h3>
     <h3 v-if="showBlockName" class="employee-tabel_head"> {{ tabelData.tabel_data['organizationName'] }}</h3>
     <h3 v-if="showBlockName" class="employee-tabel_head"> {{ tabelData.tabel_data['positionName'] }}</h3>
 
@@ -158,7 +159,7 @@
     }
 
     .employee-tabel_head{
-        background-color: darkgray;
+        background-color: #EE82EE;
         padding-left: 5mm;
         border-bottom-width: 1mm;
         color: black;
@@ -166,13 +167,17 @@
         border-bottom-color: darkgreen;
     }
 
+    .employee-block-head{
+        background-color:#9c27b0;
+        padding-left: 5mm;
+    }
     .employee-tabel_table{
         border-collapse: collapse;
         border-color: #212121;
     }
     .employee-tabel_header-days{
-        background-color: #212121;
-        color: #E0E0E0;
+        background-color: #9c27b0;
+        color: #D8BFD8;
     }
     .employee-tabel_row-days{
         min-height: 50px;

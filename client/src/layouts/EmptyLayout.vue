@@ -48,7 +48,7 @@
 
 <style>
     .darkBackground {
-        background-color: gray;
+        background-color: #9c27b0;;
     }
 
 </style>
