@@ -85,6 +85,7 @@
         line-height: 1.2em;
         font-size: 15px;
         text-align: center;
+        min-height: 150px;
     }
     .calendar thead tr:first-child {
         font-size: large;
