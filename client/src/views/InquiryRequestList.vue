@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-container class="page-title">
+        <v-container class="page-title ml-0">
             <h3>История заявок </h3>
         </v-container>
         <v-container v-if="loading">
@@ -37,6 +37,7 @@
                             <v-btn
                                     text
                                     color="normal"
+                                    class="v-data-table-header mb-2"
                                     @click="$router.push('/new-inquiry-request')">
                                 <v-icon
                                         small
@@ -115,10 +116,13 @@
     }
 </script>
 
-<style>
+<style scope="true">
 
     .v-data-table-header{
-        background-color: #212121;
+        background-color: #9c27b0;
+    }
+    .v-btn__content{
+        color: #E0E0E0;
     }
     .theme--light.v-data-table thead tr th{
         color: #E0E0E0;
