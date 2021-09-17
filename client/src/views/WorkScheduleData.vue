@@ -41,7 +41,7 @@
                         :year="year"
                         :month="monthData.month"
                         :days="monthData.days"
-                        class="mb-5 flex-30 mr-10"
+                        class="mb-5 flex-30 mr-5 ml-5"
                         >
                 </calendar-month>
         </v-container>
