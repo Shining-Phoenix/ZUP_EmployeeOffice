@@ -24,16 +24,20 @@
             <Loader/>
         </v-container>
         <v-container
-                class="fill-height mb-5 pt-0"
+                class="fill-height pt-0"
                 fluid
                 v-else-if="employeeData"
                 v-for="emploee of employeeData"
                 :key="emploee.employee"
             >
+                <h3 
+                v-if="employeeData.length > 1" class="employee-block-head"> Таб. № {{ emploee['tabNom'] }}</h3>
+                <h3 v-if="employeeData.length > 1" class="employee-tabel_head"> {{ emploee['organizationName'] }}</h3>
+                <h3 v-if="employeeData.length > 1" class="mb-2 employee-tabel_head"> {{ emploee['positionName'] }}</h3>
+
                 <calendar-month
                         v-for="monthData of emploee.months"
                         :key="monthData.month"
-
                         :year="year"
                         :month="monthData.month"
                         :days="monthData.days"
@@ -74,7 +78,7 @@
             async changeYear(){
                 this.loading = true
                 try {
-                    this.employeeData = await this.$store.dispatch('fetchEmployeeWorkScheduleData', this.year)
+                    this.employeeData = await this.$store.dispatch('fetchEmployeeWorkScheduleData', this.year)              
                 } catch (e) {
                     this.employeeData = null
                 }
@@ -91,5 +95,21 @@
     .flex-30{
         flex: 20%;
         min-height: 157px;
+    }
+
+        .employee-tabel_head{
+        background-color: #EE82EE;
+        padding-left: 5mm;
+        border-bottom-width: 1mm;
+        color: black;
+        border-bottom: 2mm;
+        border-bottom-color: darkgreen;
+        width: 100%;
+    }
+
+    .employee-block-head{
+        background-color:#9c27b0;
+        padding-left: 5mm;
+        width: 100%;
     }
 </style>

@@ -31,7 +31,7 @@ module.exports.getEmployeeDataById = async function (req, res) {
                           WHERE 
                             users.pk = $3
                           ORDER BY
-                            types_of_employment.type_of_employment`
+                            types_of_employment.type_of_employment desc`
         const today = new Date()
         today.setHours(23, 59, 59, 999)
 
@@ -563,7 +563,17 @@ module.exports.getEmployeeWorkSchedulesDataForPeriod = async function (req, res)
             params.pk])
         const sqlSel = `
                     Select 
-                        * 
+                        endData.work_date,
+                        endData.work_hour,
+                        endData.time_name,
+                        endData.time_kod,
+                        endData.employee_id_1c, 
+                        endData.q,
+                        endData.tab_nom,
+                        subdivision.subdivision_name,
+                        employee_position.position_name,
+                        organization.organization_name,
+                        types_of_employment.type_of_employment 
                     FROM
                         (
                             (Select
@@ -572,7 +582,8 @@ module.exports.getEmployeeWorkSchedulesDataForPeriod = async function (req, res)
                                 data.time_name,
                                 data.time_kod,
                                 data.employee_id_1c, 
-                                q
+                                q,
+                                data.tab_nom
                             FROM     
                                 (Select
                                 general_work_schedules_data.work_date,
@@ -580,7 +591,8 @@ module.exports.getEmployeeWorkSchedulesDataForPeriod = async function (req, res)
                                 types_of_time.time_name,
                                 types_of_time.time_kod,
                                 employee_work_schedules.employee_id_1c, 
-                                1 as q
+                                1 as q,
+                                employee.tab_nom
                                 From 
                                      employee_work_schedules
                                      inner join employee on (employee_work_schedules.employee_id_1c = employee.pk
@@ -623,7 +635,8 @@ module.exports.getEmployeeWorkSchedulesDataForPeriod = async function (req, res)
                             types_of_time.time_name,
                             types_of_time.time_kod,
                             employee_work_schedules.employee_id_1c,
-                            2
+                            2, 
+                            employee.tab_nom
                             From
                                  employee_work_schedules
                                  inner join employee on (employee_work_schedules.employee_id_1c = employee.pk
@@ -659,7 +672,14 @@ module.exports.getEmployeeWorkSchedulesDataForPeriod = async function (req, res)
                                  employee_work_schedules.base_pk = $20
                             )
                         )  as endData
+                            left join (select * from user_workplaces_for_date($9, $2) ) as workplace on (workplace.employee_pk = endData.employee_id_1c )
+                                left join subdivision as subdivision on (workplace.subdivision_pk = subdivision.pk)
+                                left join employee_position as employee_position on (workplace.position_pk = employee_position.pk)
+                                left join organization as organization on (subdivision.organization_pk = organization.pk)
+                            left join (select * from user_types_of_employment_for_date($9, $2) ) as types_of_employment on (types_of_employment.employee_pk = endData.employee_id_1c )
+
                     Order by
+                        types_of_employment.type_of_employment desc,
                         employee_id_1c,
                         work_date`
         const {rows} = await client.query(sqlSel,
@@ -700,6 +720,11 @@ module.exports.getEmployeeWorkSchedulesDataForPeriod = async function (req, res)
                 currentMonth = null
                 employeeBlock = {
                     employee: item.employee_id_1c,
+                    tabNom: item.tab_nom,
+                    subdivisionName: item.subdivision_name,
+                    positionName: item.position_name,
+                    organizationName: item.organization_name,
+                    typeOfEmployment: item.type_of_employment, 
                     months: []
                 }
                 result.push(employeeBlock)
@@ -874,7 +899,7 @@ const getUserWorkSchedulesDataForMonth = async function (base_pk, pk, year, mont
                             left join (select * from user_types_of_employment_for_date($9, $2) ) as types_of_employment on (types_of_employment.employee_pk = endData.employee_id_1c )
 
                     ORDER BY
-                        types_of_employment.type_of_employment,
+                        types_of_employment.type_of_employment desc,
                         employee_id_1c,
                         work_date`
         const {rows} = await client.query(sqlSel,
@@ -1019,7 +1044,7 @@ module.exports.getEmployeeTabel = async function (req, res) {
                     FROM 
                         user_types_of_employment_for_date($1, $2) as types_of_employment
                     ORDER BY
-                        type_of_employment`
+                        type_of_employment desc`
             
             const {rows: typesOfEmployment} = await db.query(typesOfEmploymentSql, [pk, end_date])
             const userData = []

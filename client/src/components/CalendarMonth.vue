@@ -1,22 +1,24 @@
 <template>
-    <div class="div-calendar" align=center>
-        <table class="calendar" border="0" cellspacing="0" cellpadding="1">
-            <thead>
-            <tr>
-                <td colspan="7">
-                {{months[month]}}
-                </td>
-            </tr>
-            <tr>
-                <td v-for="headDay of weekabbrs"
-                    :key="headDay">
-                    {{headDay}}
-                </td>
-            </tr>
-            </thead>
-            <tbody ref="tableBody">
-            </tbody>
-        </table>
+    <div>
+        <div class="div-calendar" align=center>
+            <table class="calendar" border="0" cellspacing="0" cellpadding="1">
+                <thead>
+                <tr>
+                    <td colspan="7">
+                    {{months[month]}}
+                    </td>
+                </tr>
+                <tr>
+                    <td v-for="headDay of weekabbrs"
+                        :key="headDay">
+                        {{headDay}}
+                    </td>
+                </tr>
+                </thead>
+                <tbody ref="tableBody">
+                </tbody>
+            </table>
+        </div>
     </div>
 </template>
 
@@ -113,5 +115,19 @@
         border:1px
         solid grey;
         padding:6px;
+    }
+
+    .employee-tabel_head{
+        background-color: #EE82EE;
+        padding-left: 5mm;
+        border-bottom-width: 1mm;
+        color: black;
+        border-bottom: 2mm;
+        border-bottom-color: darkgreen;
+    }
+
+    .employee-block-head{
+        background-color:#9c27b0;
+        padding-left: 5mm;
     }
 </style>
