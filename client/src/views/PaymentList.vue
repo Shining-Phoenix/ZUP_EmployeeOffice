@@ -5,7 +5,7 @@
         <v-container class="page-title mb-0 ml-0">
             <h3>Расчетные листки</h3>
             <v-row>
-                <v-col cols="2" class="pb-0">
+                <v-col cols="2" class="pb-0 head-select">
                     <v-menu
                             ref="menu"
                             v-model="menu"
@@ -49,7 +49,7 @@
                 class="ml-2 mb-0 pl-0 pt-0 mr-2"
         >
             <v-row class="mt-0 pt-0 mr-2">
-                <v-col cols="6" class="mt-0 pt-0">
+                <v-col cols="6" class="mt-0 pt-0 ">
                     <payment-group
                         :data="nachisleno"
                     ></payment-group>
@@ -164,6 +164,10 @@
 
     .flexStart{
         align-content: flex-start;
+    }
+
+    .head-select{
+        min-width: 200px;
     }
 
 </style>

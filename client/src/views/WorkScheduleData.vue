@@ -14,7 +14,7 @@
                             ref="yearSelect"
                             v-model="year"
                             @change="changeYear"
-                            class="mb-0 pb-0"
+                            class="mb-0 pb-0 head-select"
                             hide-details
                     ></v-select>
                 </v-col>
@@ -111,5 +111,9 @@
         background-color:#9c27b0;
         padding-left: 5mm;
         width: 100%;
+    }
+
+    .head-select{
+        min-width: 200px;
     }
 </style>

@@ -6,7 +6,7 @@
             <h3>Табель учета рабочего времени</h3>
         </div>
         <v-row>
-            <v-col cols="2" class="pb-0">
+            <v-col cols="3" class="pb-0 head-select">
                 <v-menu
                         ref="menu"
                         v-model="menu"
