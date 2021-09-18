@@ -35,6 +35,13 @@
                                 :disabled="true"
                         ></v-text-field>
                         <v-select
+                                ref="employeesSel"
+                                :items="employeesSel"
+                                label="Сотрудник"
+                                v-model="selectedEmployee"
+                                :disabled="record.deleted || record.disabled_on_web"
+                        ></v-select>
+                        <v-select
                                 ref="typesSel"
                                 :items="typesSel"
                                 label="Тип справки"
@@ -95,6 +102,9 @@
             types: null,
             typesSel: [],
             selectedType: null,
+            employees: null,
+            employeesSel: [],
+            selectedEmployee: '',
             description: null,
             loading: true
         }),
@@ -109,6 +119,13 @@
                     text: item.type_name,
                     value: item.pk
                 }))
+                
+                this.employees = await this.$store.dispatch('fetchEmployeeData')
+                this.employees.forEach((item) => this.employeesSel.push({
+                    text: item.tab_nom + ' (' + item.organization_name + ' - ' + item.position_name + ')',
+                    value: item.employee_pk
+                }))
+
                 const record = {
                     deleted: false,
                     description: '',
@@ -121,11 +138,14 @@
                     status_pk: 1,
                     type_name: this.typesSel[0].text,
                     type_pk: this.typesSel[0].value,
-                    user_pk: null
+                    user_pk: null,
+                    emploees_name: this.employeesSel[0].text,
+                    employee_pk: this.employeesSel[0].value,
                 }
                 record.doc_date_str = record.doc_date.toLocaleString()
                 record.status = 'Новый'
                 this.selectedType = record.type_pk
+                this.selectedEmployee = record.employee_pk
                 this.record = record
             }finally {
                 this.loading = false
@@ -147,6 +167,7 @@
                 const idx = this.types.findIndex(t => t.pk === this.selectedType)
                 this.record.type_name = this.types[idx].type_name
                 this.record.type_pk = this.selectedType
+                this.record.employee_pk = this.selectedEmployee
                 this.record.description = this.description
                 try {
                     await this.$store.dispatch('createInquiryRequest', this.record)
@@ -159,6 +180,3 @@
     }
 </script>
 
-<style scoped>
-
-</style>

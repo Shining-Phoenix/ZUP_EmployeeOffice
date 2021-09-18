@@ -77,7 +77,7 @@
         data: () => ({
             loading: true,
             headers: [
-                {text: 'Дата', value: 'doc_date', sortable: false},
+                {text: 'Дата', value: 'doc_date', sortable: false, class: 'v-data-table-header'},
                 {text: 'Статус', value: 'status', sortable: false},
                 {text: 'Тип', value: 'type_name', sortable: false},
                 {text: 'Действия', value: 'actions', sortable: false},
@@ -116,7 +116,7 @@
     }
 </script>
 
-<style scope="true">
+<style>
 
     .v-data-table-header{
         background-color: #9c27b0;

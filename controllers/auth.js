@@ -59,7 +59,6 @@ saveUser = async (user) => {
         errorHandler(res, e)
         await client.query('ROOLBACK')
         client.release()
-        throw e
     }
 }
 
@@ -131,7 +130,6 @@ saveFirstUser = async (user) => {
     catch (e) {
         await client.query('ROOLBACK')
         client.release()
-        throw e
     }
 }
 
@@ -260,7 +258,6 @@ module.exports.register = async function (req, res) {
             })
         } catch (e) {
             errorHandler(res, e)
-            throw e
         }
     }
 }

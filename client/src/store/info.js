@@ -15,7 +15,7 @@ export default {
     actions: {
         async fetchInfo({dispatch, commit}) {
             try {
-                const pk = dispatch('getUid')
+                const pk = await dispatch('getUid')
                 const resp = await axios.post('/api/user/info', {pk})
                 commit('setInfo', resp.data)
             } catch (e) {

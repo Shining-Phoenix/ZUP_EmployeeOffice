@@ -14,7 +14,6 @@ module.exports.getInquiryRequestStatuses = async function (req, res) {
         res.status(200).json(data)
     } catch (e) {
         errorHandler(res, e)
-        throw e
     }
 }
 
@@ -35,7 +34,6 @@ module.exports.getInquiryRequestTypes = async function (req, res) {
         res.status(200).json(data)
     } catch (e) {
         errorHandler(res, e)
-        throw e
     }
 }
 
@@ -53,6 +51,7 @@ module.exports.getInquiryRequestByUser = async function (req, res) {
             inquiry_request.user_pk,
             inquiry_request.status_pk,
             inquiry_request.type_pk,
+            inquiry_request.employee_pk,
             inquiry_request_status.status,
             inquiry_request_type.type_name,
             inquiry_request_status.disabled_on_web
@@ -70,7 +69,6 @@ module.exports.getInquiryRequestByUser = async function (req, res) {
         res.status(200).json(data)
     } catch (e) {
         errorHandler(res, e)
-        throw e
     }
 }
 
@@ -88,6 +86,7 @@ module.exports.getInquiryRequestById = async function (req, res) {
             inquiry_request.user_pk,
             inquiry_request.status_pk,
             inquiry_request.type_pk,
+            inquiry_request.employee_pk,
             inquiry_request_status.status,
             inquiry_request_type.type_name,
             inquiry_request_status.disabled_on_web
@@ -108,7 +107,6 @@ module.exports.getInquiryRequestById = async function (req, res) {
         res.status(200).json(data)
     } catch (e) {
         errorHandler(res, e)
-        throw e
     }
 }
 
@@ -143,9 +141,10 @@ module.exports.updateInquiryRequestById = async function (req, res) {
                 type_pk = $3, 
                 doc_number = $4,
                 description = $5,
-                deleted = $6                          
+                deleted = $6,
+                employee_pk = $7                          
             WHERE    
-                pk = $7
+                pk = $8
             RETURNING 
                 pk`
         const {rows} = await client.query(sql, [
@@ -155,6 +154,7 @@ module.exports.updateInquiryRequestById = async function (req, res) {
             inquiryRequest.doc_number,
             inquiryRequest.description,
             inquiryRequest.deleted,
+            inquiryRequest.employee_pk,
             inquiryRequest.pk
         ])
 
@@ -201,7 +201,6 @@ module.exports.updateInquiryRequestById = async function (req, res) {
         errorHandler(res, e)
         await client.query('ROOLBACK')
         client.release()
-        throw e
     }
 }
 
@@ -220,9 +219,10 @@ module.exports.createInquiryRequest = async function (req, res) {
                 type_pk, 
                 doc_number,
                 description,
-                deleted) 
+                deleted,
+                employee_pk) 
         VALUES
-            ($1, $2, $3, $4, $5, $6, $7)
+            ($1, $2, $3, $4, $5, $6, $7, $8)
         RETURNING 
             pk`
         const {rows} = await client.query(sql, [
@@ -232,7 +232,8 @@ module.exports.createInquiryRequest = async function (req, res) {
             inquiryRequest.type_pk,
             inquiryRequest.doc_number,
             inquiryRequest.description,
-            inquiryRequest.deleted
+            inquiryRequest.deleted,
+            inquiryRequest.employee_pk
         ])
         const pk = rows[0].pk
 
@@ -277,7 +278,6 @@ module.exports.createInquiryRequest = async function (req, res) {
         errorHandler(res, e)
         await client.query('ROOLBACK')
         client.release()
-        throw e
     }
 }
 
@@ -310,6 +310,5 @@ module.exports.patchInquiryRequest = async function (req, res) {
         errorHandler(res, e)
         await client.query('ROOLBACK')
         client.release()
-        throw e
     }
 }

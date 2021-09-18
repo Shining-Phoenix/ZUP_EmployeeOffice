@@ -35,6 +35,13 @@
                                 :disabled="true"
                         ></v-text-field>
                         <v-select
+                                ref="employeesSel"
+                                :items="employeesSel"
+                                label="Сотрудник"
+                                v-model="selectedEmployee"
+                                :disabled="record.deleted || record.disabled_on_web"
+                        ></v-select>
+                        <v-select
                                 ref="typesSel"
                                 :items="typesSel"
                                 label="Тип справки"
@@ -95,6 +102,9 @@
             types: null,
             typesSel: [],
             selectedType: null,
+            employees: null,
+            employeesSel: [],
+            selectedEmployee: '',
             description: null,
             loading: true
         }),
@@ -112,6 +122,14 @@
                         value: item.pk
                     }))
                     this.selectedType = this.record.type_pk
+
+                    this.employees = await this.$store.dispatch('fetchEmployeeData')
+                    this.employees.forEach((item) => this.employeesSel.push({
+                        text: item.tab_nom + ' (' + item.organization_name + ' - ' + item.position_name + ')',
+                        value: item.employee_pk
+                    }))                    
+                    this.selectedEmployee = this.record.employee_pk
+
                     this.description = this.record.description
                 }
             }
@@ -135,6 +153,7 @@
                 const idx = this.types.findIndex(t => t.pk === this.selectedType)
                 this.record.type_name = this.types[idx].type_name
                 this.record.type_pk = this.selectedType
+                this.record.employee_pk = this.selectedEmployee
                 this.record.description = this.description
                 try {
                     await this.$store.dispatch('updateInquiryRequest', this.record)

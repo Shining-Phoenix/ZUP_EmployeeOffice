@@ -169,7 +169,8 @@ CREATE TABLE inquiry_request (
     type_pk integer NOT NULL,
     doc_number varchar(20),
     description varchar(1000),
-    deleted boolean DEFAULT false NOT NULL
+    deleted boolean DEFAULT false NOT NULL,
+    employee_pk character varying(36) NOT NULL
 ) WITHOUT OIDS;
 -- Definition for sequence exchange_pk_seq (OID = 98504):
 CREATE SEQUENCE exchange_pk_seq

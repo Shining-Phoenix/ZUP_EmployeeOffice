@@ -102,6 +102,12 @@
 							<Type>UsualButton</Type>
 							<Width>30</Width>
 							<CommandName>Form.Command.СоздатьВидыЗанятости</CommandName>
+							<Title>
+								<v8:item>
+									<v8:lang>ru1</v8:lang>
+									<v8:content>Создать виды занятости</v8:content>
+								</v8:item>
+							</Title>
 							<ExtendedTooltip name="СоздатьВидыЗанятостиРасширеннаяПодсказка" id="39"/>
 						</Button>
 					</ChildItems>

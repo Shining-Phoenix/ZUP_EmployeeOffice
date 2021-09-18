@@ -88,10 +88,15 @@
 					<ContextMenu name="СтатусКонтекстноеМеню" id="26"/>
 					<ExtendedTooltip name="СтатусРасширеннаяПодсказка" id="27"/>
 				</LabelField>
-				<LabelField name="ФизическоеЛицо" id="34">
-					<DataPath>Список.ФизическоеЛицо</DataPath>
-					<ContextMenu name="ФизическоеЛицоКонтекстноеМеню" id="35"/>
-					<ExtendedTooltip name="ФизическоеЛицоРасширеннаяПодсказка" id="36"/>
+				<LabelField name="Организация" id="37">
+					<DataPath>Список.Организация</DataPath>
+					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="38"/>
+					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="39"/>
+				</LabelField>
+				<LabelField name="Сотрудник" id="34">
+					<DataPath>Список.Сотрудник</DataPath>
+					<ContextMenu name="СотрудникКонтекстноеМеню" id="35"/>
+					<ExtendedTooltip name="СотрудникРасширеннаяПодсказка" id="36"/>
 				</LabelField>
 				<LabelField name="Отвественный" id="28">
 					<DataPath>Список.Отвественный</DataPath>

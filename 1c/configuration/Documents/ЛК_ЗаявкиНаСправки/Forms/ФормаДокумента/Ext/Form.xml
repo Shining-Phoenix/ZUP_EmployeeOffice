@@ -64,6 +64,19 @@
 				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
+		<InputField name="Организация" id="55">
+			<DataPath>Объект.Организация</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<ContextMenu name="ОрганизацияКонтекстноеМеню" id="56"/>
+			<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="57"/>
+		</InputField>
+		<InputField name="Сотрудник" id="52">
+			<DataPath>Объект.Сотрудник</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<Width>30</Width>
+			<ContextMenu name="СотрудникКонтекстноеМеню" id="53"/>
+			<ExtendedTooltip name="СотрудникРасширеннаяПодсказка" id="54"/>
+		</InputField>
 		<UsualGroup name="ГруппаТипСтатус" id="50">
 			<Title>
 				<v8:item>
@@ -99,13 +112,6 @@
 				</InputField>
 			</ChildItems>
 		</UsualGroup>
-		<InputField name="ФизическоеЛицо" id="52">
-			<DataPath>Объект.ФизическоеЛицо</DataPath>
-			<ReadOnly>true</ReadOnly>
-			<Width>30</Width>
-			<ContextMenu name="ФизическоеЛицоКонтекстноеМеню" id="53"/>
-			<ExtendedTooltip name="ФизическоеЛицоРасширеннаяПодсказка" id="54"/>
-		</InputField>
 		<TextDocumentField name="Описание" id="13">
 			<DataPath>Объект.Описание</DataPath>
 			<EditMode>EnterOnInput</EditMode>

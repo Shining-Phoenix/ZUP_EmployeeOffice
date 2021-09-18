@@ -51,6 +51,13 @@ module.exports.getEmployeeDataById = async function (req, res) {
 module.exports.createEmployeeWorkplace = async function (req, res) {
     try {
         const workplace = req.body
+
+        const deleteSql = 'DELETE FROM workplace WHERE base_pk = $1 AND employee_pk = $2 and date_from = $3'
+        const result = await client.query(deleteSql,
+            [req.user.base_pk,
+                workplace.employee_pk,
+                workplace.date_from]);
+
         const sql = `
         INSERT INTO 
             workplace (
