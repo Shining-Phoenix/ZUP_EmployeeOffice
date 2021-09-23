@@ -89,7 +89,7 @@ SELECT pk into res_pk FROM organization Where organization.pk = _pk;
 IF NOT FOUND THEN
    INSERT INTO organization(organization_name, pk, base_pk) VALUES( _organization_name, _pk, _base_pk ) RETURNING pk into res_pk;
 ELSE
-   UPDATE organization SET organization_name = _organization_name, pk = _pk, base_pk = _base_pk WHERE pk = res_pk;
+   UPDATE organization SET organization_name = _organization_name, pk = _pk, base_pk = _base_pk WHERE pk = _pk and base_pk = _base_pk
 END IF;   
 
 return res_pk;
@@ -107,7 +107,7 @@ SELECT pk into res_pk FROM subdivision Where subdivision.pk = _pk;
 IF NOT FOUND THEN
    INSERT INTO subdivision(subdivision_name, pk, parent_pk, organization_pk, base_pk) VALUES( _subdivision_name, _pk, _parent_pk, _organization_pk, _base_pk ) RETURNING pk into res_pk;
 ELSE
-   UPDATE subdivision SET subdivision_name = _subdivision_name, pk = _pk, parent_pk = _parent_pk, organization_pk = _organization_pk, base_pk = _base_pk WHERE pk =_pk;
+   UPDATE subdivision SET subdivision_name = _subdivision_name, pk = _pk, parent_pk = _parent_pk, organization_pk = _organization_pk, base_pk = _base_pk WHERE pk =_pk and base_pk = _base_pk;
 END IF;   
 
 return res_pk;
