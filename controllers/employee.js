@@ -31,6 +31,7 @@ module.exports.getEmployeeDataById = async function (req, res) {
                           WHERE 
                             users.pk = $3
                           ORDER BY
+                            organization.pk,
                             types_of_employment.type_of_employment desc`
         const today = new Date()
         today.setHours(23, 59, 59, 999)
@@ -229,23 +230,58 @@ module.exports.getPaymentList = async function (req, res) {
             payment_list.payment_position,
             payment_list.payment_sum,
             payment_list.payment_group,
-            payment_list.payment_group_id 
+            payment_list.payment_group_id,
+            employee.tab_nom,  
+            subdivision.subdivision_name,
+            employee_position.position_name,
+            organization.organization_name,
+            types_of_employment.type_of_employment
         FROM
             payment_list INNER JOIN employee ON (employee.pk = payment_list.employee_pk AND employee.base_pk = payment_list.base_pk)
                INNER JOIN users ON (employee.user_id_1c = users.id_1c AND employee.base_pk = users.base_pk)
+                left join (select * from user_workplaces_for_date($1, $3) ) as workplace on (workplace.employee_pk = payment_list.employee_pk )
+                left join subdivision as subdivision on (workplace.subdivision_pk = subdivision.pk)
+                left join employee_position as employee_position on (workplace.position_pk = employee_position.pk)
+                left join organization as organization on (subdivision.organization_pk = organization.pk)
+                left join (select * from user_types_of_employment_for_date($1, $3) ) as types_of_employment on (types_of_employment.employee_pk = payment_list.employee_pk )
+
         WHERE    
             users.pk = $1 AND 
             payment_month = $2
         ORDER BY
+            organization.pk,
+            types_of_employment.type_of_employment desc,
             payment_list.employee_pk,
             payment_list.payment_group_id,
             payment_list.payment_group,
             payment_list.payment_position`
-        const paymentMonth = new Date(paymentList.payment_month)      
+        const paymentMonth = new Date(paymentList.payment_month)  
+        const endDate = new Date(paymentMonth.getFullYear(), paymentMonth.getMonth() +1, 1, 0, 0, 0, 0)    
         const {rows} = await db.query(sql, [paymentList.pk,
-            paymentMonth]);   
+            paymentMonth,
+            endDate]);  
+            
+        const result = []
+        let currentEmployee = null
+        let employeeBlock = null  
 
-        res.status(200).json(rows)
+        for (item of rows) {
+            if (item.employee_pk !== currentEmployee) {
+                employeeBlock = {
+                    employee: item.employee_pk,
+                    tab_nom: item.tab_nom,
+                    subdivision_name: item.subdivision_name,
+                    position_name: item.position_name,
+                    organization_name: item.organization_name,
+                    type_of_employment: item.type_of_employment,
+                    dataBlock: []
+                }
+                result.push(employeeBlock)
+                currentEmployee = item.employee_pk
+            }
+            employeeBlock.dataBlock.push(item)
+        }
+        res.status(200).json(result)
     } catch (e) {
         errorHandler(res, e)
     }
@@ -259,17 +295,21 @@ module.exports.createPaymentList = async function (req, res) {
 
         await client.query('BEGIN')
 
-        const sql = `
-        DELETE  FROM
-            payment_list 
-        WHERE    
-              employee_pk = $1 AND 
-              base_pk = $2 AND
-              payment_month = $3`;
-        const {rows} = await client.query(sql,
-            [paymentList.employee_pk,
-                req.user.base_pk,
-                paymentList.payment_month]);
+        paymentList.employees.forEach(async(item) =>{          
+            const sql = `
+            DELETE  FROM
+                payment_list 
+            WHERE    
+                employee_pk = $1 AND 
+                base_pk = $2 AND
+                payment_month = $3`;
+            const {rows} = await client.query(sql,
+                [item,
+                    req.user.base_pk,
+                    paymentList.payment_month]);
+                }
+        )
+
 
         const payments = paymentList.payments
         payments.forEach(async (item) => {
@@ -289,7 +329,7 @@ module.exports.createPaymentList = async function (req, res) {
 
             const {rows} = await client.query(sql,
                 [paymentList.payment_month,
-                    paymentList.employee_pk,
+                    item.employee_pk,
                     req.user.base_pk,
                     item.payment_position,
                     item.payment_sum,
@@ -300,7 +340,7 @@ module.exports.createPaymentList = async function (req, res) {
         await client.query('COMMIT')
         client.release()
 
-        const userData = {pk: paymentList.employee_pk}
+        const userData = {pk: 0}
         res.status(200).json(userData)
     } catch (e) {
         errorHandler(res, e)
@@ -590,7 +630,8 @@ module.exports.getEmployeeWorkSchedulesDataForPeriod = async function (req, res)
                                 data.time_kod,
                                 data.employee_id_1c, 
                                 q,
-                                data.tab_nom
+                                data.tab_nom,   
+                                data.date_of_dismissal
                             FROM     
                                 (Select
                                 general_work_schedules_data.work_date,
@@ -599,7 +640,8 @@ module.exports.getEmployeeWorkSchedulesDataForPeriod = async function (req, res)
                                 types_of_time.time_kod,
                                 employee_work_schedules.employee_id_1c, 
                                 1 as q,
-                                employee.tab_nom
+                                employee.tab_nom, 
+                                employee.date_of_dismissal
                                 From 
                                      employee_work_schedules
                                      inner join employee on (employee_work_schedules.employee_id_1c = employee.pk
@@ -643,7 +685,8 @@ module.exports.getEmployeeWorkSchedulesDataForPeriod = async function (req, res)
                             types_of_time.time_kod,
                             employee_work_schedules.employee_id_1c,
                             2, 
-                            employee.tab_nom
+                            employee.tab_nom, 
+                            employee.date_of_dismissal
                             From
                                  employee_work_schedules
                                  inner join employee on (employee_work_schedules.employee_id_1c = employee.pk
@@ -684,8 +727,10 @@ module.exports.getEmployeeWorkSchedulesDataForPeriod = async function (req, res)
                                 left join employee_position as employee_position on (workplace.position_pk = employee_position.pk)
                                 left join organization as organization on (subdivision.organization_pk = organization.pk)
                             left join (select * from user_types_of_employment_for_date($9, $2) ) as types_of_employment on (types_of_employment.employee_pk = endData.employee_id_1c )
-
+                    WHERE
+                        work_date < date_of_dismissal
                     Order by
+                        organization.pk,
                         types_of_employment.type_of_employment desc,
                         employee_id_1c,
                         work_date`
@@ -800,7 +845,8 @@ const getUserWorkSchedulesDataForMonth = async function (base_pk, pk, year, mont
                         subdivision.subdivision_name,
                         employee_position.position_name,
                         organization.organization_name,
-                        types_of_employment.type_of_employment
+                        types_of_employment.type_of_employment,
+                        endData.date_of_dismissal
                     FROM
                         (
                             (Select
@@ -810,7 +856,8 @@ const getUserWorkSchedulesDataForMonth = async function (base_pk, pk, year, mont
                                 data.time_kod,
                                 data.employee_id_1c, 
                                 q,
-                                data.tab_nom
+                                data.tab_nom,
+                                data.date_of_dismissal
                             FROM     
                                 (Select
                                 general_work_schedules_data.work_date,
@@ -819,7 +866,8 @@ const getUserWorkSchedulesDataForMonth = async function (base_pk, pk, year, mont
                                 types_of_time.time_kod,
                                 employee_work_schedules.employee_id_1c, 
                                 1 as q,
-                                employee.tab_nom
+                                employee.tab_nom, 
+                                employee.date_of_dismissal
                                 From 
                                      employee_work_schedules
                                      inner join employee on (employee_work_schedules.employee_id_1c = employee.pk
@@ -863,7 +911,8 @@ const getUserWorkSchedulesDataForMonth = async function (base_pk, pk, year, mont
                             types_of_time.time_kod,
                             employee_work_schedules.employee_id_1c,
                             2,
-                            employee.tab_nom
+                            employee.tab_nom, 
+                            employee.date_of_dismissal
                             From
                                  employee_work_schedules
                                  inner join employee on (employee_work_schedules.employee_id_1c = employee.pk
@@ -904,8 +953,10 @@ const getUserWorkSchedulesDataForMonth = async function (base_pk, pk, year, mont
                                 left join employee_position as employee_position on (workplace.position_pk = employee_position.pk)
                                 left join organization as organization on (subdivision.organization_pk = organization.pk)
                             left join (select * from user_types_of_employment_for_date($9, $2) ) as types_of_employment on (types_of_employment.employee_pk = endData.employee_id_1c )
-
+                    WHERE
+                        endData.work_date < endData.date_of_dismissal
                     ORDER BY
+                        organization.pk,
                         types_of_employment.type_of_employment desc,
                         employee_id_1c,
                         work_date`
