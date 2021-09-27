@@ -89,7 +89,7 @@ SELECT pk into res_pk FROM organization Where organization.pk = _pk;
 IF NOT FOUND THEN
    INSERT INTO organization(organization_name, pk, base_pk) VALUES( _organization_name, _pk, _base_pk ) RETURNING pk into res_pk;
 ELSE
-   UPDATE organization SET organization_name = _organization_name, pk = _pk, base_pk = _base_pk WHERE pk = _pk and base_pk = _base_pk
+   UPDATE organization SET organization_name = _organization_name, pk = _pk, base_pk = _base_pk WHERE pk = _pk and base_pk = _base_pk;
 END IF;   
 
 return res_pk;
