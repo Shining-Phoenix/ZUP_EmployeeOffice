@@ -5,7 +5,10 @@
         <h3 v-if="showBlockName" class="employee-tabel_head"> {{ organizationName}}</h3>
         <h3 v-if="showBlockName" class="mb-3 employee-tabel_head"> {{ positionName }}</h3>
 
-           <v-row class="mt-0 pt-0 mr-0">
+           <v-row  
+                v-if="nachisleno.items.length || lgoti.items.length || uderzano.items.length || viplacheno.items.length"
+           
+                class="mt-0 pt-0 mr-0">
                 <v-col cols="6" class="mt-0 pt-0 ">
                     <payment-group
                         v-if="nachisleno.items.length"
@@ -27,14 +30,17 @@
                     ></payment-group>
                 </v-col>
             </v-row>
-            <v-row v-if="typeOfEmployment !== 2" class="mr-0">
+            <v-row v-if ="dolgZaPredpriyztiemNaNachalo.items.length || dolgZaPredpriyztiemNaKonec.items.length" 
+                class="mr-0">
                 <v-col cols="6">
                     <payment-group
+                            v-if="dolgZaPredpriyztiemNaNachalo.items.length"
                             :data="dolgZaPredpriyztiemNaNachalo"
                     ></payment-group>
                 </v-col>
                 <v-col cols="6">
                     <payment-group
+                            v-if="dolgZaPredpriyztiemNaKonec.items.length"
                             :data="dolgZaPredpriyztiemNaKonec"
                     ></payment-group>
                 </v-col>
