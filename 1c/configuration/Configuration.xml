@@ -54,7 +54,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Role.ЛК_Пользователь</xr:Item>
 			</DefaultRoles>
 			<Vendor/>
-			<Version>0.51</Version>
+			<Version>0.90</Version>
 			<BriefInformation/>
 			<DetailedInformation/>
 			<Copyright/>
