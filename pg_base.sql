@@ -383,7 +383,7 @@ INSERT INTO public.user_groups(
 	VALUES ('SuperAdmin', 2);	
 
 CREATE OR REPLACE FUNCTION user_workplaces_for_date(_user_pk integer, _workplace_period timestamp with time zone)
-  RETURNS TABLE (employee_pk text, date_from date, subdivision_pk text, position_pk text, organization_pk text) AS '
+  RETURNS TABLE (employee_pk text, date_from timestamp without time zone, subdivision_pk text, position_pk text, organization_pk text) AS '
 SELECT 
                           workplace.employee_pk,
                           workplace.date_from,
