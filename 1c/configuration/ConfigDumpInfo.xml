@@ -33,9 +33,9 @@
 		<Metadata name="CommonModule.ЛК_ОбменДаннымиПовтИсп" id="89a588ca-347f-4bb9-a47a-8bb4a0c04e27" configVersion="badea70a92a6a537cd77253f155d60d92d62ce0c"/>
 		<Metadata name="CommonModule.ЛК_ОбменДаннымиПовтИсп.Module" id="89a588ca-347f-4bb9-a47a-8bb4a0c04e27.0" configVersion="738a311b854376d9962bef4e30af181be98a083b"/>
 		<Metadata name="CommonModule.ЛК_ОбменДаннымиСервер" id="40798dc0-cb1d-43f8-8592-8f9c4bf58cfa" configVersion="a388a72d189c9913156be4abe43b195534b46eb0"/>
-		<Metadata name="CommonModule.ЛК_ОбменДаннымиСервер.Module" id="40798dc0-cb1d-43f8-8592-8f9c4bf58cfa.0" configVersion="3f86c6d5ac0b87d75bc6fb96df3e3e250d60d8b0"/>
+		<Metadata name="CommonModule.ЛК_ОбменДаннымиСервер.Module" id="40798dc0-cb1d-43f8-8592-8f9c4bf58cfa.0" configVersion="ba938533d8c3bdecf46797a6f0fbdfe6adfe3d5a"/>
 		<Metadata name="CommonModule.ЛК_ОбработкаСобытийСервер" id="c564cfa0-7872-4699-9b6c-f5c49785dc08" configVersion="6a0fc15a0294664adb206e3db3b1f127bff34456"/>
-		<Metadata name="CommonModule.ЛК_ОбработкаСобытийСервер.Module" id="c564cfa0-7872-4699-9b6c-f5c49785dc08.0" configVersion="81bdb789b17a0ed8b3d9335df1bb0bdc61f673ae"/>
+		<Metadata name="CommonModule.ЛК_ОбработкаСобытийСервер.Module" id="c564cfa0-7872-4699-9b6c-f5c49785dc08.0" configVersion="9ef122ffe822817b917afc1105baf9094f2c6208"/>
 		<Metadata name="CommonModule.ЛК_ОбщегоНазначенияВызовСервера" id="fae9975b-31c6-4c96-84cd-e0563f8fa3fd" configVersion="b2333885104e395b81c33c9c197d1872227a8fc1"/>
 		<Metadata name="CommonModule.ЛК_ОбщегоНазначенияВызовСервера.Module" id="fae9975b-31c6-4c96-84cd-e0563f8fa3fd.0" configVersion="ab9ca41fb8507fe73057037a60d9bba3fb1486fc"/>
 		<Metadata name="CommonModule.ЛК_РаботаСJSONСервер" id="a6625281-af8c-4623-9a06-16f743375cc7" configVersion="ea4bc3f76e6233165639544f1e7c66f4dbce2567"/>
@@ -43,7 +43,7 @@
 		<Metadata name="CommonModule.ЛК_РаботаСФункциямиКлиентСервер" id="e6a9727d-befa-4c63-9697-aa1a85a2150f" configVersion="5ac547a40ee630c3afeca97d8e0ef00dc09a4517"/>
 		<Metadata name="CommonModule.ЛК_РаботаСФункциямиКлиентСервер.Module" id="e6a9727d-befa-4c63-9697-aa1a85a2150f.0" configVersion="cccf23bf9d35d6a6689ed66d1e589c9a5d3bea8d"/>
 		<Metadata name="CommonPicture.КадровыйУчет48" id="c4289182-ac76-405d-ad20-e66034851c44" configVersion="417cbf8ccd70e2a92bcd3a843ba6e08c0d1ae588"/>
-		<Metadata name="Configuration.ZUP_EmployeeOffice" id="1b9eaada-ae35-4b7a-b392-91b9b4894192" configVersion="3e1d82061040ca31dc6b5b3b59e95ac206ccb189"/>
+		<Metadata name="Configuration.ZUP_EmployeeOffice" id="1b9eaada-ae35-4b7a-b392-91b9b4894192" configVersion="a09f3938e006251123f9f6cf95a7610f4e379f3b"/>
 		<Metadata name="Configuration.ZUP_EmployeeOffice.ManagedApplicationModule" id="8767be3d-f7a1-41f9-99ef-5123d9adec4e.6" configVersion="3112dedf414e446c369db5b0fa89afdb2fc32cb5"/>
 		<Metadata name="DataProcessor.ЛК_Администрирование" id="599f5fa6-a7b7-4bb3-a50a-358d89cc3189" configVersion="cc7928a459977ffde9a368af62e8700922cd19a6">
 			<Metadata name="DataProcessor.ЛК_Администрирование.Attribute.Пароль" id="67187821-8371-4fff-b278-c3e91a2d5b9c"/>
@@ -146,7 +146,7 @@
 		<Metadata name="Role.ЛК_Пользователь" id="b03758b2-d09d-4c52-a2e6-12f226ed13e3" configVersion="856fb76bf9d461d665173c108cd12b3a3cc6361c"/>
 		<Metadata name="Role.ЛК_Пользователь.Rights" id="b03758b2-d09d-4c52-a2e6-12f226ed13e3.0" configVersion="aa1aa16febca5c5e27fcb69b88effe62ef4a066a"/>
 		<Metadata name="Subsystem.ЛК_ЛичныйКабинет" id="d8ceeb4f-8fa4-4646-83e1-3c452393225c" configVersion="46a3b06ed0fa9b9b08c158f6ab494dd3395fef30"/>
-		<Metadata name="Subsystem.ЛК_ЛичныйКабинет.Subsystem.Администрирование" id="6de822df-2d5d-45cb-9193-b91c6ac23df5" configVersion="47559f4d4f81f4481e8d72c44b45cac0903a58ae"/>
+		<Metadata name="Subsystem.ЛК_ЛичныйКабинет.Subsystem.Администрирование" id="6de822df-2d5d-45cb-9193-b91c6ac23df5" configVersion="a67faa93eedbfb55b16dfd02a1bfe530766849ad"/>
 		<Metadata name="Subsystem.ЛК_ЛичныйКабинет.Subsystem.Администрирование.CommandInterface" id="6de822df-2d5d-45cb-9193-b91c6ac23df5.1" configVersion="b42dbb875fb499f7085973e7cff70cff6b6ec93a"/>
 		<Metadata name="Subsystem.ЛК_ЛичныйКабинет.Subsystem.ЗаявкиНаСправки" id="b203cb48-042b-4321-8fc7-073eedffc279" configVersion="69ecef85449710c7c5aab500f421605f95186321"/>
 		<Metadata name="Subsystem.ЛК_ЛичныйКабинет.Subsystem.ЗаявкиНаСправки.CommandInterface" id="b203cb48-042b-4321-8fc7-073eedffc279.1" configVersion="6b0a0edbed6f9b58e7d4b332e41250ef8279d009"/>
