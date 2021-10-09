@@ -36,22 +36,20 @@
 		<Metadata name="CommonModule.ЛК_ОбменДаннымиСервер.Module" id="40798dc0-cb1d-43f8-8592-8f9c4bf58cfa.0" configVersion="ba938533d8c3bdecf46797a6f0fbdfe6adfe3d5a"/>
 		<Metadata name="CommonModule.ЛК_ОбработкаСобытийСервер" id="c564cfa0-7872-4699-9b6c-f5c49785dc08" configVersion="6a0fc15a0294664adb206e3db3b1f127bff34456"/>
 		<Metadata name="CommonModule.ЛК_ОбработкаСобытийСервер.Module" id="c564cfa0-7872-4699-9b6c-f5c49785dc08.0" configVersion="4dddc7941ba9858cd72e6dfbc96a5b34fbef5566"/>
-		<Metadata name="CommonModule.ЛК_ОбщегоНазначенияВызовСервера" id="fae9975b-31c6-4c96-84cd-e0563f8fa3fd" configVersion="b2333885104e395b81c33c9c197d1872227a8fc1"/>
-		<Metadata name="CommonModule.ЛК_ОбщегоНазначенияВызовСервера.Module" id="fae9975b-31c6-4c96-84cd-e0563f8fa3fd.0" configVersion="ab9ca41fb8507fe73057037a60d9bba3fb1486fc"/>
 		<Metadata name="CommonModule.ЛК_РаботаСJSONСервер" id="a6625281-af8c-4623-9a06-16f743375cc7" configVersion="ea4bc3f76e6233165639544f1e7c66f4dbce2567"/>
 		<Metadata name="CommonModule.ЛК_РаботаСJSONСервер.Module" id="a6625281-af8c-4623-9a06-16f743375cc7.0" configVersion="90474be4b0417d7fdd24130ee43ec148a29c2cb9"/>
 		<Metadata name="CommonModule.ЛК_РаботаСФункциямиКлиентСервер" id="e6a9727d-befa-4c63-9697-aa1a85a2150f" configVersion="5ac547a40ee630c3afeca97d8e0ef00dc09a4517"/>
-		<Metadata name="CommonModule.ЛК_РаботаСФункциямиКлиентСервер.Module" id="e6a9727d-befa-4c63-9697-aa1a85a2150f.0" configVersion="cccf23bf9d35d6a6689ed66d1e589c9a5d3bea8d"/>
+		<Metadata name="CommonModule.ЛК_РаботаСФункциямиКлиентСервер.Module" id="e6a9727d-befa-4c63-9697-aa1a85a2150f.0" configVersion="fe5b1aeb656c80733ec971cf697a751c95d8700b"/>
 		<Metadata name="CommonPicture.КадровыйУчет48" id="c4289182-ac76-405d-ad20-e66034851c44" configVersion="417cbf8ccd70e2a92bcd3a843ba6e08c0d1ae588"/>
-		<Metadata name="Configuration.ZUP_EmployeeOffice" id="1b9eaada-ae35-4b7a-b392-91b9b4894192" configVersion="a09f3938e006251123f9f6cf95a7610f4e379f3b"/>
-		<Metadata name="Configuration.ZUP_EmployeeOffice.ManagedApplicationModule" id="8767be3d-f7a1-41f9-99ef-5123d9adec4e.6" configVersion="3112dedf414e446c369db5b0fa89afdb2fc32cb5"/>
+		<Metadata name="Configuration.ZUP_EmployeeOffice" id="1b9eaada-ae35-4b7a-b392-91b9b4894192" configVersion="f8eceb1edcdbddc40a28408d1d59cb7658b7d7b2"/>
+		<Metadata name="Configuration.ZUP_EmployeeOffice.ManagedApplicationModule" id="8767be3d-f7a1-41f9-99ef-5123d9adec4e.6" configVersion="5c8b8594c2ae02460dfc7068b14e6a212e51f049"/>
 		<Metadata name="DataProcessor.ЛК_Администрирование" id="599f5fa6-a7b7-4bb3-a50a-358d89cc3189" configVersion="cc7928a459977ffde9a368af62e8700922cd19a6">
 			<Metadata name="DataProcessor.ЛК_Администрирование.Attribute.Пароль" id="67187821-8371-4fff-b278-c3e91a2d5b9c"/>
 			<Metadata name="DataProcessor.ЛК_Администрирование.Attribute.Логин" id="ba03e0f6-6fe0-45ab-a3d6-0095be74c2b1"/>
 			<Metadata name="DataProcessor.ЛК_Администрирование.Attribute.Пользователь" id="ba281836-0116-4e46-b548-dd6fd0b48a96"/>
 		</Metadata>
 		<Metadata name="DataProcessor.ЛК_Администрирование.Form.Форма" id="13593289-ef2b-40c3-8598-60688a21a0a0" configVersion="112437a25077a6a1177012328792a7fce0dafcae"/>
-		<Metadata name="DataProcessor.ЛК_Администрирование.Form.Форма.Form" id="13593289-ef2b-40c3-8598-60688a21a0a0.0" configVersion="9c0493ed810403679fab981ec15f55ea9d5c2ee3"/>
+		<Metadata name="DataProcessor.ЛК_Администрирование.Form.Форма.Form" id="13593289-ef2b-40c3-8598-60688a21a0a0.0" configVersion="4db54c155f652e5cf5c5a3ca0fe6672cbaaa45dc"/>
 		<Metadata name="Document.ЛК_ЗаявкиНаСправки" id="668ffd7e-a832-4110-aedb-3f46af09beb6" configVersion="3500f26088c8926d0f4a74eb0023ab5a3d9ee624">
 			<Metadata name="Document.ЛК_ЗаявкиНаСправки.Attribute.Комментарий" id="00daa503-3d47-4f52-b324-39597fd7cb10"/>
 			<Metadata name="Document.ЛК_ЗаявкиНаСправки.Attribute.Отвественный" id="56ed8c4e-2a44-4d4e-9702-2dd9137b471f"/>
@@ -85,15 +83,18 @@
 		<Metadata name="InformationRegister.ГрафикиРаботыПоВидамВремени.RecordSetModule" id="6cf85cc2-3baa-43a6-96e1-071d031f5b0d.1" configVersion="53218f81778e3e6a4286e77a7bd420a2461dbb74"/>
 		<Metadata name="InformationRegister.КадроваяИсторияСотрудников" id="64fb53ae-cb2d-4229-bab3-49e348eecc16" configVersion="ee279492e302cb674aea6f9572a3aff0b6b83fdb"/>
 		<Metadata name="InformationRegister.КадроваяИсторияСотрудников.RecordSetModule" id="64fb53ae-cb2d-4229-bab3-49e348eecc16.1" configVersion="53218f81778e3e6a4286e77a7bd420a2461dbb74"/>
-		<Metadata name="InformationRegister.ЛК_НастройкиСервисов" id="8e3221de-b78e-40d4-abc2-5cf133066c68" configVersion="0842cbf951d061ca6bd183acc290e1b50aec279c">
+		<Metadata name="InformationRegister.ЛК_НастройкиСервисов" id="8e3221de-b78e-40d4-abc2-5cf133066c68" configVersion="b4e847409dbbffe7eb8ff94184e25bcd3ffb7519">
 			<Metadata name="InformationRegister.ЛК_НастройкиСервисов.Resource.УровеньЛогирования" id="1e34078b-aa52-4a08-8a73-64cf3518c11f"/>
-			<Metadata name="InformationRegister.ЛК_НастройкиСервисов.Dimension.ПарольПользователя" id="5b7d5fa3-c22c-4882-afc8-9c49b08a112c"/>
-			<Metadata name="InformationRegister.ЛК_НастройкиСервисов.Dimension.ИДБазы" id="683ea731-736e-4e65-a3fb-14d82a6babee"/>
-			<Metadata name="InformationRegister.ЛК_НастройкиСервисов.Dimension.ЛогинПользователя" id="73131fb9-cfb6-4a0f-9e75-64e61e2db41e"/>
-			<Metadata name="InformationRegister.ЛК_НастройкиСервисов.Dimension.АдресСервера" id="ecc8ce5f-3cb7-48ac-9ac4-8ff321799537"/>
+			<Metadata name="InformationRegister.ЛК_НастройкиСервисов.Dimension.Измерение" id="3cf6252c-1fe2-4500-b1b3-e219978ea044"/>
+			<Metadata name="InformationRegister.ЛК_НастройкиСервисов.Resource.АдресСервера" id="573ce974-52f1-4981-99b6-3d27b1db57c5"/>
+			<Metadata name="InformationRegister.ЛК_НастройкиСервисов.Resource.ЛогинПользователя" id="791860fe-186d-4644-b40d-85aadb76815b"/>
+			<Metadata name="InformationRegister.ЛК_НастройкиСервисов.Resource.ПарольПользователя" id="8c481c5d-f563-4de3-aefe-efd34505bd83"/>
+			<Metadata name="InformationRegister.ЛК_НастройкиСервисов.Resource.ИДБазы" id="d8959cee-9084-494e-8ac9-7e8e9695ac60"/>
 		</Metadata>
 		<Metadata name="InformationRegister.ЛК_НастройкиСервисов.Form.ФормаЗаписи" id="28a95ed8-c22d-4343-ac3f-7925def1cbf9" configVersion="ec7ebccfdde07034588d1b00e4cd90afe927db56"/>
-		<Metadata name="InformationRegister.ЛК_НастройкиСервисов.Form.ФормаЗаписи.Form" id="28a95ed8-c22d-4343-ac3f-7925def1cbf9.0" configVersion="b187bc454a393c185ca9d144776e19a33bd07181"/>
+		<Metadata name="InformationRegister.ЛК_НастройкиСервисов.Form.ФормаЗаписи.Form" id="28a95ed8-c22d-4343-ac3f-7925def1cbf9.0" configVersion="27621b7a00b93fbb06d752cc1c522accd002e7d9"/>
+		<Metadata name="InformationRegister.ЛК_НастройкиСервисов.Form.ФормаСписка" id="612b0f3e-fda1-4a6d-9e82-7990a0cfa607" configVersion="d62b4180dccfe3de95bef7128823892134f0f61e"/>
+		<Metadata name="InformationRegister.ЛК_НастройкиСервисов.Form.ФормаСписка.Form" id="612b0f3e-fda1-4a6d-9e82-7990a0cfa607.0" configVersion="cf3edc054399151837b5af13abebdffd1378bed9"/>
 		<Metadata name="InformationRegister.ЛК_НастройкиСервисов.ManagerModule" id="8e3221de-b78e-40d4-abc2-5cf133066c68.2" configVersion="a9e0078c6cd89bf331118022be94bed6611a8d26"/>
 		<Metadata name="InformationRegister.ЛК_ОчередьОбменаСЛКПроизвольнымиДанными" id="47175bbc-bf0c-4a85-be36-07da02c2f8a1" configVersion="46994422f0d4906d806174bf5037b463849985e6">
 			<Metadata name="InformationRegister.ЛК_ОчередьОбменаСЛКПроизвольнымиДанными.Dimension.ХЭШ" id="3d14be2e-8e2d-4af3-b81f-1413afa15069"/>

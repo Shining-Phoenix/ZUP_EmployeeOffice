@@ -3,6 +3,7 @@
 	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
+		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
@@ -18,6 +19,7 @@
 		</InputField>
 		<InputField name="ПарольПользователя" id="7">
 			<DataPath>Запись.ПарольПользователя</DataPath>
+			<PasswordMode>true</PasswordMode>
 			<ContextMenu name="ПарольПользователяКонтекстноеМеню" id="8"/>
 			<ExtendedTooltip name="ПарольПользователяРасширеннаяПодсказка" id="9"/>
 		</InputField>
@@ -32,6 +34,43 @@
 			<ContextMenu name="УровеньЛогированияКонтекстноеМеню" id="14"/>
 			<ExtendedTooltip name="УровеньЛогированияРасширеннаяПодсказка" id="15"/>
 		</InputField>
+		<CommandBar name="ГруппаНиз" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru1</v8:lang>
+					<v8:content>Группа низ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru1</v8:lang>
+					<v8:content>Группа низ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ExtendedTooltip name="ГруппаНизРасширеннаяПодсказка" id="17"/>
+			<ChildItems>
+				<Button name="ПроверитьПодключение" id="18">
+					<Type>CommandBarButton</Type>
+					<Representation>PictureAndText</Representation>
+					<CommandName>Form.Command.ПроверитьПодключение</CommandName>
+					<Picture>
+						<xr:Ref>StdPicture.Refresh</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="ПроверитьПодключениеРасширеннаяПодсказка" id="19"/>
+				</Button>
+				<Button name="Инициализировать" id="20">
+					<Type>CommandBarButton</Type>
+					<Representation>PictureAndText</Representation>
+					<CommandName>Form.Command.Инициализировать</CommandName>
+					<Picture>
+						<xr:Ref>StdPicture.AppearanceCheckBox</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="ИнициализироватьРасширеннаяПодсказка" id="21"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Запись" id="1">
@@ -42,4 +81,36 @@
 			<SavedData>true</SavedData>
 		</Attribute>
 	</Attributes>
+	<Commands>
+		<Command name="Инициализировать" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru1</v8:lang>
+					<v8:content>Инициализировать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru1</v8:lang>
+					<v8:content>Инициализировать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Инициализировать</Action>
+		</Command>
+		<Command name="ПроверитьПодключение" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru1</v8:lang>
+					<v8:content>Проверить подключение</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru1</v8:lang>
+					<v8:content>Проверить подключение</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПроверитьПодключение</Action>
+		</Command>
+	</Commands>
 </Form>
