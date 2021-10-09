@@ -64,11 +64,16 @@
                         ></v-textarea>
                         <v-btn
                                 class="mr-4"
+                                color = "#9c27b0"
                                 type="submit"
                                 :disabled="record.deleted || record.disabled_on_web"
                         >Записать
                         </v-btn>
-                        <v-btn @click="$router.push('/inquiry-request-list')">Отменить</v-btn>
+                        <v-btn 
+                            @click="$router.push('/inquiry-request-list')"
+                            color = "#EE82EE"
+
+                        >Отменить</v-btn>
                     </form>
                 </v-col>
             </v-row>
@@ -179,4 +184,5 @@
         }
     }
 </script>
+
 

@@ -38,11 +38,15 @@
                     <div class="buttonDiv row align-center justify-center">
                         <v-btn
                                 class="mr-4"
+                                color = "#9c27b0"
                                 :disabled="$v.$invalid || loading"
                                 @click.prevent="submit"
                         >Войти
                         </v-btn>
-                        <v-btn @click="clear">Очистить</v-btn>
+                        <v-btn 
+                            @click="clear"
+                            color = "#EE82EE"
+                            >Очистить</v-btn>
                     </div>
                 </form>
             </v-col>
