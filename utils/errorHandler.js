@@ -1,7 +1,9 @@
 module.exports = (res, error) => {
   console.log(error)
-  res.status(500).json({
-    success: false,
-    message: error.message ? error.message : error
-  })
+  if (res.status !== undefined) {
+    res.status(500).json({
+      success: false,
+      message: error.message ? error.message : error
+    })    
+  }
 }

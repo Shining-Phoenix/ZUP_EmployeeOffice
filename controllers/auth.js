@@ -134,9 +134,10 @@ saveFirstUser = async (user) => {
 }
 
 findUserByEmail = async (value) => {
-    const client = await db.client()
 
     try {
+        const client = await db.client()
+
         await client.query('BEGIN')
         const sql = `SELECT pk, email, user_password, base_pk  FROM users WHERE email = $1`;
         const {rows} = await client.query(sql, [value.email]);
@@ -163,9 +164,12 @@ findUserByEmail = async (value) => {
         return user
     } catch (e) {
         errorHandler(value, e)
-        await client.query('ROOLBACK')
-        client.release()
-        throw e
+
+        if (typeof client !== 'undefined') {
+            await client.query('ROOLBACK')
+            client.release()          
+        }
+        return null
     }
 }
 
@@ -210,6 +214,11 @@ module.exports.login = async function (req, res) {
                 message: 'Пароли не совпадают. Попробуйте снова.'
             })
         }
+    } else if (candidate == null) {
+        res.status(500).json({
+            success: false,
+            message: 'Ошибка сервера.'
+        })
     } else {
         // Пользователя нет, ошибка
         res.status(404).json({
