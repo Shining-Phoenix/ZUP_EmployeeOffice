@@ -179,7 +179,7 @@ module.exports.createTypeOfTime = async function(req, res) {
             time_name_id     
           ) 
         VALUES($1, $2, $3, $4, $5, $6, $7)
-        RETURNING pk`;
+        RETURNING id_1c`;
         const {rows} = await db.query(sql,
             [typesOfTime.time_name,
                 typesOfTime.id_1c,
@@ -213,7 +213,7 @@ module.exports.updateTypeOfTime = async function(req, res) {
         WHERE
             id_1c = $8
             AND base_pk = $9
-        RETURNING pk`;
+        RETURNING id_1c`;
         const {rows} = await db.query(sql,
             [typesOfTime.time_name,
                 typesOfTime.id_1c,

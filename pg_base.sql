@@ -452,3 +452,9 @@ SELECT
                           WHERE 
                             users.pk = $1;'
 LANGUAGE sql;
+
+-- Версия 0.9.1
+ALTER TABLE public.types_of_time DROP COLUMN pk;
+
+ALTER TABLE public.types_of_time
+    ADD PRIMARY KEY (id_1c, base_pk);
