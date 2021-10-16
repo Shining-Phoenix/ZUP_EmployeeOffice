@@ -97,7 +97,7 @@
 		<Metadata name="InformationRegister.ЛК_НастройкиСервисов.Form.ФормаСписка" id="612b0f3e-fda1-4a6d-9e82-7990a0cfa607" configVersion="d62b4180dccfe3de95bef7128823892134f0f61e"/>
 		<Metadata name="InformationRegister.ЛК_НастройкиСервисов.Form.ФормаСписка.Form" id="612b0f3e-fda1-4a6d-9e82-7990a0cfa607.0" configVersion="cf3edc054399151837b5af13abebdffd1378bed9"/>
 		<Metadata name="InformationRegister.ЛК_НастройкиСервисов.ManagerModule" id="8e3221de-b78e-40d4-abc2-5cf133066c68.2" configVersion="a9e0078c6cd89bf331118022be94bed6611a8d26"/>
-		<Metadata name="InformationRegister.ЛК_ОчередьОбменаСЛКПроизвольнымиДанными" id="47175bbc-bf0c-4a85-be36-07da02c2f8a1" configVersion="46994422f0d4906d806174bf5037b463849985e6">
+		<Metadata name="InformationRegister.ЛК_ОчередьОбменаСЛКПроизвольнымиДанными" id="47175bbc-bf0c-4a85-be36-07da02c2f8a1" configVersion="18d78e82a3ce0249e838ef683a3da5d651aa06fa">
 			<Metadata name="InformationRegister.ЛК_ОчередьОбменаСЛКПроизвольнымиДанными.Dimension.ХЭШ" id="3d14be2e-8e2d-4af3-b81f-1413afa15069"/>
 			<Metadata name="InformationRegister.ЛК_ОчередьОбменаСЛКПроизвольнымиДанными.Dimension.ВидСобытия" id="6256cb6c-c97f-4c2d-b728-b17f117686df"/>
 			<Metadata name="InformationRegister.ЛК_ОчередьОбменаСЛКПроизвольнымиДанными.Dimension.ИмяОбъекта" id="6386319f-ab22-4d55-9313-1115cf873851"/>
@@ -112,7 +112,7 @@
 		<Metadata name="InformationRegister.ЛК_ОчередьОбменаСЛКПроизвольнымиДанными.Form.ФормаСписка" id="00642503-adb0-4da6-9bdf-f892f714907b" configVersion="020154be3d20aaf5deddb7eaa1864df675b9db25"/>
 		<Metadata name="InformationRegister.ЛК_ОчередьОбменаСЛКПроизвольнымиДанными.Form.ФормаСписка.Form" id="00642503-adb0-4da6-9bdf-f892f714907b.0" configVersion="5a776e5a19c240b810d8e6ff54d531d837ae2894"/>
 		<Metadata name="InformationRegister.ЛК_ОчередьОбменаСЛКПроизвольнымиДанными.ManagerModule" id="47175bbc-bf0c-4a85-be36-07da02c2f8a1.2" configVersion="a4fbd8d3dfb9f58ef0d1375660b9928fe582d0f5"/>
-		<Metadata name="InformationRegister.ЛК_ОчередьОбменаСЛКСсылочнымиДанными" id="1ac4f08c-732b-4d3b-bcca-949f2e1560e6" configVersion="f3c467859a849704d4eedf2473e2101f060d84bc">
+		<Metadata name="InformationRegister.ЛК_ОчередьОбменаСЛКСсылочнымиДанными" id="1ac4f08c-732b-4d3b-bcca-949f2e1560e6" configVersion="31dbc6c5648a1007d72e12c3247c6ca0b4c08d19">
 			<Metadata name="InformationRegister.ЛК_ОчередьОбменаСЛКСсылочнымиДанными.Dimension.Объект" id="5ba509d0-5041-4c47-8fdb-0da354771142"/>
 			<Metadata name="InformationRegister.ЛК_ОчередьОбменаСЛКСсылочнымиДанными.Attribute.ДатаСобытия" id="6c7283f1-8c33-42b8-a7e0-9ce8c3354bf0"/>
 			<Metadata name="InformationRegister.ЛК_ОчередьОбменаСЛКСсылочнымиДанными.Attribute.ИД" id="90892cca-7abf-4225-a5ef-fe16bc9baf2b"/>
@@ -122,7 +122,7 @@
 		<Metadata name="InformationRegister.ЛК_ОчередьОбменаСЛКСсылочнымиДанными.Form.ФормаСписка" id="2e84856c-4c5d-4492-9831-5e93af6b1fd2" configVersion="7cc3247229efc231868745eec95cbe617c23cb6c"/>
 		<Metadata name="InformationRegister.ЛК_ОчередьОбменаСЛКСсылочнымиДанными.Form.ФормаСписка.Form" id="2e84856c-4c5d-4492-9831-5e93af6b1fd2.0" configVersion="2639135a2d56f382b9288525e413d2e1ee255ce5"/>
 		<Metadata name="InformationRegister.ЛК_ОчередьОбменаСЛКСсылочнымиДанными.ManagerModule" id="1ac4f08c-732b-4d3b-bcca-949f2e1560e6.2" configVersion="5df3733d15d5ea1667aac27f04645d6c7ec52722"/>
-		<Metadata name="InformationRegister.ЛК_ПользователиЛК" id="6eff5c2b-7f0a-410a-9536-2f5755f0638e" configVersion="d385128e2c789e7e2a569e53f34e7fbb56dd9f36">
+		<Metadata name="InformationRegister.ЛК_ПользователиЛК" id="6eff5c2b-7f0a-410a-9536-2f5755f0638e" configVersion="71f76405b238a794b3f327ab696e65a38b480042">
 			<Metadata name="InformationRegister.ЛК_ПользователиЛК.Resource.Логин" id="09daa21a-a8a4-4770-8435-e9c79114482f"/>
 			<Metadata name="InformationRegister.ЛК_ПользователиЛК.Resource.Пароль" id="384e13ef-ccd6-47de-a580-e6d776bd1a65"/>
 			<Metadata name="InformationRegister.ЛК_ПользователиЛК.Dimension.ФизическоеЛицо" id="aaf98d39-0d69-4904-951f-63a7d2f66f53"/>
@@ -132,7 +132,7 @@
 		<Metadata name="InformationRegister.ЛК_ПользователиЛК.Form.ФормаЗаписи.Form" id="81c6f9e5-ded2-4e78-b6f3-1a55c7bc9cd8.0" configVersion="9537256cd55ff7fcb21ee2b9387e294071f91172"/>
 		<Metadata name="InformationRegister.ЛК_ПользователиЛК.Form.ФормаСписка" id="c1fd854e-0147-4af9-b042-539f64efdd08" configVersion="357789ffed1367d2848d55dab7927c5e08653361"/>
 		<Metadata name="InformationRegister.ЛК_ПользователиЛК.Form.ФормаСписка.Form" id="c1fd854e-0147-4af9-b042-539f64efdd08.0" configVersion="b916d024db7c861519d13b8bd4890933b73055e8"/>
-		<Metadata name="InformationRegister.ЛК_СоответствиеОбъектовДляОбмена" id="0b4f3a96-e144-47c9-8627-c85cb53a29eb" configVersion="6340b89ed4e9308051157164b9e20939d5f26cc2">
+		<Metadata name="InformationRegister.ЛК_СоответствиеОбъектовДляОбмена" id="0b4f3a96-e144-47c9-8627-c85cb53a29eb" configVersion="77e7c35700641f6704358958cff36c6c86ae8ffa">
 			<Metadata name="InformationRegister.ЛК_СоответствиеОбъектовДляОбмена.Dimension.Объект" id="75f83712-3462-43f0-9740-9169f7a10153"/>
 			<Metadata name="InformationRegister.ЛК_СоответствиеОбъектовДляОбмена.Resource.КлючОбъекта" id="cada05ea-2267-49da-97bb-8fded28a0313"/>
 		</Metadata>
