@@ -233,6 +233,9 @@ module.exports.getPaymentList = async function (req, res) {
             payment_list.payment_group_id,
             payment_list.validity,
             payment_list.prioritet,
+            payment_list.hours,
+            payment_list.days,
+            payment_list.hours_or_days,
             employee.tab_nom,  
             subdivision.subdivision_name,
             employee_position.position_name,
@@ -327,9 +330,12 @@ module.exports.createPaymentList = async function (req, res) {
               payment_group,
               payment_group_id,
               validity,
-              prioritet          
+              prioritet,
+              hours,
+              days,
+              hours_or_days          
              ) 
-        VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9)
+        VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
         RETURNING employee_pk as pk`
         
         if (item.validity === null) item.validity = ''
@@ -344,7 +350,10 @@ module.exports.createPaymentList = async function (req, res) {
                     item.payment_group,
                     item.payment_group_id,
                     item.validity,
-                    item.prioritet
+                    item.prioritet,
+                    item.hours,
+                    item.days,
+                    item.hours_or_days
                 ]);
         })
 

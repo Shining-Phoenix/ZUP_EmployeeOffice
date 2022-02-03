@@ -29,14 +29,14 @@
 		<Metadata name="Catalog.Сотрудники.ObjectModule" id="842e5751-af57-47a7-acf1-c0522f538e93.0" configVersion="a41f7c6bd7c22876f9cfda7aa30135c74f89cb64"/>
 		<Metadata name="Catalog.ФизическиеЛица" id="f1bf22f5-4c45-4dc2-93b4-fc460f950521" configVersion="9fa430e3b0d88f19b0a3c6aa428a840d9a803800"/>
 		<Metadata name="Catalog.ФизическиеЛица.ObjectModule" id="f1bf22f5-4c45-4dc2-93b4-fc460f950521.0" configVersion="4284779bf16f29f65b53451601018bd09dba98a3"/>
-		<Metadata name="CommonModule.ЗарплатаКадрыОтчеты" id="3694debc-b575-4900-a6b6-ce90637169b3" configVersion="b70ddc00be9596c028206445a600d6ab0c7046e3"/>
-		<Metadata name="CommonModule.ЗарплатаКадрыОтчеты.Module" id="3694debc-b575-4900-a6b6-ce90637169b3.0" configVersion="6e7a91aa6dcc523b0b87187489678798fb95677c"/>
+		<Metadata name="CommonModule.ЗарплатаКадрыОтчеты" id="3694debc-b575-4900-a6b6-ce90637169b3" configVersion="b0cfd308f000e0d81ea016f324be8dcc205bfbc2"/>
+		<Metadata name="CommonModule.ЗарплатаКадрыОтчеты.Module" id="3694debc-b575-4900-a6b6-ce90637169b3.0" configVersion="065f115cd4ffe3fa12751ebe6c02443898c49c4e"/>
 		<Metadata name="CommonModule.ЛК_ЛогированиеСервер" id="f3f38f8b-2780-4480-b6ba-145540678837" configVersion="f85c886b24a742b57ba3b894138bfcdff3fe5466"/>
 		<Metadata name="CommonModule.ЛК_ЛогированиеСервер.Module" id="f3f38f8b-2780-4480-b6ba-145540678837.0" configVersion="074cd680aed701b71859eedea0a3063e8d4b26fa"/>
 		<Metadata name="CommonModule.ЛК_ОбменДаннымиПовтИсп" id="89a588ca-347f-4bb9-a47a-8bb4a0c04e27" configVersion="badea70a92a6a537cd77253f155d60d92d62ce0c"/>
 		<Metadata name="CommonModule.ЛК_ОбменДаннымиПовтИсп.Module" id="89a588ca-347f-4bb9-a47a-8bb4a0c04e27.0" configVersion="738a311b854376d9962bef4e30af181be98a083b"/>
 		<Metadata name="CommonModule.ЛК_ОбменДаннымиСервер" id="40798dc0-cb1d-43f8-8592-8f9c4bf58cfa" configVersion="a388a72d189c9913156be4abe43b195534b46eb0"/>
-		<Metadata name="CommonModule.ЛК_ОбменДаннымиСервер.Module" id="40798dc0-cb1d-43f8-8592-8f9c4bf58cfa.0" configVersion="eaa82d71de63fd6bca638deb554efb328ba9caeb"/>
+		<Metadata name="CommonModule.ЛК_ОбменДаннымиСервер.Module" id="40798dc0-cb1d-43f8-8592-8f9c4bf58cfa.0" configVersion="411a5221faa8e3e0f4a8ee6a66e84da83a64610d"/>
 		<Metadata name="CommonModule.ЛК_ОбработкаСобытийСервер" id="c564cfa0-7872-4699-9b6c-f5c49785dc08" configVersion="6a0fc15a0294664adb206e3db3b1f127bff34456"/>
 		<Metadata name="CommonModule.ЛК_ОбработкаСобытийСервер.Module" id="c564cfa0-7872-4699-9b6c-f5c49785dc08.0" configVersion="39147f5e1b448ca8c7a5cb3f7eccc4c8577bcbaf"/>
 		<Metadata name="CommonModule.ЛК_РаботаСJSONСервер" id="a6625281-af8c-4623-9a06-16f743375cc7" configVersion="ea4bc3f76e6233165639544f1e7c66f4dbce2567"/>
@@ -44,7 +44,7 @@
 		<Metadata name="CommonModule.ЛК_РаботаСФункциямиКлиентСервер" id="e6a9727d-befa-4c63-9697-aa1a85a2150f" configVersion="5ac547a40ee630c3afeca97d8e0ef00dc09a4517"/>
 		<Metadata name="CommonModule.ЛК_РаботаСФункциямиКлиентСервер.Module" id="e6a9727d-befa-4c63-9697-aa1a85a2150f.0" configVersion="fe5b1aeb656c80733ec971cf697a751c95d8700b"/>
 		<Metadata name="CommonPicture.КадровыйУчет48" id="c4289182-ac76-405d-ad20-e66034851c44" configVersion="417cbf8ccd70e2a92bcd3a843ba6e08c0d1ae588"/>
-		<Metadata name="Configuration.ZUP_EmployeeOffice" id="1b9eaada-ae35-4b7a-b392-91b9b4894192" configVersion="82926b113923b8a2d2272797800309537c2fc1a4"/>
+		<Metadata name="Configuration.ZUP_EmployeeOffice" id="1b9eaada-ae35-4b7a-b392-91b9b4894192" configVersion="603b424001ed03b0c1809ba488e8e3e47e04fc57"/>
 		<Metadata name="Configuration.ZUP_EmployeeOffice.ManagedApplicationModule" id="8767be3d-f7a1-41f9-99ef-5123d9adec4e.6" configVersion="5c8b8594c2ae02460dfc7068b14e6a212e51f049"/>
 		<Metadata name="DataProcessor.ЛК_Администрирование" id="599f5fa6-a7b7-4bb3-a50a-358d89cc3189" configVersion="cc7928a459977ffde9a368af62e8700922cd19a6">
 			<Metadata name="DataProcessor.ЛК_Администрирование.Attribute.Пароль" id="67187821-8371-4fff-b278-c3e91a2d5b9c"/>
@@ -52,7 +52,7 @@
 			<Metadata name="DataProcessor.ЛК_Администрирование.Attribute.Пользователь" id="ba281836-0116-4e46-b548-dd6fd0b48a96"/>
 		</Metadata>
 		<Metadata name="DataProcessor.ЛК_Администрирование.Form.Форма" id="13593289-ef2b-40c3-8598-60688a21a0a0" configVersion="112437a25077a6a1177012328792a7fce0dafcae"/>
-		<Metadata name="DataProcessor.ЛК_Администрирование.Form.Форма.Form" id="13593289-ef2b-40c3-8598-60688a21a0a0.0" configVersion="0816c9c13b2f6655760ce55be17bd0fe429391ed"/>
+		<Metadata name="DataProcessor.ЛК_Администрирование.Form.Форма.Form" id="13593289-ef2b-40c3-8598-60688a21a0a0.0" configVersion="1c938f3ac31bdf3668eb4b9e39724f25c1e6e583"/>
 		<Metadata name="Document.ЛК_ЗаявкиНаСправки" id="668ffd7e-a832-4110-aedb-3f46af09beb6" configVersion="3500f26088c8926d0f4a74eb0023ab5a3d9ee624">
 			<Metadata name="Document.ЛК_ЗаявкиНаСправки.Attribute.Комментарий" id="00daa503-3d47-4f52-b324-39597fd7cb10"/>
 			<Metadata name="Document.ЛК_ЗаявкиНаСправки.Attribute.Отвественный" id="56ed8c4e-2a44-4d4e-9702-2dd9137b471f"/>
@@ -131,7 +131,7 @@
 			<Metadata name="InformationRegister.ЛК_ПользователиЛК.Resource.id" id="ede3f037-6d3f-4e0b-b126-903dec0240d6"/>
 		</Metadata>
 		<Metadata name="InformationRegister.ЛК_ПользователиЛК.Form.ФормаЗаписи" id="81c6f9e5-ded2-4e78-b6f3-1a55c7bc9cd8" configVersion="9c63ad509c7abe20a38391070faeef48ab27c78f"/>
-		<Metadata name="InformationRegister.ЛК_ПользователиЛК.Form.ФормаЗаписи.Form" id="81c6f9e5-ded2-4e78-b6f3-1a55c7bc9cd8.0" configVersion="9537256cd55ff7fcb21ee2b9387e294071f91172"/>
+		<Metadata name="InformationRegister.ЛК_ПользователиЛК.Form.ФормаЗаписи.Form" id="81c6f9e5-ded2-4e78-b6f3-1a55c7bc9cd8.0" configVersion="b50b468d580b0978de55113ef3acdf2e18c1a676"/>
 		<Metadata name="InformationRegister.ЛК_ПользователиЛК.Form.ФормаСписка" id="c1fd854e-0147-4af9-b042-539f64efdd08" configVersion="357789ffed1367d2848d55dab7927c5e08653361"/>
 		<Metadata name="InformationRegister.ЛК_ПользователиЛК.Form.ФормаСписка.Form" id="c1fd854e-0147-4af9-b042-539f64efdd08.0" configVersion="b916d024db7c861519d13b8bd4890933b73055e8"/>
 		<Metadata name="InformationRegister.ЛК_СоответствиеОбъектовДляОбмена" id="0b4f3a96-e144-47c9-8627-c85cb53a29eb" configVersion="77e7c35700641f6704358958cff36c6c86ae8ffa">

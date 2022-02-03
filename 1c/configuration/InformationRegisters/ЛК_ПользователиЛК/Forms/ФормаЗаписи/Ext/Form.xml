@@ -16,12 +16,13 @@
 		</InputField>
 		<InputField name="Логин" id="7">
 			<DataPath>Запись.Логин</DataPath>
-			<PasswordMode>true</PasswordMode>
+			<PasswordMode>false</PasswordMode>
 			<ContextMenu name="ЛогинКонтекстноеМеню" id="8"/>
 			<ExtendedTooltip name="ЛогинРасширеннаяПодсказка" id="9"/>
 		</InputField>
 		<InputField name="Пароль" id="10">
 			<DataPath>Запись.Пароль</DataPath>
+			<PasswordMode>true</PasswordMode>
 			<ContextMenu name="ПарольКонтекстноеМеню" id="11"/>
 			<ExtendedTooltip name="ПарольРасширеннаяПодсказка" id="12"/>
 		</InputField>

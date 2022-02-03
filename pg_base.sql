@@ -464,12 +464,12 @@ ALTER TABLE public.types_of_time
 -- Версия 0.9.2
 
 ALTER TABLE public.payment_list
-    ADD COLUMN validity character varying(200) COLLATE pg_catalog."default";    
+    ADD COLUMN prioritet character varying(200) DEFAULT '' COLLATE pg_catalog."default";   
 
 ALTER TABLE public.payment_list
    ADD COLUMN prioritet character varying(200) COLLATE pg_catalog."default"; 
 
-INSERT INTO payment_list(validity, prioritet) VALUES('', '');
+
 
 ALTER TABLE public.payment_list
     ALTER COLUMN validity SET NOT NULL;
@@ -481,3 +481,15 @@ ALTER TABLE public.payment_list DROP CONSTRAINT pk_payment_list;
 
 ALTER TABLE ONLY payment_list
     ADD CONSTRAINT pk_payment_list PRIMARY KEY (base_pk, employee_pk, payment_month, payment_position, payment_group, prioritet, validity);
+
+-- Версия 0.9.3
+
+ALTER TABLE public.payment_list
+    ADD COLUMN hours real;
+
+ALTER TABLE public.payment_list
+    ADD COLUMN days smallint;
+
+ALTER TABLE public.payment_list
+    ADD COLUMN hours_or_days character varying(10) COLLATE pg_catalog."default"; 
+
