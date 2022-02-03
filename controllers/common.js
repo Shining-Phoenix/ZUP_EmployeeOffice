@@ -288,7 +288,6 @@ module.exports.createGeneralWorkSchedulesData = async function(req, res) {
 
         const typesSql = `
             SELECT
-                pk,
                 id_1c 
             FROM
                 types_of_time 

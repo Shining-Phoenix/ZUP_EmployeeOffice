@@ -231,6 +231,11 @@ module.exports.getPaymentList = async function (req, res) {
             payment_list.payment_sum,
             payment_list.payment_group,
             payment_list.payment_group_id,
+            payment_list.validity,
+            payment_list.prioritet,
+            payment_list.hours,
+            payment_list.days,
+            payment_list.hours_or_days,
             employee.tab_nom,  
             subdivision.subdivision_name,
             employee_position.position_name,
@@ -254,7 +259,8 @@ module.exports.getPaymentList = async function (req, res) {
             payment_list.employee_pk,
             payment_list.payment_group_id,
             payment_list.payment_group,
-            payment_list.payment_position`
+            payment_list.payment_position,
+            payment_list.prioritet`
         const paymentMonth = new Date(paymentList.payment_month)  
         const endDate = new Date(paymentMonth.getFullYear(), paymentMonth.getMonth() +1, 1, 0, 0, 0, 0)    
         const {rows} = await db.query(sql, [paymentList.pk,
@@ -322,10 +328,18 @@ module.exports.createPaymentList = async function (req, res) {
               payment_position,
               payment_sum,
               payment_group,
-              payment_group_id          
+              payment_group_id,
+              validity,
+              prioritet,
+              hours,
+              days,
+              hours_or_days          
              ) 
-        VALUES($1, $2, $3, $4, $5, $6, $7)
+        VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
         RETURNING employee_pk as pk`
+        
+        if (item.validity === null) item.validity = ''
+        if (item.prioritet === null) item.prioritet = '' 
 
             const {rows} = await client.query(sql,
                 [paymentList.payment_month,
@@ -334,7 +348,13 @@ module.exports.createPaymentList = async function (req, res) {
                     item.payment_position,
                     item.payment_sum,
                     item.payment_group,
-                    item.payment_group_id]);
+                    item.payment_group_id,
+                    item.validity,
+                    item.prioritet,
+                    item.hours,
+                    item.days,
+                    item.hours_or_days
+                ]);
         })
 
         await client.query('COMMIT')

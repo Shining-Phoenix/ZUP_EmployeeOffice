@@ -54,7 +54,11 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Role.ЛК_Пользователь</xr:Item>
 			</DefaultRoles>
 			<Vendor/>
+<<<<<<< HEAD
+			<Version>0.9.3</Version>
+=======
 			<Version>0.9.0</Version>
+>>>>>>> parent of 4f9b4da (Добавил изменения для 1с)
 			<BriefInformation/>
 			<DetailedInformation/>
 			<Copyright/>
