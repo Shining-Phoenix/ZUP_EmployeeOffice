@@ -18,7 +18,7 @@ if(app.get("env")=="production") {
     app.use(morgan({stream: accessLogStream}));
 }
 else {
-    app.use(morgan("dev"));
+    app.use(morgan("[:date[iso]] :method :url :status :response-time ms - :res[content-length]"));
 }
 
 app.use(passport.initialize())
