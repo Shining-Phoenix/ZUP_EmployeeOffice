@@ -18,7 +18,7 @@
     "vue-numeral-filter": "^2.0.0",
     "vue-router": "^3.1.6",
     "vuelidate": "^0.7.5",
-    "vuetify": "^2.2.11",
+    "vuetify": "^2.6.10",
     "vuex": "^3.4.0"
   },
   "devDependencies": {
