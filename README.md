@@ -3,6 +3,9 @@
 
 Описание на [Infostart](https://infostart.ru/public/1238815/)
 
+Пример на https://shining-phoenix.github.io/.
+Пользователь, пароль любые.
+
 ## Лицензия
 
 Смотри файл [`LICENSE`](./LICENSE).
